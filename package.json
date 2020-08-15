@@ -1,0 +1,24 @@
+{
+  "name": "dscbppimt",
+  "version": "1.0.0",
+  "description": "DSC BPPIMT Official Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Developer-Student-Clubs-BPPIMT/dscbppimt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Developer-Student-Clubs-BPPIMT/dscbppimt/issues"
+  },
+  "homepage": "https://github.com/Developer-Student-Clubs-BPPIMT/dscbppimt#readme",
+  "dependencies": {
+    "next": "^9.5.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
