@@ -1,3 +1,11 @@
+import Layout from '../components/Layout';
+
 export default () => (
-    <div>Hello</div>
+    <Layout>
+    
+    <div>
+        
+        Hello</div>
+
+        </Layout>
 );
