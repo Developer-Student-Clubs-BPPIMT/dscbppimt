@@ -5,7 +5,9 @@ export default () => (
     
     <div>
         
-        Hello</div>
+        Hello
+        
+    </div>
 
         </Layout>
 );
