@@ -1,0 +1,23 @@
+.header span{
+    color : var(--primary-color);
+}
+
+.header h5{
+    font-weight: 800;
+}
+.actionButton{
+    margin-right: 1em;
+}
+
+.footer{
+    height: 30em;
+    background: rgb(20, 20, 20);
+}
+
+@media screen and (max-width: 960px) {
+    .header div{
+        text-align: center;
+    }
+  }
+
+
