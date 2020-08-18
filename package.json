@@ -10,8 +10,10 @@
   "homepage": "https://github.com/Developer-Student-Clubs-BPPIMT/dscbppimt#readme",
   "dependencies": {
     "@material-ui/core": "latest",
+    "@material-ui/icons": "^4.9.1",
     "clsx": "latest",
     "next": "latest",
+    "next-images": "^1.4.1",
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "latest"

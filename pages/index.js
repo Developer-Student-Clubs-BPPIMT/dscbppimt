@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { Container, Grid, Typography} from '@material-ui/core';
 import Layout from '../components/layout';
 import Header from '../components/header';
-import { AboutCardView } from '../components/cardView';
+import { AboutCardView, ContactCardView } from '../components/cardView';
 
 
 export default function Index() {
@@ -13,6 +13,8 @@ export default function Index() {
       </Head>
       <Header />
       <AboutCardView />
+      <Container style={{height : "30em"}}></Container>
+      <ContactCardView />
     </Layout>
   );
 }
