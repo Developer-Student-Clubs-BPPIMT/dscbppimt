@@ -8,9 +8,10 @@ The Official Page of Developer Students Club - BPPIMT (In Progress)
 
 ## Development Setup 
 
-Clone the Repo
+
 
 ```
+git clone https://github.com/Developer-Student-Clubs-BPPIMT/dscbppimt.git
 cd dscbppimt
 git checkout dev
 npm install
