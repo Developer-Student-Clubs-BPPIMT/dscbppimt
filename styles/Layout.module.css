@@ -29,6 +29,12 @@
     display: none;
 }
 
+.bottomNav nav div:only-of-type{
+    padding: 0px;
+    margin: 0px;
+    background: red;
+}
+
 
 
 @media screen and (max-width: 960px) {

@@ -17,8 +17,8 @@
     text-align: center;
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
     .aboutCard{
-        max-width: 200px;
+        max-width: 172px;
     }
-  }
+  } */

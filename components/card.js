@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import styles from '../styles/Card.module.css'
 import Message from '../public/svgs/message.svg'
 import placeholder from '../public/images/placeholder.jpg'
+import sample from '../public/svgs/message.svg'
 
 export const AboutCard = () => {
     return(

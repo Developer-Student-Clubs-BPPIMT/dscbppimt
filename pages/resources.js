@@ -1,10 +1,10 @@
-import { Container } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 
 const Resources = () => {
     return (
-    <Container>
+    <Box>
         Resources Page 
-    </Container>)
+    </Box>)
 }
 
 export default Resources;

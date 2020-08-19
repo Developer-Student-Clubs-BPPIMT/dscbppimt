@@ -31,13 +31,13 @@ const Navbar = () => {
                             </List>
                         </Drawer>
                 </Grid>
-                <Grid item xs={5} style={{display : 'flex', alignItems: 'center'}}>
+                <Grid item xs={10} sm={5} style={{display : 'flex', alignItems: 'center'}}>
                     <Typography variant="h6">
                         <DscLogo style={{marginRight : '10px', width : '1.5em'}}/>
                         DSC BPPIMT
                     </Typography>
                 </Grid>
-                <Grid item xs={7} container alignItems="center" spacing="3" justify="flex-end" className={styles.nav}>
+                <Grid item xs={7} container alignItems="center" spacing={3} justify="flex-end" className={styles.nav}>
                     <Grid item>
                         <Link href="#">Home</Link>
                     </Grid>
@@ -67,7 +67,7 @@ export default Navbar;
 
 const DrawerItem = (props) => {
     return(
-    <ListItem style={{width : '300px'}}>
+    <ListItem style={{width : '250px'}}>
         <ListItemIcon>{props.icon === undefined ? <MenuIcon /> : props.icon}</ListItemIcon>
     <ListItemText>{props.label}</ListItemText>
     </ListItem>)

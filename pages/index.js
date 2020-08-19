@@ -13,7 +13,7 @@ export default function Index() {
       </Head>
       <Header />
       <AboutCardView />
-      <Container style={{height : "30em"}}></Container>
+      <Container style={{height : "30em"}}><div></div></Container>
       <ContactCardView />
     </Layout>
   );
