@@ -6,3 +6,14 @@
 # DSC BPPIMT
 The Official Page of Developer Students Club - BPPIMT (In Progress)
 
+## Development Setup 
+
+Clone the Repo
+
+```
+cd dscbppimt
+git checkout dev
+npm install
+npm run dev
+```
+
