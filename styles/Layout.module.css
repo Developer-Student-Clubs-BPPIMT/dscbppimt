@@ -1,0 +1,52 @@
+.header span{
+    color : var(--primary-color);
+}
+
+.header h5{
+    font-weight: 800;
+}
+.actionButton{
+    margin-right: 1em;
+}
+
+.footer{
+    background: rgb(20, 20, 20);
+}
+
+
+
+.bottomNav{
+    position: sticky;
+    bottom: 0;
+    display: none;
+}
+
+.navToggle{
+    display: none;
+}
+
+.bottomNav:nth-child(4){
+    display: none;
+}
+
+
+
+@media screen and (max-width: 960px) {
+    .header div{
+        text-align: center;
+    }
+    .navToggle{
+        display: block;
+    }
+
+    .footer{
+        display: none;
+    }
+
+    .nav:nth-child(3){
+        display: none;
+    }
+    .bottomNav{
+        display: block;
+    }
+  }
