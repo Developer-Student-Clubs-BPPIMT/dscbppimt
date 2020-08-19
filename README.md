@@ -3,6 +3,6 @@
   margin-right: auto;
   width: 50%;r">
 
-# dscbppimt
+# DSC BPPIMT
 The Official Page of Developer Students Club - BPPIMT (In Progress)
 
