@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     background: green;
+    margin: 4px;
 }
 
 .aboutCard h5{
@@ -16,9 +17,3 @@
 .aboutCard p{
     text-align: center;
 }
-
-/* @media screen and (max-width: 600px) {
-    .aboutCard{
-        max-width: 172px;
-    }
-  } */

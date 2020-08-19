@@ -1,10 +1,10 @@
-import { Box } from "@material-ui/core";
+import Layout from '../components/layout'
 
 const Resources = () => {
     return (
-    <Box>
+    <Layout>
         Resources Page 
-    </Box>)
+    </Layout>)
 }
 
 export default Resources;

@@ -16,8 +16,9 @@
 
 
 .bottomNav{
-    position: sticky;
-    bottom: 0;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
     display: none;
 }
 
@@ -29,10 +30,8 @@
     display: none;
 }
 
-.bottomNav nav div:only-of-type{
-    padding: 0px;
-    margin: 0px;
-    background: red;
+.bottomNav nav div{
+    min-width: 0px;
 }
 
 
