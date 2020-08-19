@@ -16,8 +16,9 @@
 
 
 .bottomNav{
-    position: sticky;
-    bottom: 0;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
     display: none;
 }
 
@@ -27,6 +28,10 @@
 
 .bottomNav:nth-child(4){
     display: none;
+}
+
+.bottomNav nav div{
+    min-width: 0px;
 }
 
 
