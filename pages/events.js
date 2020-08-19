@@ -3,7 +3,7 @@ import Layout from '../components/layout'
 const EventPage = () => {
     return (
     <Layout>
-        Events 
+        sadasdads
     </Layout>)
 }
 
