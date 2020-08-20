@@ -25,14 +25,14 @@ function Events({classes}) {
                     ))}
                 </div>
             </div>
-            <div className={classes.pastBox}>
+            {/* <div className={classes.pastBox}>
                 <div className={classes.container}>
                         <div className={classes.header}>
                             <h1>Past Events</h1>
                             <Searchbar />
                         </div>
                 </div>
-            </div>
+            </div> */}
         </Layout>
     )
 }

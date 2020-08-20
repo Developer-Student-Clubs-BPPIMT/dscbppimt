@@ -13,6 +13,12 @@ const styles = theme => ({
         [theme.breakpoints.down("sm")]:{
             display: "flex",
             flexDirection: "column",
+            "& h2":{
+                margin :"0",
+                fontSize: "20px",
+                fontWeight: "400",
+                textAlign: "center",
+            }
         },
 
     },
@@ -67,6 +73,10 @@ const styles = theme => ({
 
     },
     basicInfo:{
+        [theme.breakpoints.down("sm")]:{
+            justifyContent: "center"
+        },
+
     },
     textContent:{
         margin: "10px",
@@ -104,8 +114,8 @@ const styles = theme => ({
         },
     },
     image:{
-        height: "250px",
-        width: "250px",
+        height: "200px",
+        width: "200px",
         borderRadius: "15px",
         [theme.breakpoints.down("sm")]:{
             height: "100%",
@@ -113,16 +123,15 @@ const styles = theme => ({
         },
         "& img":{
             borderRadius: "15px",
-            padding: "5px",
-            height:"250px",
-            width: "250px",
+            height:"200px",
+            width: "200px",
             [theme.breakpoints.down("sm")]:{
                 padding: "0",
                 height:"100%" ,
                 width: "100%",
             },
             }
-    }
+    },
 })
 
 

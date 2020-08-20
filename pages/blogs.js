@@ -11,17 +11,17 @@ function Blogs({classes}) {
             <div className={classes.box}>
                 <div className={classes.container}>
                     <h1 className={classes.heading}>Our Blogs</h1>
-                    {blogs.map(blog => (
-                        <BlogCard
-                        Image={blog.image}
-                        title={blog.title} 
-                        speaker={blog.speaker} 
-                        discription={blog.discription} 
-                        medium={blog.medium}
+                    {blogs.map(event => (
+                        <BlogCard 
+                        Image={event.image}
+                        title={event.title} 
+                        speaker={event.speaker} 
+                        discription={event.discription} 
+                        medium={event.date}
                         />
                     ))}
                 </div>
-            </div>
+            </div>        
         </Layout>
     )
 }

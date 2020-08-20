@@ -31,7 +31,7 @@ const styles = theme => ({
         justfyContent: "flex-start",
         [theme.breakpoints.down("sm")]:{
             width: "100%",
-            alignItems: "center"
+            alignItems: "center",
         },
 
     }

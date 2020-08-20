@@ -28,7 +28,7 @@ function EventCard({classes,Image,title,discription,speaker,date}) {
                     </div>
                     <div className={classes.buttons}>
                         <div className={classes.buttonOne}>
-                            <a>Learn More</a>
+                            <a>Explore</a>
                         </div>
                         <div className={classes.buttonTwo}>
                             <a>Register</a>
