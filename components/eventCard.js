@@ -153,7 +153,6 @@ const styles = theme => ({
 
 
 function EventCard({classes,Image,title,discription,speaker,date}) {
-    console.log(Image);
     return (
         <div className={classes.card}>
                 <div className={classes.cardContent}>

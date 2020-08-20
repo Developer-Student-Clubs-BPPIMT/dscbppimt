@@ -3,6 +3,8 @@ import Navbar from '../components/navbar'
 import EventCard from "../components/eventCard"
 import events from "../components/helper/eventsHelper"
 import { withStyles } from '@material-ui/core'
+import Footer from '../components/footer'
+import Searchbar from '../components/Searchbar'
 
 
 const styles = theme => ({
@@ -12,6 +14,23 @@ const styles = theme => ({
         alignItems:"center",
         fontFamily: "Roboto"
     },
+    pastBox: {
+        display: "flex",
+        justifyContent: "center",
+        height : "50vh",
+        backgroundColor: "#dddddd",
+    },
+    header:{
+        display: "flex",
+        justifyContent: "space-between",
+        [theme.breakpoints.down("sm")]:{
+            marginTop: "0",
+            width: "100%",
+            flexDirection: "column",
+            alignItems: "center"
+        },
+
+    },
     container :{
         display : "flex",
         padding: "20px",
@@ -20,7 +39,6 @@ const styles = theme => ({
         justfyContent: "flex-start",
         [theme.breakpoints.down("sm")]:{
             width: "100%",
-            justifyContent: "center",
             alignItems: "center"
         },
 
@@ -45,6 +63,15 @@ function Events({classes}) {
                     ))}
                 </div>
             </div>
+            <div className={classes.pastBox}>
+                <div className={classes.container}>
+                        <div className={classes.header}>
+                            <h1>Past Events</h1>
+                            <Searchbar />
+                        </div>
+                </div>
+            </div>
+            <Footer />
         </div>
     )
 }
