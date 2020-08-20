@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from "../styles/eventStyles"
 import events from "../components/helper/eventsHelper"
 import { withStyles, Grid, Container, Typography, Box } from '@material-ui/core'
 import Searchbar from '../components/Searchbar'
@@ -8,10 +7,10 @@ import { EventCard } from '../components/card'
 
 
 
-function Events({classes}) {
+function Events() {
     return (
         <Layout>
-            <Box className={classes.box}>
+            <Box>
                 <Container>
                     <Typography variant="h4" style={{fontWeight : '500', margin : '1em 0px'}}>Our Events</Typography>
                     <Grid container spacing={2}>
@@ -39,4 +38,4 @@ function Events({classes}) {
     )
 }
 
-export default withStyles(styles)(Events)
+export default Events

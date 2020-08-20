@@ -21,9 +21,9 @@ export const ContactCard = (props) => {
         router.push(props.actionLink)
     }
     return(
-    <Card style={{display : 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+    <Card style={{margin : '8px'}}>
         <CardMedia image={placeholder} style={{height : '200px'}}></CardMedia>
-        <CardContent style={{width : '100%', display : 'flex', flexDirection : 'column'}}>
+        <CardContent style={{display : 'flex', flexDirection : 'column'}}>
             <Typography variant="subtitle1" style={{fontWeight : '600'}}>Why DSC?</Typography>
             <Typography variant="body2">Get updated with the latest news and announcements. Get updated with the latest news and announcements. Get updated with the latest news and announcements.t news and announcements</Typography>
             <Button variant="contained" color="primary" style={{margin : '0px auto', marginTop : '2em'}} onClick={routeHandler}>{props.action}</Button>

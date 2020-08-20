@@ -40,7 +40,13 @@
     min-width: 0px;
 }
 
-
+.nav a{
+    text-decoration: none;
+    color: black;
+}
+.nav a:hover{
+    color : var(--primary-color);
+}
 
 @media screen and (max-width: 960px) {
     .header div{

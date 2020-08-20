@@ -1,15 +1,14 @@
 import React from 'react'
 import Layout from '../components/layout'
-import { withStyles, Container, Grid } from '@material-ui/core'
+import { Container, Grid, Typography } from '@material-ui/core'
 import blogs from '../components/helper/blogsHelper'
 import { BlogCard } from '../components/card'
-import styles from "../styles/blogStyles"
 
-function Blogs({classes}) {
+function Blogs() {
     return (
         <Layout>
                 <Container>
-                    <h1 className={classes.heading}>Our Blogs</h1>
+                <Typography variant="h6" style={{fontWeight : '500', margin : '1em 0px'}}>Our Blogs</Typography>
                     <Grid container spacing={2}>
                     {blogs.map(event => (
                         <Grid item xs={12} sm={6} md={12}>
@@ -28,5 +27,5 @@ function Blogs({classes}) {
     )
 }
 
-export default withStyles(styles)(Blogs)
+export default Blogs
 
