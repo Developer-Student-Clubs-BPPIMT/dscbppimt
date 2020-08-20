@@ -19,18 +19,18 @@ function BlogCard({classes,Image,title,discription,speaker,medium}) {
                             </div>
                         </div>
                             <div className={classes.discription}>
-                                <p>{discription}</p>
-                                <p>speaker: {speaker}</p>
-                                <div className={classes.buttons}>
+                                <p className={classes.text}>{discription}</p>
+                                <div className={classes.footer}>
+                                    <p>speaker: {speaker}</p>
                                     <div className={classes.buttonTwo}>
                                         <a>ReadMore</a>
                                     </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                </div>
-        </div>
+                    </div>
+            </div>
 
     )
 }

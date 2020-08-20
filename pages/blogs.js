@@ -1,7 +1,6 @@
 import React from 'react'
 import Layout from '../components/layout'
 import { withStyles } from '@material-ui/core'
-import EventCard from '../components/eventCard'
 import blogs from '../components/helper/blogsHelper'
 import BlogCard from '../components/BlogCard'
 import styles from "../styles/blogStyles"

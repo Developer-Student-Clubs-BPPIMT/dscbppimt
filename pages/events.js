@@ -33,7 +33,7 @@ function Events({classes}) {
                         </div>
                 </div>
             </div>
-    </Layout>
+        </Layout>
     )
 }
 

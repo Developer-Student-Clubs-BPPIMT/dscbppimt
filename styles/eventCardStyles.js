@@ -16,16 +16,21 @@ const styles = theme => ({
             "& h2":{
                 fontSize: "20px",
                 fontWeight: "400",
-                textAlign: "center",
             }
         },
+
+    },
+    basicInfo:{
+        "& p":{
+            fontWeight: "bold",
+        },
+
 
     },
     date:{
         color: "#696f79"
     },
     buttons:{
-        marginTop: "25px",
         display: "flex",
         justifyContent: "flex-end",
         [theme.breakpoints.down("sm")]:{
@@ -89,14 +94,9 @@ const styles = theme => ({
     },
 
     textContent:{
-        margin: "10px",
-        padding: 0,
-        "& h2":{
-            margin: "0"
-        },
-        "& p":{
-            margin: "0"
-        },
+        marginLeft: "10px",
+        display: "flex",
+        flexDirection: "column",
         [theme.breakpoints.down("sm")]:{
             width: "100%",
         },
@@ -105,6 +105,7 @@ const styles = theme => ({
     cardContent: {
         width: "100%",
         display: "flex",
+        flexDirection: "column",
         [theme.breakpoints.down("sm")]:{
             flexDirection: "column",
             justifyContent: "center",
@@ -121,14 +122,15 @@ const styles = theme => ({
             alignItems: "center"
         },
         "& p":{
+            textAlign: "justify",
             [theme.breakpoints.down("sm")]:{
                 display: "none"
             }
         }
     },
     image:{
-        height: "200px",
-        width: "200px",
+        height: "250px",
+        width: "250px",
         borderRadius: "15px",
         [theme.breakpoints.down("sm")]:{
             height: "100%",
@@ -136,16 +138,23 @@ const styles = theme => ({
         },
         "& img":{
             borderRadius: "15px",
-            padding: "5px",
-            height:"200px",
-            width: "200px",
+            height:"250px",
+            width: "250px",
             [theme.breakpoints.down("sm")]:{
                 padding: "0",
                 height:"100%" ,
                 width: "100%",
             },
             }
-    }
+    },
+ forWrap:{
+     display: "flex",
+    [theme.breakpoints.down("sm")]:{
+        display: "flex",
+        flexWrap: "wrap-reverse",
+        marginBottom: "20px",
+    },
+}
 })
 
 export default styles

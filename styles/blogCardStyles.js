@@ -13,11 +13,6 @@ const styles = theme => ({
         [theme.breakpoints.down("sm")]:{
             display: "flex",
             flexDirection: "column",
-            "& h2":{
-                fontSize: "20px",
-                fontWeight: "400",
-                textAlign: "center",
-            }
         },
 
     },
@@ -27,45 +22,23 @@ const styles = theme => ({
             display: "none"
         },
     },
-    buttons:{
+    footer:{
         marginTop: "25px",
         display: "flex",
-        justifyContent: "flex-end",
+        justifyContent: "space-between",
+        "& p":{
+            fontWeight: "bold",
+        },
         [theme.breakpoints.down("sm")]:{
+            display : "flex",
+            flexDirection:"column",
+            alignItems: "center",
             width: "100%",
             marginTop: "5px",
-        },
-
-    },
-    buttonOne:{
-        marginRight: "30px",
-        backgroundColor: "#fff",
-        borderRadius: "5px",
-        boxShadow: "1px 3px 5px 0px rgba(102,98,102,0.58)",
-        textAlign: "center",
-        padding: "10px",
-        letterSpacing: theme.spacing(0.2),
-        "& a":{
-            padding: "10px",
-            color: "black",
-        },
-        [theme.breakpoints.down("sm")]:{
-            marginRight: "20px",
-            padding: 0,
-            letterSpacing: "default",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            "& a":{
-                padding: "10px",
-                fontSize: "15px",
-                color: "black",
             },
 
-        },
-
-
     },
+
     buttonTwo:{
         backgroundColor: "#1FA9E5",
         borderRadius: "5px",
@@ -81,6 +54,7 @@ const styles = theme => ({
             padding: 0,
             width: "100%",
             display: "flex",
+            marginTop: "10px",
             justifyContent: "center",
             alignItems: "center",
             "& a":{
@@ -92,16 +66,13 @@ const styles = theme => ({
 
 
     },
-
+    basicInfo:{
+    },
     textContent:{
         margin: "10px",
-        padding: 0,
-        "& h2":{
-            margin: "0"
-        },
-        "& p":{
-            margin: "0"
-        },
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-around",
         [theme.breakpoints.down("sm")]:{
             width: "100%",
         },
@@ -125,16 +96,16 @@ const styles = theme => ({
             justifyContent: "center",
             alignItems: "center"
         },
-        "& p":{
-            margin: "10px 0" ,
-            [theme.breakpoints.down("sm")]:{
-                display: "none"
-            }
-        }
+    },
+    text:{
+        textAlign: "justify",
+        [theme.breakpoints.down("sm")]:{
+            display: "none"
+        },
     },
     image:{
-        height: "200px",
-        width: "200px",
+        height: "250px",
+        width: "250px",
         borderRadius: "15px",
         [theme.breakpoints.down("sm")]:{
             height: "100%",
@@ -143,8 +114,8 @@ const styles = theme => ({
         "& img":{
             borderRadius: "15px",
             padding: "5px",
-            height:"200px",
-            width: "200px",
+            height:"250px",
+            width: "250px",
             [theme.breakpoints.down("sm")]:{
                 padding: "0",
                 height:"100%" ,
