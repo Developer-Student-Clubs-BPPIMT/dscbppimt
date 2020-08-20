@@ -23,18 +23,6 @@ const styles = theme => ({
         },
 
     },
-    container :{
-        display : "flex",
-        padding: "20px",
-        flexDirection: "column",
-        width: "80%",
-        justfyContent: "flex-start",
-        [theme.breakpoints.down("sm")]:{
-            width: "100%",
-            alignItems: "center"
-        },
-
-    }
 })
 
 export default styles 

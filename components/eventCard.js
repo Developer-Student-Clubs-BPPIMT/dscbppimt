@@ -1,41 +1,33 @@
 import React from 'react'
-import { withStyles } from '@material-ui/core'
+import { withStyles, Card, CardContent, CardMedia, Grid, Button, List, ListItem, Typography } from '@material-ui/core'
 import styles from "../styles/eventCardStyles"
+import placeholder from '../public/images/placeholder.jpg'
 
-function EventCard({classes,Image,title,discription,speaker,date}) {
+function EventCard({classes,title,discription,speaker,date}) {
     return (
-        <div className={classes.card}>
-            <div className={classes.cardContent}>
-                <div className={classes.forWrap}>
-                    <div className={classes.image}>
-                        <img src={Image} alt={speaker} />
-                    </div>
-                    <div className={classes.textContent}>
-                            <div className={classes.header}>
-                                <div className={classes.basicInfo}>
-                                    <h2>{title}</h2>
-                                    <p>speaker: {speaker}</p>
-                                </div>
-                                <div className={classes.date}>
-                                    {date}
-                                </div>
-                            </div>
-                            
-                            <div className={classes.discription}>
-                                <p>{discription}</p>
-                            </div>
-                    </div>
-                    </div>
-                    <div className={classes.buttons}>
-                        <div className={classes.buttonOne}>
-                            <a>Explore</a>
-                        </div>
-                        <div className={classes.buttonTwo}>
-                            <a>Register</a>
-                        </div>
-                    </div>
-                </div>
-        </div>
+        <Card style={{minWidth : '350px'}}>
+            <CardContent>
+                <List>
+                    <ListItem>
+                    <Grid container wrap="wrap-reverse" style={{background : 'red'}} justify="center">
+                        <Grid item md={12} lg={3} style={{background : 'green'}}><img src={placeholder} style={{width : '100%', objectFit : 'cover'}}></img></Grid>
+                        <Grid item md={12} lg={8}>
+                            <Typography variant="h6" style={{fontWeight : '600'}}>{title}</Typography>
+                            <Typography variant="body1" style={{fontWeight : '500'}}>speaker: {speaker}</Typography>
+                                <Typography className={classes.discription}>
+                                    <p>{discription}</p>
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                    </ListItem>
+                    <ListItem>
+                        <Button variant="contained" style={{marginRight : '1em', background : 'white'}}>Explore</Button>
+                        <Button variant="contained" color="primary">Read More</Button>
+                    </ListItem>
+                    </List>
+
+                </CardContent>
+        </Card>
 
     )
 }

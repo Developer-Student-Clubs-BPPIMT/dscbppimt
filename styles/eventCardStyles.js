@@ -131,7 +131,7 @@ const styles = theme => ({
         },
         "& p":{
             textAlign: "justify",
-            [theme.breakpoints.down("sm")]:{
+            [theme.breakpoints.down("md")]:{
                 display: "none"
             }
         }
