@@ -14,6 +14,48 @@
     text-align: center;
 }
 
+
 .aboutCard p{
     text-align: center;
 }
+
+.cardContent{
+    padding: 0em 1em;
+}
+
+.buttonsLG{
+    justify-content: flex-end;
+    display: flex;
+}
+
+.buttonsMD{
+    margin-top: 1em;
+    display: none;
+    justify-content: center;
+}
+
+
+@media screen and (max-width: 600px) {
+    .aboutCard{
+        max-width: 200px;
+    }
+
+
+  }
+
+
+@media screen and (max-width: 960px) {
+    .cardDescription{
+        display: none;
+    }
+    .cardContent{
+        padding: 0em;
+    }
+    .buttonsLG{
+        display: none;
+    }
+    .buttonsMD{
+        display: flex;
+    }
+}
+
