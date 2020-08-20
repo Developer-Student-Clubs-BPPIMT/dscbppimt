@@ -29,3 +29,4 @@ function Blogs({classes}) {
 }
 
 export default withStyles(styles)(Blogs)
+
