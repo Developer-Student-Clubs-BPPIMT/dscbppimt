@@ -1,3 +1,8 @@
 :root{
     --primary-color : #1FA9E5;
 }
+
+
+.MuiBottomNavigationAction-root{
+    min-width: 0px;
+}

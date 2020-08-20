@@ -3,6 +3,7 @@ import styles from '../styles/Layout.module.css'
 import DscLogo from '../public/svgs/dsc.svg'
  
 import React, { useState } from 'react'
+import { useRouter } from 'next/router' 
 
 import MenuIcon from '@material-ui/icons/Menu'
 import HomeIcon from '@material-ui/icons/Home'
@@ -23,23 +24,23 @@ const Navbar = () => {
                         <Drawer anchor='left' open={navState} onClose={() => navToggle(false)}>
                             <List>
                                 <ListItem><Typography variant="h6">DSC BPPIMT</Typography></ListItem>
-                                <DrawerItem label="Home" icon={<HomeIcon />}/>
-                                <DrawerItem label="Contact" icon={<ContactsIcon />}/>
-                                <DrawerItem label="About" icon={<InfoIcon />}/>
-                                <DrawerItem label="Resources" icon={<LibraryBooksIcon />}/>
-                                <DrawerItem label="Blogs" icon={<BookIcon />}/>
+                                <DrawerItem label="Home" icon={<HomeIcon />} link="/"/>
+                                <DrawerItem label="Contact" icon={<ContactsIcon />} link='/contact'/>
+                                <DrawerItem label="About" icon={<InfoIcon />} link='/about'/>
+                                <DrawerItem label="Resources" icon={<LibraryBooksIcon /> } link='/resources'/>
+                                <DrawerItem label="Blogs" icon={<BookIcon />} link='/blogs'/>
                             </List>
                         </Drawer>
                 </Grid>
-                <Grid item xs={5} style={{display : 'flex', alignItems: 'center'}}>
+                <Grid item xs={10} sm={5} style={{display : 'flex', alignItems: 'center'}}>
                     <Typography variant="h6">
                         <DscLogo style={{marginRight : '10px', width : '1.5em'}}/>
                         DSC BPPIMT
                     </Typography>
                 </Grid>
-                <Grid item xs={7} container alignItems="center" spacing="3" justify="flex-end" className={styles.nav}>
+                <Grid item xs={7} container alignItems="center" spacing={3} justify="flex-end" className={styles.nav}>
                     <Grid item>
-                        <Link href="#">Home</Link>
+                        <Link href="/">Home</Link>
                     </Grid>
                     <Grid item>
                         <Link href="#">Team</Link>
@@ -66,8 +67,9 @@ export default Navbar;
 
 
 const DrawerItem = (props) => {
+    const router = useRouter()
     return(
-    <ListItem style={{width : '300px'}}>
+    <ListItem style={{width : '250px', cursor: 'pointer'}} onClick={() => router.push(props.link)}>
         <ListItemIcon>{props.icon === undefined ? <MenuIcon /> : props.icon}</ListItemIcon>
     <ListItemText>{props.label}</ListItemText>
     </ListItem>)

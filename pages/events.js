@@ -1,10 +1,10 @@
 import Layout from '../components/layout'
 
-const About = () => {
+const EventPage = () => {
     return (
     <Layout>
-        About Page 
+        Events 
     </Layout>)
 }
 
-export default About;
+export default EventPage;
