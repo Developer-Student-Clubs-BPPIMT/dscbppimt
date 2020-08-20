@@ -24,14 +24,18 @@ const styles = theme => ({
         },
 
     },
-    date:{
-        color: "#696f79"
+    medium:{
+        color: "#696f79",
+        [theme.breakpoints.down("sm")]:{
+            display: "none"
+        },
     },
     buttons:{
         marginTop: "25px",
         display: "flex",
         justifyContent: "flex-end",
         [theme.breakpoints.down("sm")]:{
+            width: "100%",
             marginTop: "5px",
         },
 
@@ -78,6 +82,7 @@ const styles = theme => ({
         },
         [theme.breakpoints.down("sm")]:{
             padding: 0,
+            width: "100%",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -124,6 +129,7 @@ const styles = theme => ({
             alignItems: "center"
         },
         "& p":{
+            margin: "10px 0" ,
             [theme.breakpoints.down("sm")]:{
                 display: "none"
             }
@@ -163,14 +169,14 @@ function BlogCard({classes,Image,title,discription,speaker,medium}) {
                         <div className={classes.header}>
                             <div className={classes.basicInfo}>
                                 <h2>{title}</h2>
-                                <p>speaker: {speaker}</p>
                             </div>
-                            <div className={classes.date}>
+                            <div className={classes.medium}>
                                 {medium}
                             </div>
                         </div>
                             <div className={classes.discription}>
                                 <p>{discription}</p>
+                                <p>speaker: {speaker}</p>
                                 <div className={classes.buttons}>
                                     <div className={classes.buttonTwo}>
                                         <a>ReadMore</a>
