@@ -1,17 +1,18 @@
 import React from 'react'
 import Layout from '../components/layout'
-import { withStyles } from '@material-ui/core'
+import { withStyles, Container, Grid } from '@material-ui/core'
 import blogs from '../components/helper/blogsHelper'
-import BlogCard from '../components/BlogCard'
+import { BlogCard } from '../components/card'
 import styles from "../styles/blogStyles"
 
 function Blogs({classes}) {
     return (
         <Layout>
-            <div className={classes.box}>
-                <div className={classes.container}>
+                <Container>
                     <h1 className={classes.heading}>Our Blogs</h1>
+                    <Grid container spacing={2}>
                     {blogs.map(event => (
+                        <Grid item xs={12} sm={6} md={12}>
                         <BlogCard 
                         Image={event.image}
                         title={event.title} 
@@ -19,9 +20,10 @@ function Blogs({classes}) {
                         discription={event.discription} 
                         medium={event.date}
                         />
+                        </Grid>
                     ))}
-                </div>
-            </div>        
+                    </Grid>
+                </Container>  
         </Layout>
     )
 }

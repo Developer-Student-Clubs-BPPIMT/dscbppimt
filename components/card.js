@@ -69,10 +69,32 @@ export const EventCard = (props) => {
 }
 
 export const BlogCard = (props) => {
+    const router = useRouter();
+
     return(
-    <Card>
+    <Card className={styles.blogCard}>
         <CardContent>
-            
+                <Grid container wrap="wrap">
+                    <Grid item xs={12} md={3}>
+                        <img src={placeholder} style={{height : '90%', width : '90%', objectFit : 'cover'}}/>
+                    </Grid>
+                    <Grid item xs={12} md={9} container direction="column" justify="space-between">
+                        <Grid item className={styles.cardContent}>
+                            <Box>
+                                <Typography variant="h6" style={{fontWeight : '600'}}>{props.title}</Typography>
+                                <Typography variant="body1" style={{fontWeight : '500', marginBottom : '1em'}}>speaker: {props.speaker}</Typography>
+                            </Box>
+                            <Box className={styles.cardDescription}>
+                                <Typography variant="body2" className={styles.cardDescription}>{props.discription}</Typography>
+                            </Box>
+                        </Grid>
+                        <Grid item style={{display : 'flex', justifyContent : 'flex-end'}}>
+                            <Button variant="contained" style={{marginRight : '1em', background : 'white'}}>Explore</Button>
+                            <Button variant="contained" color="primary">Read More</Button>
+                        </Grid>
+                    </Grid>
+                </Grid>
         </CardContent>
+
     </Card>)
 }
