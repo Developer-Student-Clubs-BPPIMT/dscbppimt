@@ -39,22 +39,22 @@ const Navbar = () => {
                 </Grid>
                 <Grid item xs={7} container alignItems="center" spacing="3" justify="flex-end" className={styles.nav}>
                     <Grid item>
-                        <Link href="#">Home</Link>
+                        <Link href="/">Home</Link>
                     </Grid>
                     <Grid item>
-                        <Link href="#">Team</Link>
+                        <Link href="/team">Team</Link>
                     </Grid>
                     <Grid item>
-                        <Link href="#">Resources</Link>
+                        <Link href="/resources">Resources</Link>
                     </Grid>
                     <Grid item>
-                        <Link href="#">Blogs</Link>
+                        <Link href="/blogs">Blogs</Link>
                     </Grid>
                     <Grid item>
-                        <Link href="#">Contact</Link>
+                        <Link href="/contact">Contact</Link>
                     </Grid>
                     <Grid item>
-                        <Link href="#">About</Link>
+                        <Link href="/about">About</Link>
                     </Grid>
                 </Grid>
             </Grid>

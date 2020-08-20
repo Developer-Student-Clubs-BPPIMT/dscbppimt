@@ -5,6 +5,7 @@ import events from "../components/helper/eventsHelper"
 import { withStyles } from '@material-ui/core'
 import Footer from '../components/footer'
 import Searchbar from '../components/Searchbar'
+import Layout from '../components/layout'
 
 
 const styles = theme => ({
@@ -47,8 +48,7 @@ const styles = theme => ({
 
 function Events({classes}) {
     return (
-        <div>
-            <Navbar />
+        <Layout>
             <div className={classes.box}>
                 <div className={classes.container}>
                     <h1 className={classes.heading}>Our Events</h1>
@@ -71,8 +71,7 @@ function Events({classes}) {
                         </div>
                 </div>
             </div>
-            <Footer />
-        </div>
+    </Layout>
     )
 }
 
