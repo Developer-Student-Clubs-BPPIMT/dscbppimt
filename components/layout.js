@@ -15,10 +15,9 @@ import BookIcon from '@material-ui/icons/Book';
 const Layout = (props) => {
     const router = useRouter()
     return(
-    <Paper elevation={0} square style={{minHeight : '100vh'}}>
+    <Paper elevation={0} square>
         <Navbar />
-        {props.children}
-        <Footer />
+        <Box>{props.children}</Box>
         <Box className={styles.bottomNav}>
             <BottomNavigation position="sticky" showLabels component="nav">
                 <BottomNavigationAction component='div' label="About" icon={<InfoIcon />} onClick={() => router.push('/about')}/>
@@ -28,6 +27,8 @@ const Layout = (props) => {
                 <BottomNavigationAction component='div' label="Contact" icon={<FavoriteIcon />} onClick={() => router.push('/contact')}/>
             </BottomNavigation>
         </Box>
+        <Footer />
+
     </Paper>)
 }
 

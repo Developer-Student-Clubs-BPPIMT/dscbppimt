@@ -1,3 +1,9 @@
+.layout{
+    height: 100%;
+    background: red;
+}
+
+
 .header span{
     color : var(--primary-color);
 }
