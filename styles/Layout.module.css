@@ -50,9 +50,16 @@
     color : var(--primary-color);
 }
 
+.simpleContainer{
+    padding: '2em';
+}
+
 
 
 @media screen and (max-width: 960px) {
+    .simpleContainer{
+        padding: '2em 1em';
+    }
     .header div{
         text-align: center;
     }
