@@ -1,8 +1,6 @@
 import Layout from '../components/layout'
 import { MediaCard } from '../components/card'
-import StopIcon from '@material-ui/icons/Stop';
-import { Grid, CssBaseline, Typography, Box, Container  } from '@material-ui/core'
-import styles from '../styles/Layout.module.css'
+import { Grid, Typography, Box, Container  } from '@material-ui/core'
 
 const About = () => {
     return (
