@@ -3,7 +3,9 @@
     background: red;
 }
 
-
+.title span{
+    color : var(--primary-color)
+}
 .header span{
     color : var(--primary-color);
 }
@@ -48,6 +50,8 @@
     color : var(--primary-color);
 }
 
+
+
 @media screen and (max-width: 960px) {
     .header div{
         text-align: center;
@@ -66,4 +70,10 @@
     .bottomNav{
         display: block;
     }
+
+    .eventsCard button{
+        display: none;
+    }
+
+
   }

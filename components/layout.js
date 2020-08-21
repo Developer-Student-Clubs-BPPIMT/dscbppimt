@@ -18,6 +18,7 @@ const Layout = (props) => {
     <Paper elevation={0} square>
         <Navbar />
         <Box>{props.children}</Box>
+        
         <Box className={styles.bottomNav}>
             <BottomNavigation position="sticky" showLabels component="nav">
                 <BottomNavigationAction component='div' label="About" icon={<InfoIcon />} onClick={() => router.push('/about')}/>
