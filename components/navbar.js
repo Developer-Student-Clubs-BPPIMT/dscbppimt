@@ -1,4 +1,5 @@
-import { AppBar, Toolbar, Typography, Grid, Link, IconButton, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core'
+import { AppBar, Toolbar, Typography, Grid, IconButton, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core'
+import Link from 'next/link'
 import styles from '../styles/Layout.module.css'
 import DscLogo from '../public/svgs/dsc.svg'
  
@@ -33,29 +34,29 @@ const Navbar = () => {
                         </Drawer>
                 </Grid>
                 <Grid item xs={10} sm={5} style={{display : 'flex', alignItems: 'center'}}>
-                    <Typography variant="h6">
+                    <Link href="/"><Typography variant="h6" style={{cursor : 'pointer'}}>
                         <DscLogo style={{marginRight : '10px', width : '1.5em'}}/>
                         DSC BPPIMT
-                    </Typography>
+                    </Typography></Link>
                 </Grid>
                 <Grid item xs={7} container alignItems="center" spacing={3} justify="flex-end" className={styles.nav}>
                     <Grid item>
-                        <Link href="/">Home</Link>
+                        <Link href="/"><a>Home</a></Link>
                     </Grid>
                     <Grid item>
-                        <Link href="#">Team</Link>
+                        <Link href="/team"><a>Team</a></Link>
                     </Grid>
                     <Grid item>
-                        <Link href="#">Resources</Link>
+                        <Link href="/resources"><a>Resources</a></Link>
                     </Grid>
                     <Grid item>
-                        <Link href="#">Blogs</Link>
+                        <Link href="/blogs"><a>Blogs</a></Link>
                     </Grid>
                     <Grid item>
-                        <Link href="#">Contact</Link>
+                        <Link href="/contact"><a>Contact</a></Link>
                     </Grid>
                     <Grid item>
-                        <Link href="#">About</Link>
+                        <Link href="/about"><a>About</a></Link>
                     </Grid>
                 </Grid>
             </Grid>

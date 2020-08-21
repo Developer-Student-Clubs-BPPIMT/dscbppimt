@@ -1,3 +1,11 @@
+.layout{
+    height: 100%;
+    background: red;
+}
+
+.title span{
+    color : var(--primary-color)
+}
 .header span{
     color : var(--primary-color);
 }
@@ -34,6 +42,14 @@
     min-width: 0px;
 }
 
+.nav a{
+    text-decoration: none;
+    color: black;
+}
+.nav a:hover{
+    color : var(--primary-color);
+}
+
 
 
 @media screen and (max-width: 960px) {
@@ -54,4 +70,10 @@
     .bottomNav{
         display: block;
     }
+
+    .eventsCard button{
+        display: none;
+    }
+
+
   }
