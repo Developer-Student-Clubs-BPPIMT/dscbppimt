@@ -1,369 +1,163 @@
-import { Container, Box, Grid, Typography, Button, FormGroup } from "@material-ui/core";
-import Layout from '../components/layout';
-import styles from '../styles/Layout.module.css';
+import { Card, CardContent, Box, Container, TextField, Grid, Typography, MenuItem, Button, RadioGroup, FormControlLabel, Radio, InputLabel, FormControl } from '@material-ui/core'
+import Layout from '../components/layout'
 import DscLogo from '../public/svgs/dsc.svg'
-import React, { Component } from 'react';
-import TextField from '@material-ui/core/TextField';
-import Input from '@material-ui/core/Input';
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import FormControl from '@material-ui/core/FormControl'
-import Radio from '@material-ui/core/Radio'
-import RadioGroup from '@material-ui/core/RadioGroup'
+import styles from '../styles/Layout.module.css'
+import { useState } from 'react'
 
 
-class MemberForm extends Component {
+const MemberForm = () => {
+    const [ formState, changeForm ] = useState({
+        name: '',
+        email: '',
+        gender: '',
+        stream: '',
+        year: '',
+        collegeID: '',
+        github: '',
+        linkedin: '',
+        codechef: '',
+        hackerrank: '',
+        volunteer: '',
+        about: '',
+        joinReason: '',
+        core: '',
+        coreReason: '',
+        referral: '',
+        //errors
+        nameError: '',
+        emailError: '',
+        genderError: '',
+        streamError: '',
+        yearError: '',
+        collegeIDError: '',
+        aboutError: '',
+        volunteerError: '',
+        joinReasonError: ''
+    })
+    const [ formView, changeView ] = useState('personal');
+    const formStep1 = (
+    <form>
+        <Typography variant="h5" style={{fontWeight : '500'}} style={{marginBottom : '1em'}}>Step 1 : Personal Information</Typography>
+        <Grid container spacing={4}>
+            <Grid item container spacing={2}>
+                <Grid item xs><TextField required id="First Name" label="First Name" color="secondary" placeholder="First Name" fullWidth/></Grid>
+                <Grid item xs><TextField required id="First Name" label="Last Name" color="secondary" placeholder="Last Name" fullWidth/></Grid>
+            </Grid>
+            <Grid item xs={12}><TextField required id="Email" label="Email" color="secondary" placeholder="Email" fullWidth/></Grid>
+            <Grid item xs={12}><TextField required id="CollegeID" label="College ID" color="secondary" placeholder="College ID" fullWidth/></Grid>
+            <Grid item container spacing={2}>
+                <Grid item xs>
+                    <TextField required select id="Stream" label="Stream" color="secondary" placeholder="Stream" fullWidth>
+                        <MenuItem value="AEIE" key="AEIE"></MenuItem>
+                        <MenuItem value="BBA" key="BBA">BBA</MenuItem>
+                        <MenuItem value="BCA" key="BCA">BCA</MenuItem>
+                        <MenuItem value="BME" key="BME">BME</MenuItem>
+                        <MenuItem value="CE" key="CE">CE</MenuItem>
+                        <MenuItem value="CSE" key="CSE">CSE</MenuItem>
+                        <MenuItem value="ECE" key="ECE">ECE</MenuItem>
+                        <MenuItem value="EE" key="EE">EE</MenuItem>
+                        <MenuItem value="IT" key="IT">IT</MenuItem>
+                        <MenuItem value="MBA" key="MBA">MBA</MenuItem>
+                        <MenuItem value="MCA" key="MCA">MCA</MenuItem>
+                        <MenuItem value="ME" key="ME">ME</MenuItem>
+                        <MenuItem value="other" key="Other">Other</MenuItem>
+                    </TextField>
+                </Grid>
+                <Grid item xs>
+                <TextField required select id="Year" label="Year" color="secondary" placeholder="Year" fullWidth>
+                        <MenuItem value="1" key="1">1st Year</MenuItem>
+                        <MenuItem value="2" key="2">2nd Year</MenuItem>
+                        <MenuItem value="3" key="3">3rd Year</MenuItem>
+                        <MenuItem value="4" key="4">4th Year</MenuItem>
+                    </TextField>
+                </Grid>
+                <Grid item xs={12}><TextField required id="Github URL" label="Github URL" color="secondary" placeholder="github.io/username" fullWidth/></Grid>
+                <Grid item xs={12}><TextField required id="LinkedIn URL" label="LinkedIn URL" color="secondary" placeholder="linkedin.com/username" fullWidth/></Grid>
+                <Grid item xs={12}><TextField required id="CodeChef URL" label="CodeChef URL" color="secondary" placeholder="codechef.com/username" fullWidth/></Grid>
+                <Grid item xs={12}><TextField required id="HackerRank URL" label="HackerRank URL" color="secondary" placeholder="hackerrank.com/username" fullWidth/></Grid>
+            </Grid>
+            <Grid item style={{width : '100%', display : 'flex', justifyContent : 'flex-end', marginTop : '1.5em'}}>
+                <Button variant="contained" color="primary" style={{width : '136px'}} onClick={() => changeView('general')}>Next</Button>
+            </Grid>
+        </Grid>
+    </form>);
 
-    constructor(props) {
-        super(props);
+const formStep2 = (
+    <form>
+        <Typography variant="h5" style={{fontWeight : '500'}} style={{marginBottom : '1em'}}>Step 2 : General Information</Typography>
+        <Grid container spacing={3}>
+            <Grid item xs={12}>
+                <FormControl>
+                    <h3 for="my-input" style={{margin : '2px 0px'}}>Would you love to volunteer for DSC BPPIMT ?</h3>
+                    <RadioGroup row required>
+                        <FormControlLabel labelPlacement="end" value="yes" control={<Radio />} label="Yes" />
+                        <FormControlLabel labelPlacement="end" value="no" control={<Radio />} label="No" />
+                        <FormControlLabel labelPlacement="end" value="maybe" control={<Radio />} label="Maybe" />
+                    </RadioGroup>
+                </FormControl>
+            </Grid>
 
-        this.state = {
-            name: '',
-            email: '',
-            gender: '',
-            stream: '',
-            year: '',
-            collegeID: '',
-            github: '',
-            linkedin: '',
-            codechef: '',
-            hackerrank: '',
-            volunteer: '',
-            about: '',
-            joinReason: '',
-            core: '',
-            coreReason: '',
-            referral: '',
-            //errors
-            nameError: '',
-            emailError: '',
-            genderError: '',
-            streamError: '',
-            yearError: '',
-            collegeIDError: '',
-            aboutError: '',
-            volunteerError: '',
-            joinReasonError: ''
-        }
+            <Grid item xs={12}>
+                <FormControl>
+                    <h3 for="my-input" style={{margin : '2px 0px'}}>Would you be eager to join the core ?</h3>
+                    <p>The core committee leads the several smaller teams of Design, Web, App, Outreach and ensures the proper management of the entire club.</p>
+                    <RadioGroup row required>
+                        <FormControlLabel labelPlacement="end" value="yes" control={<Radio />} label="Yes" />
+                        <FormControlLabel labelPlacement="end" value="no" control={<Radio />} label="No" />
+                        <FormControlLabel labelPlacement="end" value="maybe" control={<Radio />} label="Maybe" />
+                    </RadioGroup>
+                </FormControl>
+            </Grid>
+            <Grid item style={{width : '100%', display : 'flex', justifyContent : 'flex-end', marginTop : '2em'}}>
+                <Button variant="contained" style={{width : '136px'}} onClick={() => changeView('personal')}>Back</Button>
+                <Button variant="contained" color="primary" style={{width : '136px', marginLeft : '1em'}} onClick={() => changeView('preview')}>Submit</Button>
+            </Grid>
+        </Grid>
+    </form>);
 
-        const submitMessage = "";
-        this.validate = this.validate.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+    const preview = () => {
+        return(<Container></Container>);
     }
 
-    handleInputChange(event){
 
-        const {name, value} = event.target
-
-        this.validate();
-        
-        this.setState({
-            ...this.state,
-            [name]: value
-        });
-
+    const renderView = (view) => {
+        switch(view){
+            case 'personal':
+                return formStep1;
+            case 'general':
+                return formStep2;
+            case 'preview':
+                return preview
+            default:
+                break;
+        }
     }
 
-    validate = () => {
-        let isError = false;
-        const formerror = {
-            nameError: '',
-            emailError: '',
-            genderError: '',
-            streamError: '',
-            yearError: '',
-            collegeIDError: '',
-            aboutError: '',
-            volunteerError: '',
-            joinReasonError: ''
-        };
-
-        if(this.state.name.length === 0) {
-            isError = true;
-            formerror.nameError = "Required";
-        }
-
-        if(this.state.gender.length=== 0) {
-            isError = true;
-            formerror.genderError = "Required";
-        }
-
-        if(this.state.stream.length === 0) {
-            isError = true;
-            formerror.streamError = "Required";
-        }
-
-        if(this.state.about.length === 0) {
-            isError = true;
-            formerror.aboutError = "Required";
-        }
-
-        if(this.state.year.length === 0) {
-            isError = true;
-            formerror.yearError = "Required";
-        }
-
-        if(this.state.collegeID.length === 0) {
-            isError = true;
-            formerror.collegeIDError = "Required";
-        }
-
-        if(this.state.joinReason.length === 0) {
-            isError = true;
-            formerror.joinReasonError = "Required";
-        }
-
-        if(this.state.volunteer.length === 0) {
-            isError = true;
-            formerror.volunteerError = "Required";
-        }
-
-        if(this.state.email.indexOf("@") === -1) {
-            isError = true;
-            formerror.emailError = "Please enter a valid email address";
-        }
-
-        this.setState({
-            ...this.state,
-            ...formerror
-        });
-
-        return isError;
-    }
-    
-    handleSubmit = (event) => {
-
-        event.preventDefault();
-
-        this.setState({
-            nameError: '',
-            emailError: '',
-            genderError: '',
-            streamError: '',
-            yearError: '',
-            collegeIDError: '',
-            aboutError: '',
-            volunteerError: '',
-            joinReason: ''
-        });
-
-        const err = this.validate();
-        if(err) {
-            this.submitMessage = "Error in filling the form. Please fill the form correctly.";
-        }
-
-        if(!err) {
-            this.submitMessage = "";
-            alert('Submitted Successfully ! Current Response : ' + JSON.stringify(this.state));
-            this.setState({
-                name: '',
-                email: '',
-                gender: '',
-                stream: '',
-                year: '',
-                collegeID: '',
-                github: '',
-                linkedin: '',
-                codechef: '',
-                hackerrank: '',
-                volunteer: '',
-                about: '',
-                joinReason: '',
-                core: '',
-                coreReason: '',
-                referral: '',
-                //errors
-                nameError: '',
-                emailError: '',
-                genderError: '',
-                streamError: '',
-                yearError: '',
-                collegeIDError: '',
-                aboutError: '',
-                volunteerError: '',
-                joinReason: ''
-            });
-        }
-   
-    }
-
-    render() {
-        return (
-            <Layout>
-    
-                <Container style={{padding : "35px"}}>
-    
-                    <Grid className={styles.header} container wrap="wrap-reverse" justify="center" spacing={2}>
-                        <Grid item container direction="column" xs={12} md justify="center" component="div">
-                            <Grid item style={{marginBottom : "2em"}}><Typography variant="h5" component="h5">DSC BPPIMT <span>Membership</span> Registration</Typography></Grid>
-                            <Grid item><Typography variant="body2" style={{textAlign : "justify"}}>Google collaborates with university students who are passionate about growing developer communities and supports them with starting student clubs on their campuses.</Typography></Grid>
-                            <Grid item>
-                                <Typography variant="body2" style={{textAlign : "justify"}}><br />
-                                    DSC BPPIMT will be organizing workshops that will be covering topics like Web & Mobile Development, Machine Learning, Artificial Intelligence, Cloud, and the latest Google Technologies. We collaborate and build projects, work on personal development to ensure that we deliver smart technological solutions to local issues, and beyond.  
-                                </Typography></Grid>
-                            <Grid item><Typography variant="body2"><br />Fill up the form & join us !</Typography></Grid>
-                        </Grid>
-                        <Grid item xs={12} md style={{display : 'flex', alignItems : 'center'}}><DscLogo style={{width : "100%", height : '80%'}}/></Grid>
-                    </Grid>
-    
-                    <br />
-                    
-                    <Box style={{margin: '10px' }}>
-                        <form onSubmit={this.handleSubmit} >
-                            <div style={{maxWidth: '740px', width:'90%', margin:'0 auto' }}>
-    
-                                <div style={{padding:'2rem', border: '1px solid lightgrey', borderRadius: '15px', marginBottom: '20px', }}>
-                                    <label style={{fontSize: '1rem'}}>Name <span style={{color: 'red'}}>* {this.state.nameError}</span></label>
-                                    <br />
-                                    <TextField style={{width:"75%", marginTop:"1.5rem"}} placeholder="Your Name" name="name" value={this.state.name} onChange={this.handleInputChange} inputProps={{ 'aria-label': 'description' }}/>
-                                    
-                                </div>
-    
-                                <div style={{padding:'2rem', border: '1px solid lightgrey', borderRadius: '15px', marginBottom: '20px'}}>
-                                    <label style={{fontSize: '1rem'}}>Email <span style={{color: 'red'}}>* {this.state.emailError}</span></label>
-                                    <br />
-                                    <TextField style={{width:"75%", marginTop:"1.5rem"}} placeholder="Your Email" name="email" value={this.state.email} onChange={this.handleInputChange} inputProps={{ 'aria-label': 'description' }} />
-                                </div>
-    
-                                <div style={{padding:'2rem', border: '1px solid lightgrey', borderRadius: '15px', marginBottom: '20px'}}>
-                                    <label style={{fontSize: '1rem'}}>Gender <span style={{color: 'red'}}>* {this.state.genderError}</span></label>
-                                    <br />
-                                    <RadioGroup style={{marginTop:'1.5rem'}} aria-label="gender" name="gender" value={this.state.gender} helperText={this.state.genderError} onChange={this.handleInputChange}>
-                                        <FormControlLabel value="female" control={<Radio />} label="Female" />
-                                        <FormControlLabel value="male" control={<Radio />} label="Male" />
-                                        <FormControlLabel value="other" control={<Radio />} label="Other" />
-                                    </RadioGroup>
-                                </div>
-    
-                                <div style={{padding:'2rem', border: '1px solid lightgrey', borderRadius: '15px', marginBottom: '20px'}}>
-                                    <label style={{fontSize: '1rem'}}>Stream <span style={{color: 'red'}}>* {this.state.streamError}</span></label>
-                                    <br />
-                                    <RadioGroup style={{marginTop:'1.5rem'}} aria-label="stream" name="stream" value={this.state.stream} onChange={this.handleInputChange}>
-                                        <FormControlLabel value="AEIE" control={<Radio />} label="AEIE" />
-                                        <FormControlLabel value="BBA" control={<Radio />} label="BBA" />
-                                        <FormControlLabel value="BCA" control={<Radio />} label="BCA" />
-                                        <FormControlLabel value="BME" control={<Radio />} label="BME" />
-                                        <FormControlLabel value="CE" control={<Radio />} label="CE" />
-                                        <FormControlLabel value="CSE" control={<Radio />} label="CSE" />
-                                        <FormControlLabel value="ECE" control={<Radio />} label="ECE" />
-                                        <FormControlLabel value="EE" control={<Radio />} label="EE" />
-                                        <FormControlLabel value="IT" control={<Radio />} label="IT" />
-                                        <FormControlLabel value="MBA" control={<Radio />} label="MBA" />
-                                        <FormControlLabel value="MCA" control={<Radio />} label="MCA" />
-                                        <FormControlLabel value="ME" control={<Radio />} label="ME" />
-                                        <FormControlLabel value="other" control={<Radio />} label="Other" />
-                                    </RadioGroup>
-                                </div>
-    
-                                <div style={{padding:'2rem', border: '1px solid lightgrey', borderRadius: '15px', marginBottom: '20px'}}>
-                                    <label style={{fontSize: '1rem'}}>Year <span style={{color: 'red'}}>* {this.state.yearError}</span></label>
-                                    <br />
-                                    <RadioGroup style={{marginTop:'1.5rem'}} aria-label="gender" name="year" value={this.state.year} onChange={this.handleInputChange}>
-                                        <FormControlLabel value="1st" control={<Radio />} label="1st" />
-                                        <FormControlLabel value="2nd" control={<Radio />} label="2nd" />
-                                        <FormControlLabel value="3rd" control={<Radio />} label="3rd" />
-                                        <FormControlLabel value="4th" control={<Radio />} label="4th" />
-                                    </RadioGroup>
-                                </div>
-    
-                                <div style={{padding:'2rem', border: '1px solid lightgrey', borderRadius: '15px', marginBottom: '20px', }}>
-                                    <label style={{fontSize: '1rem'}}>College ID <span style={{color: 'red'}}>* {this.state.collegeIDError}</span></label>
-                                    <br />
-                                    <TextField style={{width:"75%", marginTop:"1.5rem"}} placeholder="Your Answer" name="collegeID" value={this.state.collegeID} onChange={this.handleInputChange} inputProps={{ 'aria-label': 'description' }} />
-                                    
-                                </div>
-    
-                                <div style={{padding:'2rem', border: '1px solid lightgrey', borderRadius: '15px', marginBottom: '20px', }}>
-                                    <label style={{fontSize: '1rem'}}>Github Profile Link</label>
-                                    <br />
-                                    <TextField style={{width:"75%", marginTop:"1.5rem"}} placeholder="Your Answer" name="github" value={this.state.github} onChange={this.handleInputChange} inputProps={{ 'aria-label': 'description' }} />                                
-                                </div>
-    
-                                <div style={{padding:'2rem', border: '1px solid lightgrey', borderRadius: '15px', marginBottom: '20px', }}>
-                                    <label style={{fontSize: '1rem'}}>Linkedin Profile Link</label>
-                                    <br />
-                                    <TextField style={{width:"75%", marginTop:"1.5rem"}} placeholder="Your Answer" name="linkedin" value={this.state.linkedin} onChange={this.handleInputChange} inputProps={{ 'aria-label': 'description' }} />                               
-                                </div>
-    
-                                <div style={{padding:'2rem', border: '1px solid lightgrey', borderRadius: '15px', marginBottom: '20px', }}>
-                                    <label style={{fontSize: '1rem'}}>Codechef Username</label>
-                                    <br />
-                                    <TextField style={{width:"75%", marginTop:"1.5rem"}} placeholder="Your Answer" name="codechef" value={this.state.codechef} onChange={this.handleInputChange} inputProps={{ 'aria-label': 'description' }} />                               
-                                </div>
-    
-                                <div style={{padding:'2rem', border: '1px solid lightgrey', borderRadius: '15px', marginBottom: '20px', }}>
-                                    <label style={{fontSize: '1rem'}}>HackerRank Username</label>
-                                    <br />
-                                    <TextField style={{width:"75%", marginTop:"1.5rem"}} placeholder="Your Answer" name="hackerrank" value={this.state.hackerrank} onChange={this.handleInputChange} inputProps={{ 'aria-label': 'description' }} />
-                                </div>
-    
-                                <div style={{padding:'2rem', border: '1px solid lightgrey', borderRadius: '15px', marginBottom: '20px'}}>
-                                    <label style={{fontSize: '1rem'}}>Would you love to volunteer for DSC BPPIMT ? <span style={{color: 'red'}}>* {this.state.volunteerError}</span></label>
-                                    <br />
-                                    <RadioGroup style={{marginTop:'1.5rem'}} aria-label="gender" name="volunteer" value={this.state.volunteer} onChange={this.handleInputChange}>
-                                        <FormControlLabel value="yes" control={<Radio />} label="Yes!" />
-                                        <FormControlLabel value="maybe" control={<Radio />} label="Maybe(?)" />
-                                        <FormControlLabel value="no" control={<Radio />} label="No, Give Me Peace." />
-                                    </RadioGroup>
-                                </div>
-    
-                                <div style={{padding:'2rem', border: '1px solid lightgrey', borderRadius: '15px', marginBottom: '20px'}}>
-                                    <label style={{fontSize: '1rem'}}>Tell us a little something about yourself (add a fun fact maybe) <span style={{color: 'red'}}>* {this.state.aboutError}</span></label>
-                                    <br />
-                                    <TextField style={{width:"75%", marginTop:"1.5rem"}} placeholder="Your Answer" name="about" value={this.state.about} onChange={this.handleInputChange} inputProps={{ 'aria-label': 'description' }} />
-                                </div>
-    
-                                <div style={{padding:'2rem', border: '1px solid lightgrey', borderRadius: '15px', marginBottom: '20px'}}>
-                                    <label style={{fontSize: '1rem'}}>Why would you like to join DSC ? <span style={{color: 'red'}}>* {this.state.joinReasonError}</span></label>
-                                    <br />
-                                    <TextField style={{width:"75%", marginTop:"1.5rem"}} placeholder="Your Answer" name="joinReason" value={this.state.joinReason} onChange={this.handleInputChange} inputProps={{ 'aria-label': 'description' }} />
-                                </div>
-    
-                                <div style={{padding:'2rem', border: '1px solid lightgrey', borderRadius: '15px', marginBottom: '20px'}}>
-                                    <label style={{fontSize: '1rem'}}>Would you be eager to join the core ?</label>
-                                    <p>The core committee leads the several smaller teams of Design, Web, App, Outreach and ensures the proper management of the entire club.</p>
-                                    <br />
-                                    <RadioGroup aria-label="gender" name="core" value={this.state.core} onChange={this.handleInputChange}>
-                                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                                        <FormControlLabel value="no" control={<Radio />} label="No" />
-                                        <FormControlLabel value="maybe" control={<Radio />} label="Maybe" />
-                                    </RadioGroup>
-                                </div>
-    
-                                <div style={{padding:'2rem', border: '1px solid lightgrey', borderRadius: '15px', marginBottom: '20px'}}>
-                                    <label style={{fontSize: '1rem'}}>If so, Why ?</label>
-                                    <p>Please mention the area of your expertise and what would you wish to contribute to the community.</p>
-                                    <br />
-                                    <TextField style={{width:"75%"}} placeholder="Your Answer" name="coreReason" value={this.state.coreReason} onChange={this.handleInputChange} inputProps={{ 'aria-label': 'description' }} />
-                                </div>
-    
-                                <div style={{padding:'2rem', border: '1px solid lightgrey', borderRadius: '15px', marginBottom: '20px'}}>
-                                    <label style={{fontSize: '1rem'}}>Who referred you to this Club? (if anyone!)</label>
-                                    <p>Please provide their name or email.</p>
-                                    <br />
-                                    <TextField style={{width:"75%"}} placeholder="Your Answer" name="referral" value={this.state.referral} onChange={this.handleInputChange} inputProps={{ 'aria-label': 'description' }} />
-                                </div>
-    
-                                <Button onClick={this.handleSubmit} variant="contained" color="primary">Submit</Button>
-                                <span style={{color: 'red'}}><br />{this.submitMessage}</span>
-                            </div>
-    
-                        </form>
-                    </Box>
-    
-                </Container>
-                
-            </Layout>
+    return(
+    <Layout>
+        <Container>
+            <Grid className={styles.header} container wrap="wrap-reverse" justify="center" style={{margin : '4em 0px'}}>
+                <Grid item container direction="column" xs={12} md={8} justify="center" component="div">
+                    <Grid item style={{marginBottom : "2em"}}><Typography variant="h5" component="h5">DSC BPPIMT <span>Membership</span> Registration</Typography></Grid>
+                    <Grid item><Typography variant="body2" style={{textAlign : "justify"}}>Google collaborates with university students who are passionate about growing developer communities and supports them with starting student clubs on their campuses.</Typography></Grid>
+                    <Grid item>
+                        <Typography variant="body2" style={{textAlign : "justify"}}><br />
+                            DSC BPPIMT will be organizing workshops that will be covering topics like Web & Mobile Development, Machine Learning, Artificial Intelligence, Cloud, and the latest Google Technologies. We collaborate and build projects, work on personal development to ensure that we deliver smart technological solutions to local issues, and beyond.  
+                        </Typography></Grid>
+                </Grid>
+                <Grid item xs={12} md={4} style={{display : 'flex', alignItems : 'center'}}><DscLogo style={{width : "100%", height : '80%'}}/></Grid>
+            </Grid>
+        </Container>
+        <Box style={{maxWidth : '850px', margin : '2em auto'}}>
+            <Card>
+                <CardContent style={{padding : '1.3em'}}>
+                    {renderView(formView)}
+                </CardContent>
             
-      );
-    }
+            </Card>
+        </Box>
+    </Layout>
+    );
 }
 
-export default MemberForm;
-
-/*const errorMessages = {
-    name: "",
-    email: "",
-    collegeID: "",
-    about: ""
-}*/
+export default MemberForm
