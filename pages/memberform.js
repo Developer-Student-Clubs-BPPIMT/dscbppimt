@@ -1,4 +1,4 @@
-import { Card, CardContent, Box, Container, TextField, Grid, Typography, MenuItem, Button, RadioGroup, FormControlLabel, Radio, InputLabel, FormControl } from '@material-ui/core'
+import { Card, CardContent, Box, Container, TextField, Grid, Typography, MenuItem, Button, RadioGroup, FormControlLabel, Radio, InputLabel, FormControl, Grow } from '@material-ui/core'
 import Layout from '../components/layout'
 import DscLogo from '../public/svgs/dsc.svg'
 import styles from '../styles/Layout.module.css'
@@ -98,15 +98,33 @@ const formStep2 = (
             </Grid>
 
             <Grid item xs={12}>
+                    <h3 for="my-input" style={{margin : '2px 0px'}}>Tell us a little something about yourself (add a fun fact maybe) *</h3>
+                    <TextField required id="CollegeID" color="secondary" placeholder="College ID" fullWidth/>
+            </Grid>
+
+            <Grid item xs={12}>
+                    <h3 for="my-input" style={{margin : '2px 0px'}}>Why would you like to join DSC ?</h3>
+                    <TextField required id="CollegeID" color="secondary" placeholder="College ID" fullWidth/>
+            </Grid>
+
+            <Grid item xs={12}>
                 <FormControl>
                     <h3 for="my-input" style={{margin : '2px 0px'}}>Would you be eager to join the core ?</h3>
-                    <p>The core committee leads the several smaller teams of Design, Web, App, Outreach and ensures the proper management of the entire club.</p>
+                    <Typography variant="body2">The core committee leads the several smaller teams of Design, Web, App, Outreach and ensures the proper management of the entire club.</Typography>
                     <RadioGroup row required>
                         <FormControlLabel labelPlacement="end" value="yes" control={<Radio />} label="Yes" />
                         <FormControlLabel labelPlacement="end" value="no" control={<Radio />} label="No" />
                         <FormControlLabel labelPlacement="end" value="maybe" control={<Radio />} label="Maybe" />
                     </RadioGroup>
                 </FormControl>
+            </Grid>
+            <Grid item xs={12}>
+                    <h3 for="my-input" style={{margin : '2px 0px'}}>If so, Why ?</h3>
+                    <TextField required id="CollegeID" color="secondary" placeholder="College ID" fullWidth/>
+            </Grid>
+            <Grid item xs={12}>
+                    <h3 for="my-input" style={{margin : '2px 0px'}}>Who referred you to this Club? (if anyone!)</h3>
+                    <TextField required id="CollegeID" color="secondary" placeholder="College ID" fullWidth/>
             </Grid>
             <Grid item style={{width : '100%', display : 'flex', justifyContent : 'flex-end', marginTop : '2em'}}>
                 <Button variant="contained" style={{width : '136px'}} onClick={() => changeView('personal')}>Back</Button>
@@ -115,9 +133,17 @@ const formStep2 = (
         </Grid>
     </form>);
 
-    const preview = () => {
-        return(<Container></Container>);
-    }
+    const preview = (
+<form>
+        <Typography variant="h5" style={{fontWeight : '500'}} style={{marginBottom : '1em'}}>Step 3 : Preview Information</Typography>
+        <Grid container spacing={3}>
+            <Grid item style={{width : '100%', display : 'flex', justifyContent : 'flex-end', marginTop : '2em'}}>
+                <Button variant="contained" style={{width : '136px'}} onClick={() => changeView('personal')}>Back</Button>
+                <Button variant="contained" color="primary" style={{width : '136px', marginLeft : '1em'}} onClick={() => changeView('preview')}>Submit</Button>
+            </Grid>
+        </Grid>
+    </form>);
+
 
 
     const renderView = (view) => {
