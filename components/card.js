@@ -84,7 +84,7 @@ export const BlogCard = (props) => {
         <CardContent>
                 <Grid container wrap="wrap">
                     <Grid item xs={12} md={2}>
-                        <img src={placeholder} style={{height : '90%', width : '90%', objectFit : 'cover'}}/>
+                        <img src={placeholder} style={{height : '100%', width : '100%', objectFit : 'cover'}}/>
                     </Grid>
                     <Grid item xs={12} md={10} container direction="column" justify="space-between">
                         <Grid item className={styles.cardContent}>
@@ -134,7 +134,7 @@ export const MediaCard = props => {
 
           />
           <CardContent>
-            <Typography gutterBottom variant="h" component="h2">
+            <Typography gutterBottom variant="h6" component="h2">
               {title}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
