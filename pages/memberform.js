@@ -1,7 +1,7 @@
-import { Card, CardContent, Box, Container, Grid, Typography, MenuItem, Button, LinearProgress, InputLabel, FormHelperText, Stepper, Step, StepLabel } from '@material-ui/core'
+import { Card, CardContent, Box, Container, Grid, Typography, MenuItem, Button, LinearProgress, InputLabel, Stepper, Step, StepLabel, FormControlLabel, Radio, Menu } from '@material-ui/core'
 import Link from 'next/link'
 import { Formik, Form, Field } from 'formik';
-import { TextField } from 'formik-material-ui'
+import { TextField, RadioGroup, Select } from 'formik-material-ui'
 import Layout from '../components/layout'
 import DscLogo from '../public/svgs/dsc.svg'
 import styles from '../styles/Layout.module.css'
@@ -15,12 +15,11 @@ const MemberForm = () => {
     const [ view, changeView ] = useState('personal')
     const [ activeStep, changeStep ] = useState(0);
     const [ formState, changeForm] = useState({
-        firstname: 'Aritra',
+        firstname: '',
         lastname : '',
         email: '',
-        gender: '',
-        stream: '',
-        year: '',
+        stream: 'IT',
+        year: '1st Year',
         college: '',
         github: '',
         linkedin: '',
@@ -47,7 +46,7 @@ const MemberForm = () => {
         linkedin : Yup.string("LinkedIn URL").url("Not a Valid URL")
     })
 
-    const formTwoValidation = Yup.object({
+    const formTwoValidation = Yup.object().shape({
         volunteer: Yup.string().required("Choose a Option"),
         about: Yup.string().notRequired(),
         joinReason: Yup.string().notRequired(),
@@ -78,9 +77,10 @@ const MemberForm = () => {
         onSubmit={async (values, {setSubmitting}) => {
             setTimeout(() => {
                 setSubmitting(false);
-                changeForm({...values, ...formState})
+                changeForm({...formState, ...values})
                 changeStep(activeStep+1)
                 changeView('general')
+                console.log(formState)
               }, 200);
         }}
         >
@@ -90,7 +90,7 @@ const MemberForm = () => {
                 <Grid container spacing={2}>
                     <Grid item container spacing={3}>
                         <Grid item xs>
-                            <Field component={TextField} id="standard-full-width" name="firstname" type="firstname" label="First Name" placeholder="John" InputLabelProps={{shrink: true,}} fullWidth/>
+                            <Field component={TextField} name="firstname" type="firstname" label="First Name" placeholder="John" InputLabelProps={{shrink: true,}} fullWidth/>
                         </Grid>
                         <Grid item xs>
                             <Field component={TextField} name="lastname" type="lastname" label="Last Name" InputLabelProps={{shrink: true,}} placeholder="Doe" fullWidth/>
@@ -104,7 +104,7 @@ const MemberForm = () => {
                     </Grid>
                     <Grid item container spacing={3}>
                         <Grid item xs>
-                            <Field select component={TextField} name="stream" type="stream" label="Stream" InputLabelProps={{shrink: true,}} fullWidth>
+                            <Field component={Select} name="stream" type="text" label="Stream" fullWidth>
                                 <MenuItem value="AEIE" key="AEIE">AEIE</MenuItem>
                                 <MenuItem value="BBA" key="BBA">BBA</MenuItem>
                                 <MenuItem value="BCA" key="BCA">BCA</MenuItem>
@@ -121,11 +121,11 @@ const MemberForm = () => {
                             </Field>
                         </Grid>
                         <Grid item xs>
-                            <Field select component={TextField} name="year" type="year" label="Year" InputLabelProps={{shrink: true,}} fullWidth>
-                                <MenuItem value="1" key="1">1st Year</MenuItem>
-                                <MenuItem value="2" key="2">2nd Year</MenuItem>
-                                <MenuItem value="3" key="3">3rd Year</MenuItem>
-                                <MenuItem value="4" key="4">4th Year</MenuItem>
+                            <Field component={Select} name="year" type="text" label="Year" fullWidth>
+                                <MenuItem value="1st Year" key="1">1st Year</MenuItem>
+                                <MenuItem value="2nd Year" key="2">2nd Year</MenuItem>
+                                <MenuItem value="3rd Year" key="3">3rd Year</MenuItem>
+                                <MenuItem value="4th Year" key="4">4th Year</MenuItem>
                             </Field>
                         </Grid>
                     </Grid>
@@ -161,19 +161,18 @@ const formStep2 = (
         referral: formState.referral,
     }}
 
-
-
     validationSchema={formTwoValidation}
     onSubmit={(values, {setSubmitting}) => {
         setTimeout(() => {
             setSubmitting(false);
             changeStep(activeStep+1)
             changeView('congrats')
-            changeForm({...values, ...formState})
+            changeForm({...formState, ...values})
+            console.log(formState);
           }, 200);
     }}
     >
-    {({ submitForm, isSubmitting, errors  }) => (
+    {({ submitForm, isSubmitting, errors, touched  }) => (
         <Form>
             <Grid container spacing={4}>
             <Grid item xs={12}>
@@ -181,34 +180,29 @@ const formStep2 = (
         <Field
             row
             name="volunteer"
-            component={FormikRadioGroup}
-            options={[
-                { name : 'v_yes', value: "Yes", label: "Yes" },
-                { name : 'v_no', value: "No", label: "No" },
-                { name : 'v_maybe', value: "Maybe", label: "Maybe" }
-              ]}
-          />
-        </Grid>
-        <Grid item xs={12}>
-            <Field component={TextField} name="about" type="about" label="Tell us a little something about yourself" helperText="Add a fun fact maybe :)" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
+            component={RadioGroup}>
+              <FormControlLabel label="Yes" value="yes" control={<Radio />}/>
+              <FormControlLabel label="No" value="no" control={<Radio />}/>
+              <FormControlLabel label="Maybe" value="maybe" control={<Radio />}/>
+          </Field>
         </Grid>
         <Grid item xs={12}>
             <Field component={TextField} name="joinReason" type="joinReason" label="Why would you want to join DSC?" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
         </Grid>
         <Grid item xs={12}>
+        <Field component={TextField} name="about" type="about" label="Tell us a little something about yourself" helperText="Add a fun fact maybe :)" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
+        </Grid>
+        <Grid item xs={12}>
             <InputLabel>Would you be eager to join the core?</InputLabel>
             <Typography variant="body2" style={{color : 'gray', marginTop : '4px', marginBottom : '8px'}}>The core committee leads the several smaller teams of Design, Web, App, Outreach and ensures the proper management of the entire club.</Typography>
-        <Field
+            <Field
             row
             name="core"
-            component={FormikRadioGroup}
-            options={[
-                { name : 'c_yes', value: "Yes", label: "Yes" },
-                { name : 'c_no', value: "No", label: "No" },
-                { name : 'c_maybe', value: "Maybe", label: "Maybe" }
-              ]}
-          />
-          <FormHelperText error={true} style={{color : 'red'}}>{errors.core}</FormHelperText>
+            component={RadioGroup}>
+              <FormControlLabel label="Yes" value="yes" control={<Radio />}/>
+              <FormControlLabel label="No" value="no" control={<Radio />}/>
+              <FormControlLabel label="Maybe" value="maybe" control={<Radio />}/>
+          </Field>
         </Grid>
         <Grid item xs={12}>
             <Field component={TextField} name="coreReason" type="coreReason" helperText="Please mention the area of your expertise and what would you wish to contribute to the community." label="If so, why?" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
