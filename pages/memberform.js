@@ -1,4 +1,4 @@
-import { Card, CardContent, Box, Container, Grid, Typography, MenuItem, Button, LinearProgress, Radio, InputLabel } from '@material-ui/core'
+import { Card, CardContent, Box, Container, Grid, Typography, MenuItem, Button, LinearProgress, InputLabel, FormHelperText } from '@material-ui/core'
 import { Formik, Form, Field } from 'formik';
 import { TextField } from 'formik-material-ui'
 import Layout from '../components/layout'
@@ -6,11 +6,11 @@ import DscLogo from '../public/svgs/dsc.svg'
 import styles from '../styles/Layout.module.css'
 import { useState } from 'react'
 import * as Yup from 'yup'
-import FormikRadioGroup from '../components/FormikRadioGroup.js'
+import FormikRadioGroup from '../components/FormikRadioGroup.js.js'
 
 
 const MemberForm = () => {
-    const [ view, changeView ] = useState('personal')
+    const [ view, changeView ] = useState('general')
     const [ formState, changeForm] = useState({
         firstname: '',
         lastname : '',
@@ -84,7 +84,7 @@ const MemberForm = () => {
             <Form>
                 {isSubmitting && <LinearProgress />}
                 <Typography variant="h5" style={{fontWeight : '500'}} style={{marginBottom : '1em'}}>Step 1 : Personal Information</Typography>
-                <Grid container spacing={1}>
+                <Grid container spacing={2}>
                     <Grid item container spacing={3}>
                         <Grid item xs>
                             <Field component={TextField} id="standard-full-width" name="firstname" type="firstname" label="First Name" placeholder="John" InputLabelProps={{shrink: true,}} fullWidth/>
@@ -168,7 +168,7 @@ const formStep2 = (
           }, 200);
     }}
     >
-    {({ submitForm, isSubmitting  }) => (
+    {({ submitForm, isSubmitting, errors  }) => (
         <Form>
             <Typography variant="h5" style={{fontWeight : '500'}} style={{marginBottom : '1em'}}>Step 2 : General Information</Typography>
             <Grid container spacing={4}>
@@ -204,6 +204,7 @@ const formStep2 = (
                 { value: "Maybe", label: "Maybe" }
               ]}
           />
+          <FormHelperText error={true} style={{color : 'red'}}>{errors.core}</FormHelperText>
         </Grid>
         <Grid item xs={12}>
             <Field component={TextField} name="coreReason" type="coreReason" helperText="Please mention the area of your expertise and what would you wish to contribute to the community." label="If so, why?" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
@@ -220,18 +221,6 @@ const formStep2 = (
     )}
     </Formik>);
 
-    const preview = (
-<form>
-        <Typography variant="h5" style={{fontWeight : '500'}} style={{marginBottom : '1em'}}>Step 3 : Preview Information</Typography>
-        <Grid container spacing={3}>
-
-            <Grid item container>
-                <Grid item><Button variant="contained" style={{width : '136px', marginRight : '2em'}} onClick={() => changeView('personal')}>Back</Button></Grid>
-                <Grid item><Button variant="contained" color="primary" style={{width : '136px', marginLeft : '2em'}} onClick={() => changeView('preview')}>Submit</Button></Grid>
-            </Grid>
-        </Grid>
-    </form>);
-
 
 
     const renderView = (view) => {
@@ -240,8 +229,6 @@ const formStep2 = (
                 return formStep1;
             case 'general':
                 return formStep2;
-            case 'preview':
-                return preview
             default:
                 break;
         }
@@ -267,7 +254,6 @@ const formStep2 = (
                 <CardContent style={{padding : '1.3em'}}>
                     { renderView(view) }
                 </CardContent>
-            
             </Card>
         </Box>
     </Layout>
