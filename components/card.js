@@ -1,9 +1,8 @@
-import { Card, Typography, CardContent, CardMedia, Button, Box, Grid } from '@material-ui/core'
+import { makeStyles, Card, Typography, CardContent, CardMedia, Button, Box, Grid, CardActionArea } from '@material-ui/core'
 import { useRouter } from 'next/router'
 import styles from '../styles/Card.module.css'
 import Message from '../public/svgs/message.svg'
 import placeholder from '../public/images/placeholder.jpg'
-import sample from '../public/svgs/message.svg'
 
 export const AboutCard = () => {
     return(
@@ -112,3 +111,38 @@ export const BlogCard = (props) => {
 
     </Card>)
 }
+
+
+const useStyles = makeStyles({
+    media: {
+      height: 140,
+    },
+  });
+
+export const MediaCard = props => {
+    const classes = useStyles();
+    const {image, title, description} = props;
+    return (
+      <Card style={{margin : '8px'}}>
+        <CardActionArea>
+          <CardMedia
+            className={classes.media}
+            image={image}
+            title={title}
+            description={description}
+            
+
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h" component="h2">
+              {title}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {description}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        
+      </Card>
+    );
+  }

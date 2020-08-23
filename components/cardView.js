@@ -21,11 +21,11 @@ export const AboutCardView = () => {
 
 export const ContactCardView = () => {
     return(
-    <Box style={{background : '#E8EAE9', padding : '4em 0em'}}>
-        <Grid container style={{maxWidth : '1200px', margin : '0 auto'}}>
-            <Grid item sm={12} md><ContactCard title="Speakers" description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab i" action="Send Proposal" actionLink="#"/></Grid>
-            <Grid item sm={12} md><ContactCard title="Events" description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab i" action="Learn More" actionLink="#"/></Grid>
-            <Grid item sm={12} md><ContactCard title="Sponsorships" description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab i" action="Send Proposal" actionLink="#"/></Grid>
+    <Box style={{background : '#E8EAE9', padding : '4em 0em', display : 'flex', justifyContent : 'center'}}>
+        <Grid container style={{maxWidth : '1200px'}} justify="center">
+            <Grid item sm={12} md={4}><ContactCard title="Speakers" description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab i" action="Send Proposal" actionLink="#"/></Grid>
+            <Grid item sm={12} md={4}><ContactCard title="Events" description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab i" action="Learn More" actionLink="#"/></Grid>
+            <Grid item sm={12} md={4}><ContactCard title="Sponsorships" description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab i" action="Send Proposal" actionLink="#"/></Grid>
         </Grid>
     </Box>);
 }

@@ -18,7 +18,7 @@ const Navbar = () => {
 
     return(
     <AppBar position="sticky" style={{background : "white"}}>
-        <Toolbar>
+        <Toolbar style={{padding : '0px 1em'}} className={styles.navToolbar}>
             <Grid container>
                 <Grid item xs={2} className={styles.navToggle}>
                         <IconButton onClick={() => navToggle(true)}><MenuIcon /></IconButton>
@@ -48,6 +48,9 @@ const Navbar = () => {
                     </Grid>
                     <Grid item>
                         <Link href="/resources"><a>Resources</a></Link>
+                    </Grid>
+                    <Grid item>
+                        <Link href="/events"><a>Events</a></Link>
                     </Grid>
                     <Grid item>
                         <Link href="/blogs"><a>Blogs</a></Link>
