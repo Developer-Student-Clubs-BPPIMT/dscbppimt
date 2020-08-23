@@ -2,6 +2,10 @@ import Layout from '../components/layout'
 import { MediaCard } from '../components/card'
 import { Grid, Typography, Box, Container  } from '@material-ui/core'
 
+import Rocket from '../public/svgs/rocket.svg';
+import Blub from '../public/svgs/blub.svg'
+import Audience from '../public/svgs/audience.svg'
+
 const About = () => {
     return (
     <Layout>
@@ -19,13 +23,13 @@ const Content = () => {
     return (
       <Grid container wrap="wrap" style={{maxWidth : '1200px', margin : '2em auto'}} justify="center">
         <Grid item xs={12} md={4}>
-          <MediaCard title={"Concept of DSC ?"} description={"The DSC program is a grassroots channel through which Google provides development skills, mobile and web development skills for students, towards employability."}/>
+          <MediaCard title={"Concept of DSC ?"} image={<Rocket style={{maxWidth : '64px', maxHeight : '64px'}}/>} description={"The DSC program is a grassroots channel through which Google provides development skills, mobile and web development skills for students, towards employability."}/>
         </Grid>
         <Grid item xs={12} md={4}>
-          <MediaCard title={"Why DSC ?"} description={"The DSC program is a grassroots channel through which Google provides development skills, mobile and web development skills for students, towards employability."}/>
+          <MediaCard title={"Why DSC ?"} image={<Blub style={{maxWidth : '64px', maxHeight : '64px'}}/>} description={"The DSC program is a grassroots channel through which Google provides development skills, mobile and web development skills for students, towards employability."}/>
         </Grid>
         <Grid item xs={12} md={4}> 
-          <MediaCard title={"Target Audiences"} description={"The DSC program is a grassroots channel through which Google provides development skills, mobile and web development skills for students, towards employability."}/>
+          <MediaCard title={"Target Audiences"} image={<Audience style={{maxWidth : '64px', maxHeight : '64px'}}/>}  description={"The DSC program is a grassroots channel through which Google provides development skills, mobile and web development skills for students, towards employability."}/>
         </Grid>
       </Grid>
     );

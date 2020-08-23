@@ -17,7 +17,7 @@ function Blogs() {
                         title={event.title} 
                         speaker={event.speaker} 
                         discription={event.discription} 
-                        medium={event.date}
+                        platform={event.platform}
                         />
                         </Grid>
                     ))}

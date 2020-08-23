@@ -2,6 +2,12 @@ import { Grid, Paper, Card, Container, Typography, Box, Button } from '@material
 import { AboutCard, ContactCard } from './card'
 import styles from '../styles/Layout.module.css'
 
+import CodeIcon from '@material-ui/icons/Code';
+import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
+import LiveTvIcon from '@material-ui/icons/LiveTv';
+import BubbleChartSharpIcon from '@material-ui/icons/BubbleChartSharp';
+
+
 
 export const AboutCardView = () => {
     return(
@@ -11,10 +17,10 @@ export const AboutCardView = () => {
             <Typography variant="body2" style={{marginBottom : '1em'}}>Google Developer Groups (GDGs) are for developers who are interested in Google's developer technology.</Typography>
         </Box>
         <Grid container justify="center" style={{maxWidth : '1300px'}} className={styles.AboutCardView}>
-            <Grid item xs={6} md><AboutCard /></Grid>
-            <Grid item xs={6} md><AboutCard /></Grid>
-            <Grid item xs={6} md><AboutCard /></Grid>
-            <Grid item xs={6} md><AboutCard /></Grid>
+            <Grid item xs={6} md><AboutCard image={<ChatBubbleIcon style={{color : 'blue'}} />} title="Talks" /></Grid>
+            <Grid item xs={6} md><AboutCard image={<CodeIcon style={{color : 'orange'}}/>} title="CodeLabs"/></Grid>
+            <Grid item xs={6} md><AboutCard image={<LiveTvIcon style={{color : 'red'}} />} title="Live Events"/></Grid>
+            <Grid item xs={6} md><AboutCard image={<BubbleChartSharpIcon style={{color : 'green'}}/>} title="RoadShows"/></Grid>
         </Grid>
     </Paper>)
 }

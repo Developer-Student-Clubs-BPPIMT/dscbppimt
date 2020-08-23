@@ -1,5 +1,5 @@
 .aboutCard{
-    padding: 1em;
+    padding: 2em 1em;
     height: 19em;
     display: flex;
     flex-direction: column;
@@ -12,6 +12,11 @@
     font-weight: 800;
     margin-bottom: 2em;
     text-align: center;
+}
+
+.aboutCard svg{
+    height: 64px;
+    width : 64px;
 }
 
 

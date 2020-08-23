@@ -12,6 +12,11 @@
 
 .header h5{
     font-weight: 800;
+    font-size: 2em;
+}
+.header h6{
+    font-weight: 500;
+    font-size: 1em;
 }
 .actionButton{
     margin-right: 1em;
