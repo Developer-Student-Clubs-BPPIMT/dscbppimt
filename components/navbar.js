@@ -18,7 +18,7 @@ const Navbar = () => {
 
     return(
     <AppBar position="sticky" style={{background : "white"}}>
-        <Toolbar style={{padding : '0px 1em'}} className={styles.navToolbar}>
+        <Toolbar className={styles.navToolbar}>
             <Grid container>
                 <Grid item xs={2} className={styles.navToggle}>
                         <IconButton onClick={() => navToggle(true)}><MenuIcon /></IconButton>
@@ -26,20 +26,21 @@ const Navbar = () => {
                             <List>
                                 <ListItem><Typography variant="h6">DSC BPPIMT</Typography></ListItem>
                                 <DrawerItem label="Home" icon={<HomeIcon />} link="/"/>
-                                <DrawerItem label="Contact" icon={<ContactsIcon />} link='/contact'/>
-                                <DrawerItem label="About" icon={<InfoIcon />} link='/about'/>
                                 <DrawerItem label="Resources" icon={<LibraryBooksIcon /> } link='/resources'/>
                                 <DrawerItem label="Blogs" icon={<BookIcon />} link='/blogs'/>
+                                <DrawerItem label="Events" icon={<BookIcon />} link='/events'/>
+                                <DrawerItem label="Contact" icon={<ContactsIcon />} link='/contact'/>
+                                <DrawerItem label="About" icon={<InfoIcon />} link='/about'/>
                             </List>
                         </Drawer>
                 </Grid>
-                <Grid item xs={10} sm={5} style={{display : 'flex', alignItems: 'center'}}>
+                <Grid item xs={10} sm={3} style={{display : 'flex', alignItems: 'center'}}>
                     <Link href="/"><Typography variant="h6" style={{cursor : 'pointer'}}>
                         <DscLogo style={{marginRight : '10px', width : '1.5em'}}/>
                         DSC BPPIMT
                     </Typography></Link>
                 </Grid>
-                <Grid item xs={7} container alignItems="center" spacing={3} justify="flex-end" className={styles.nav}>
+                <Grid item sm={9} container alignItems="center" spacing={3} justify="flex-end" className={styles.nav}>
                     <Grid item>
                         <Link href="/"><a>Home</a></Link>
                     </Grid>

@@ -24,8 +24,8 @@ const Layout = (props) => {
                 <BottomNavigationAction component='div' label="About" icon={<InfoIcon />} onClick={() => router.push('/about')}/>
                 <BottomNavigationAction component='div' label="Events" icon={<BookIcon />} onClick={() => router.push('/events')}/>
                 <BottomNavigationAction component='div' label="Home" icon={<HomeIcon />} onClick={() => router.push('/')}/>
-                <BottomNavigationAction component='div' label="Contact" icon={<BookIcon />} onClick={() => router.push('/blogs')}/>
-                <BottomNavigationAction component='div' label="Contact" icon={<FavoriteIcon />} onClick={() => router.push('/contact')}/>
+                <BottomNavigationAction component='div' label="Blogs" icon={<BookIcon />} onClick={() => router.push('/blogs')}/>
+                <BottomNavigationAction component='div' label="Contact" icon={<ContactsIcon />} onClick={() => router.push('/contact')}/>
             </BottomNavigation>
         </Box>
         <Footer />
