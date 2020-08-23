@@ -1,8 +1,8 @@
 import React from "react";
 
 import RadioGroup from "@material-ui/core/RadioGroup";
-import Radio from "./Radio";
-
+// import Radio from "./Radio";
+import Radio from '@material-ui/core/Radio'
 const FormikRadioGroup = ({
   field,
   form: { touched, errors },
@@ -23,7 +23,6 @@ const FormikRadioGroup = ({
             onChange={field.onChange}
             label={option.label}
             id={fieldName}
-            key={option.label}
           />
         ))}
       </RadioGroup>

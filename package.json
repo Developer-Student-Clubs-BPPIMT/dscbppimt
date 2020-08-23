@@ -14,7 +14,7 @@
     "classnames": "^2.2.6",
     "clsx": "latest",
     "formik": "2.1.5",
-    "formik-material-ui": "2.0.1",
+    "formik-material-ui": "latest",
     "next": "latest",
     "next-images": "^1.4.1",
     "prop-types": "latest",
