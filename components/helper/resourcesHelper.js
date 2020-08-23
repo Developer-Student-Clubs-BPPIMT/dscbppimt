@@ -2,7 +2,7 @@ import placeholder from "../../public/images/placeholder.jpg"
 const resources = [
 
     {
-        category: "ux design",
+        category: "Miscellanous",
         title:"Qwiklabs",
         discription:"Qwiklabs is a learning platform for those who want to become more familiar with operating cloud env...",
         link:"https://www.qwiklabs.com/",
@@ -10,42 +10,42 @@ const resources = [
 
     },
     {
-        category: "ux design",
+        category: "Miscellanous",
         title:"Codelabs",
         discription:"Codelabs provide a guided, hands-on coding experience. Most codelabs will step you through the proce...",
         link:"https://codelabs.developers.google.com/",
         image: placeholder
     },
     {
-        category:"Coding Channels",
+        category:"Coding Sites",
         title:"Tech Dev Guide",
         discription:"Wondering what computer science is all about, or what it’s like to work in the tech industry? Dig de...",
         link:"https://techdevguide.withgoogle.com/",
         image: placeholder 
     },
     {
-        category: "Coding Channels",
+        category: "Coding Sites",
         title:"Dartpad",
         discription:"This project is a web based interactive Dart service in a zero-install, zero configuration environme...",
         link:"https://dartpad.dartlang.org/",
         image: placeholder 
     },
     {
-        category: "Research Papers",
+        category: "Coding Channels",
         title:"Khan Academy",
         discription:"Khan Academy is a non-profit educational organization created in 2008 by Salman Khan with the goal o...",
         link:"https://www.khanacademy.org/",
         image: placeholder 
     },
     {
-        category: "Research Papers",
+        category: "Coding Sites",
         title:"GA Dash",
         discription:"This is General Assembly’s free online learning platform. It's entirely project-based–you build a “p...",
         link:"https://dash.generalassemb.ly/",
         image: placeholder 
     },
     {
-        category: "Miscellanous",
+        category: "Coding Sites",
         title:"Dev.to",
         discription:"Where programmers share ideas and help each other grow....",
         link:"https://dev.to/",
@@ -138,7 +138,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "Miscellanous",
         title:"Nodeschool.io",
         discription:"Nodeschool is a series of open-source command line workshops published on nodeschool.io by developer...",
         link:"https://nodeschool.io/",
@@ -186,7 +186,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "Coding Channels",
         title:"Dev Ed",
         discription:"Learn web development, web design, 3d modelling with tools like Figma, and more without getting bore...",
         link:"https://www.youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q",
@@ -194,7 +194,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "ux design",
         title:"DesignCourse",
         discription:"You will see tutorials regarding UI/UX, Frontend Dev, Backend Dev, Graphic Design and more!...",
         link:"https://www.youtube.com/user/DesignCourse",
@@ -202,7 +202,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "Coding Channels",
         title:"The Coding Train",
         discription:"Subjects covered range from the basics of programming languages to generative algorithms like simula...",
         link:"https://www.youtube.com/user/shiffman",
@@ -210,7 +210,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "Coding Channels",
         title:"Traversy Media",
         discription:"Traversy Media features web development and programming tutorials for all of the latest web technolo...",
         link:"https://www.youtube.com/user/TechGuyWeb",
@@ -218,7 +218,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "Coding Channels",
         title:"Fireship",
         discription:"Formerly Angular Firebase, It helps developers build high quality apps as fast as possible ⚡. Uses a...",
         link:"https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA",
@@ -226,7 +226,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "Coding Channels",
         title:"IBM Developer",
         discription:"IBM Developer provides the best in open source tech, learning resources, by their experts....",
         link:"https://www.youtube.com/user/developerworks",
@@ -234,7 +234,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "Coding Channels",
         title:"Codegrid",
         discription:"Provides online content to help people learn about many concepts of web design, by implementing prol...",
         link:"https://www.youtube.com/channel/UC7pVho4O31FyfQsZdXWejEw",
@@ -242,7 +242,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "Coding Channels",
         title:"Coding Tech",
         discription:"It partners with the tech conferences around the world that allow their videos to be republished her...",
         link:"https://www.youtube.com/channel/UCtxCXg-UvSnTKPOzLH4wJaQ",
@@ -250,7 +250,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "Coding Channels",
         title:"FreeCodeCamp",
         discription:"We're an open source community of busy people who learn to code and build projects for nonprofits. A...",
         link:"https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ",
@@ -258,7 +258,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "Coding Channels",
         title:"JSConf",
         discription:"JSConf is a series of JavaScript conferences from around the world.Find the Talks here. ...",
         link:"https://www.youtube.com/user/jsconfeu",
@@ -266,7 +266,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "Coding Channels",
         title:"Flutter",
         discription:"The Official Flutter YouTube channel. Subscribe to stay up to date with best practices about the Fl...",
         link:"https://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw",
@@ -274,7 +274,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "Research Papers",
         title:"Two Minute Papers",
         discription:"Two Minute Papers is a series where the author attempt to explain many interesting research works, ...",
         link:"https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg",
@@ -282,7 +282,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "Coding Channels",
         title:"The Android Bundle",
         discription:"In the free, self-paced Android Kotlin Fundamentals training, you learn basic Android programming co...",
         link:"https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg",
@@ -290,7 +290,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "Miscellanous",
         title:"Kotlin Bootcamp",
         discription:"Learn the essentials of the Kotlin programming language from Kotlin experts at Google. Kotlin is a m...",
         link:"https://www.udacity.com/course/kotlin-bootcamp-for-programmers--ud9011",
@@ -298,7 +298,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "Miscellanous",
         title:"Android Kotlin Fundamentals",
         discription:"Android Kotlin Fundamentals leads you through a series of codelabs that teach you the fundamentals o...",
         link:"https://codelabs.developers.google.com/android-kotlin-fundamentals/",
@@ -306,7 +306,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "Miscellanous",
         title:"Web Crash Course",
         discription:"Google's opinionated reference for building amazing web experiences....",
         link:"https://developers.google.com/web/fundamentals/",
@@ -314,7 +314,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "Miscellanous",
         title:"AMP for dummies",
         discription:"These courses treat AMP as a web components library that takes care of web performance issues automa...",
         link:"https://amp.dev/documentation/courses/",
@@ -322,7 +322,7 @@ const resources = [
           
     },
     {
-        category: "Coding Sites",
+        category: "Miscellanous",
         title:"Actions on Google",
         discription:"These codelabs provide a guided, tutorial, hands-on coding experience. The codelabs will step you th...",
         link:"https://developers.google.com/actions/codelabs/",
