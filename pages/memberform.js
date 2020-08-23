@@ -1,18 +1,24 @@
-import { Card, CardContent, Box, Container, TextField, Grid, Typography, MenuItem, Button, RadioGroup, FormControlLabel, Radio, InputLabel, FormControl, Grow } from '@material-ui/core'
+import { Card, CardContent, Box, Container, Grid, Typography, MenuItem, Button, LinearProgress, Radio, InputLabel } from '@material-ui/core'
+import { Formik, Form, Field } from 'formik';
+import { TextField } from 'formik-material-ui'
 import Layout from '../components/layout'
 import DscLogo from '../public/svgs/dsc.svg'
 import styles from '../styles/Layout.module.css'
 import { useState } from 'react'
+import * as Yup from 'yup'
+import FormikRadioGroup from '../components/FormikRadioGroup.js'
 
 
 const MemberForm = () => {
-    const [ formState, changeForm ] = useState({
-        name: '',
+    const [ view, changeView ] = useState('personal')
+    const [ formState, changeForm] = useState({
+        firstname: '',
+        lastname : '',
         email: '',
         gender: '',
         stream: '',
         year: '',
-        collegeID: '',
+        college: '',
         github: '',
         linkedin: '',
         codechef: '',
@@ -23,123 +29,205 @@ const MemberForm = () => {
         core: '',
         coreReason: '',
         referral: '',
-        //errors
-        nameError: '',
-        emailError: '',
-        genderError: '',
-        streamError: '',
-        yearError: '',
-        collegeIDError: '',
-        aboutError: '',
-        volunteerError: '',
-        joinReasonError: ''
     })
-    const [ formView, changeView ] = useState('personal');
+
+    const formOneValidation = Yup.object().shape({
+        firstname : Yup.string("First Name").required("Required"),
+        lastname : Yup.string("Last Name").required("Required"),
+        email : Yup.string("Enter your Email").email("Enter a valid Email").required("Required"),
+        college : Yup.string("College Name").required("Required"),
+        year : Yup.string("Academic Year").required("Required"),
+        stream : Yup.string("Stream").required("Required"),
+        github : Yup.string("Github URL").url("Not a Valid URL"),
+        codechef : Yup.string("Codechef URL").url("Not a Valid URL"),
+        hackerrank : Yup.string("Hackerrank URL").url("Not a Valid URL"),
+        linkedin : Yup.string("LinkedIn URL").url("Not a Valid URL")
+    })
+
+    const formTwoValidation = Yup.object({
+        volunteer: Yup.string().required("Choose a Option"),
+        about: Yup.string().notRequired(),
+        joinReason: Yup.string().notRequired(),
+        core: Yup.string().notRequired(),
+        coreReason: Yup.string().notRequired(),
+        referral: Yup.string().notRequired(),
+    })
+
+
+
     const formStep1 = (
-    <form>
-        <Typography variant="h5" style={{fontWeight : '500'}} style={{marginBottom : '1em'}}>Step 1 : Personal Information</Typography>
-        <Grid container spacing={4}>
-            <Grid item container spacing={2}>
-                <Grid item xs><TextField required id="First Name" label="First Name" color="secondary" placeholder="First Name" fullWidth/></Grid>
-                <Grid item xs><TextField required id="First Name" label="Last Name" color="secondary" placeholder="Last Name" fullWidth/></Grid>
-            </Grid>
-            <Grid item xs={12}><TextField required id="Email" label="Email" color="secondary" placeholder="Email" fullWidth/></Grid>
-            <Grid item xs={12}><TextField required id="CollegeID" label="College ID" color="secondary" placeholder="College ID" fullWidth/></Grid>
-            <Grid item container spacing={2}>
-                <Grid item xs>
-                    <TextField required select id="Stream" label="Stream" color="secondary" placeholder="Stream" fullWidth>
-                        <MenuItem value="AEIE" key="AEIE"></MenuItem>
-                        <MenuItem value="BBA" key="BBA">BBA</MenuItem>
-                        <MenuItem value="BCA" key="BCA">BCA</MenuItem>
-                        <MenuItem value="BME" key="BME">BME</MenuItem>
-                        <MenuItem value="CE" key="CE">CE</MenuItem>
-                        <MenuItem value="CSE" key="CSE">CSE</MenuItem>
-                        <MenuItem value="ECE" key="ECE">ECE</MenuItem>
-                        <MenuItem value="EE" key="EE">EE</MenuItem>
-                        <MenuItem value="IT" key="IT">IT</MenuItem>
-                        <MenuItem value="MBA" key="MBA">MBA</MenuItem>
-                        <MenuItem value="MCA" key="MCA">MCA</MenuItem>
-                        <MenuItem value="ME" key="ME">ME</MenuItem>
-                        <MenuItem value="other" key="Other">Other</MenuItem>
-                    </TextField>
+        <Formik
+        initialValues={{
+            firstname: formState.firstname,
+            lastname: formState.lastname,
+            email : formState.email,
+            year : formState.year,
+            stream : formState.stream,
+            college : formState.college,
+            github : formState.github,
+            linkedin : formState.linkedin,
+            codechef : formState.codechef,
+            hackerrank : formState.hackerrank,
+        }}
+
+
+        validationSchema={formOneValidation}
+        onSubmit={async (values, {setSubmitting}) => {
+            setTimeout(() => {
+                setSubmitting(false);
+                changeForm({...values, ...formState})
+                changeView('general')
+              }, 200);
+        }}
+        >
+        {({ submitForm, isSubmitting  }) => (
+            <Form>
+                {isSubmitting && <LinearProgress />}
+                <Typography variant="h5" style={{fontWeight : '500'}} style={{marginBottom : '1em'}}>Step 1 : Personal Information</Typography>
+                <Grid container spacing={1}>
+                    <Grid item container spacing={3}>
+                        <Grid item xs>
+                            <Field component={TextField} id="standard-full-width" name="firstname" type="firstname" label="First Name" placeholder="John" InputLabelProps={{shrink: true,}} fullWidth/>
+                        </Grid>
+                        <Grid item xs>
+                            <Field component={TextField} name="lastname" type="lastname" label="Last Name" InputLabelProps={{shrink: true,}} placeholder="Doe" fullWidth/>
+                        </Grid>
+                    </Grid>
+                    <Grid item container>
+                        <Field component={TextField} name="email" type="email" label="Email" InputLabelProps={{shrink: true,}} placeholder="johndoe@gmail.com" fullWidth/>
+                    </Grid>
+                    <Grid item container>
+                        <Field component={TextField} name="college" type="college" label="College Name" InputLabelProps={{shrink: true,}} placeholder="B.P Poddar Institute of Management and Technology" fullWidth/>
+                    </Grid>
+                    <Grid item container spacing={3}>
+                        <Grid item xs>
+                            <Field select component={TextField} name="stream" type="stream" label="Stream" InputLabelProps={{shrink: true,}} fullWidth>
+                                <MenuItem value="AEIE" key="AEIE">AEIE</MenuItem>
+                                <MenuItem value="BBA" key="BBA">BBA</MenuItem>
+                                <MenuItem value="BCA" key="BCA">BCA</MenuItem>
+                                <MenuItem value="BME" key="BME">BME</MenuItem>
+                                <MenuItem value="CE" key="CE">CE</MenuItem>
+                                <MenuItem value="CSE" key="CSE">CSE</MenuItem>
+                                <MenuItem value="ECE" key="ECE">ECE</MenuItem>
+                                <MenuItem value="EE" key="EE">EE</MenuItem>
+                                <MenuItem value="IT" key="IT">IT</MenuItem>
+                                <MenuItem value="MBA" key="MBA">MBA</MenuItem>
+                                <MenuItem value="MCA" key="MCA">MCA</MenuItem>
+                                <MenuItem value="ME" key="ME">ME</MenuItem>
+                                <MenuItem value="other" key="Other">Other</MenuItem>
+                            </Field>
+                        </Grid>
+                        <Grid item xs>
+                            <Field select component={TextField} name="year" type="year" label="Year" InputLabelProps={{shrink: true,}} fullWidth>
+                                <MenuItem value="1" key="1">1st Year</MenuItem>
+                                <MenuItem value="2" key="2">2nd Year</MenuItem>
+                                <MenuItem value="3" key="3">3rd Year</MenuItem>
+                                <MenuItem value="4" key="4">4th Year</MenuItem>
+                            </Field>
+                        </Grid>
+                    </Grid>
+                    <Grid item container>
+                        <Field component={TextField} name="github" type="github" label="Github Profile" InputLabelProps={{shrink: true,}} placeholder="www.github.com/username" fullWidth/>
+                    </Grid>
+                    <Grid item container>
+                        <Field component={TextField} name="linkedin" type="linkedin" label="LinkedIn Profile" InputLabelProps={{shrink: true,}} placeholder="www.linkedin.com/username" fullWidth/>
+                    </Grid>
+                    <Grid item container>
+                        <Field component={TextField} name="codechef" type="codechef" label="Codechef Profile" InputLabelProps={{shrink: true,}} placeholder="www.codechef.com/username" fullWidth/>
+                    </Grid>
+                    <Grid item container>
+                        <Field component={TextField} name="hackerrank" type="hackerrank" label="Hackerrank Profile" InputLabelProps={{shrink: true,}} placeholder="www.hackerrank.com/username" fullWidth/>
+                    </Grid>
+                    <Grid item xs={12} style={{marginTop : '2em', display : 'flex', justifyContent : 'flex-end'}}>
+                        <Button onClick={submitForm} variant="contained" color="primary" style={{width : '120px'}}>Next</Button>
+                    </Grid>
                 </Grid>
-                <Grid item xs>
-                <TextField required select id="Year" label="Year" color="secondary" placeholder="Year" fullWidth>
-                        <MenuItem value="1" key="1">1st Year</MenuItem>
-                        <MenuItem value="2" key="2">2nd Year</MenuItem>
-                        <MenuItem value="3" key="3">3rd Year</MenuItem>
-                        <MenuItem value="4" key="4">4th Year</MenuItem>
-                    </TextField>
-                </Grid>
-                <Grid item xs={12}><TextField required id="Github URL" label="Github URL" color="secondary" placeholder="github.io/username" fullWidth/></Grid>
-                <Grid item xs={12}><TextField required id="LinkedIn URL" label="LinkedIn URL" color="secondary" placeholder="linkedin.com/username" fullWidth/></Grid>
-                <Grid item xs={12}><TextField required id="CodeChef URL" label="CodeChef URL" color="secondary" placeholder="codechef.com/username" fullWidth/></Grid>
-                <Grid item xs={12}><TextField required id="HackerRank URL" label="HackerRank URL" color="secondary" placeholder="hackerrank.com/username" fullWidth/></Grid>
-            </Grid>
-            <Grid item style={{width : '100%', display : 'flex', justifyContent : 'flex-end', marginTop : '1.5em'}}>
-                <Button variant="contained" color="primary" style={{width : '136px'}} onClick={() => changeView('general')}>Next</Button>
-            </Grid>
-        </Grid>
-    </form>);
+            </Form>
+        )}
+        </Formik>
+    );
 
 const formStep2 = (
-    <form>
-        <Typography variant="h5" style={{fontWeight : '500'}} style={{marginBottom : '1em'}}>Step 2 : General Information</Typography>
-        <Grid container spacing={3}>
-            <Grid item xs={12}>
-                <FormControl>
-                    <h3 for="my-input" style={{margin : '2px 0px'}}>Would you love to volunteer for DSC BPPIMT ?</h3>
-                    <RadioGroup row required>
-                        <FormControlLabel labelPlacement="end" value="yes" control={<Radio />} label="Yes" />
-                        <FormControlLabel labelPlacement="end" value="no" control={<Radio />} label="No" />
-                        <FormControlLabel labelPlacement="end" value="maybe" control={<Radio />} label="Maybe" />
-                    </RadioGroup>
-                </FormControl>
-            </Grid>
+    <Formik
+    initialValues={{
+        volunteer: formState.volunteer,
+        about: formState.about,
+        joinReason: formState.joinReason,
+        core: formState.core,
+        coreReason: formState.coreReason,
+        referral: formState.referral,
+    }}
 
-            <Grid item xs={12}>
-                    <h3 for="my-input" style={{margin : '2px 0px'}}>Tell us a little something about yourself (add a fun fact maybe) *</h3>
-                    <TextField required id="CollegeID" color="secondary" placeholder="College ID" fullWidth/>
-            </Grid>
 
-            <Grid item xs={12}>
-                    <h3 for="my-input" style={{margin : '2px 0px'}}>Why would you like to join DSC ?</h3>
-                    <TextField required id="CollegeID" color="secondary" placeholder="College ID" fullWidth/>
-            </Grid>
 
+    validationSchema={formTwoValidation}
+    onSubmit={(values, {setSubmitting}) => {
+        setTimeout(() => {
+            setSubmitting(false);
+            changeForm({...values, ...formState})
+          }, 200);
+    }}
+    >
+    {({ submitForm, isSubmitting  }) => (
+        <Form>
+            <Typography variant="h5" style={{fontWeight : '500'}} style={{marginBottom : '1em'}}>Step 2 : General Information</Typography>
+            <Grid container spacing={4}>
             <Grid item xs={12}>
-                <FormControl>
-                    <h3 for="my-input" style={{margin : '2px 0px'}}>Would you be eager to join the core ?</h3>
-                    <Typography variant="body2">The core committee leads the several smaller teams of Design, Web, App, Outreach and ensures the proper management of the entire club.</Typography>
-                    <RadioGroup row required>
-                        <FormControlLabel labelPlacement="end" value="yes" control={<Radio />} label="Yes" />
-                        <FormControlLabel labelPlacement="end" value="no" control={<Radio />} label="No" />
-                        <FormControlLabel labelPlacement="end" value="maybe" control={<Radio />} label="Maybe" />
-                    </RadioGroup>
-                </FormControl>
-            </Grid>
-            <Grid item xs={12}>
-                    <h3 for="my-input" style={{margin : '2px 0px'}}>If so, Why ?</h3>
-                    <TextField required id="CollegeID" color="secondary" placeholder="College ID" fullWidth/>
-            </Grid>
-            <Grid item xs={12}>
-                    <h3 for="my-input" style={{margin : '2px 0px'}}>Who referred you to this Club? (if anyone!)</h3>
-                    <TextField required id="CollegeID" color="secondary" placeholder="College ID" fullWidth/>
-            </Grid>
-            <Grid item style={{width : '100%', display : 'flex', justifyContent : 'flex-end', marginTop : '2em'}}>
-                <Button variant="contained" style={{width : '136px'}} onClick={() => changeView('personal')}>Back</Button>
-                <Button variant="contained" color="primary" style={{width : '136px', marginLeft : '1em'}} onClick={() => changeView('preview')}>Submit</Button>
-            </Grid>
+            <InputLabel>Would you love to volunteer for DSC NSEC?</InputLabel>
+        <Field
+            row
+            name="volunteer"
+            component={FormikRadioGroup}
+            options={[
+                { value: "Yes", label: "Yes" },
+                { value: "No", label: "No" },
+                { value: "Maybe", label: "Maybe" }
+              ]}
+          />
         </Grid>
-    </form>);
+        <Grid item xs={12}>
+            <Field component={TextField} name="about" type="about" label="Tell us a little something about yourself (add a fun fact maybe)" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
+        </Grid>
+        <Grid item xs={12}>
+            <Field component={TextField} name="joinReason" type="joinReason" label="Why would you want to join DSC?" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
+        </Grid>
+        <Grid item xs={12}>
+            <InputLabel>Would you be eager to join the core?</InputLabel>
+            <Typography variant="body2" style={{color : 'gray', marginTop : '4px', marginBottom : '8px'}}>The core committee leads the several smaller teams of Design, Web, App, Outreach and ensures the proper management of the entire club.</Typography>
+        <Field
+            row
+            name="core"
+            component={FormikRadioGroup}
+            options={[
+                { value: "Yes", label: "Yes" },
+                { value: "No", label: "No" },
+                { value: "Maybe", label: "Maybe" }
+              ]}
+          />
+        </Grid>
+        <Grid item xs={12}>
+            <Field component={TextField} name="coreReason" type="coreReason" helperText="Please mention the area of your expertise and what would you wish to contribute to the community." label="If so, why?" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
+        </Grid>
+        <Grid item xs={12}>
+            <Field component={TextField} name="referral" type="referral" helperText="Please provide their name or email" label="Who referred you to this Club? (if anyone!)" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
+        </Grid>
+        <Grid item xs={12} style={{marginTop : '2em', display : 'flex', justifyContent : 'flex-end'}}>
+        <Button onClick={() => changeView('personal')} variant="contained" style={{width : '120px', marginRight : '1em'}}>Back</Button>
+                        <Button type="submit" onClick={submitForm} variant="contained" color="primary" disabled={isSubmitting} style={{width : '120px'}}>Next</Button>
+                    </Grid>
+            </Grid>
+        </Form>
+    )}
+    </Formik>);
 
     const preview = (
 <form>
         <Typography variant="h5" style={{fontWeight : '500'}} style={{marginBottom : '1em'}}>Step 3 : Preview Information</Typography>
         <Grid container spacing={3}>
-            <Grid item style={{width : '100%', display : 'flex', justifyContent : 'flex-end', marginTop : '2em'}}>
-                <Button variant="contained" style={{width : '136px'}} onClick={() => changeView('personal')}>Back</Button>
-                <Button variant="contained" color="primary" style={{width : '136px', marginLeft : '1em'}} onClick={() => changeView('preview')}>Submit</Button>
+
+            <Grid item container>
+                <Grid item><Button variant="contained" style={{width : '136px', marginRight : '2em'}} onClick={() => changeView('personal')}>Back</Button></Grid>
+                <Grid item><Button variant="contained" color="primary" style={{width : '136px', marginLeft : '2em'}} onClick={() => changeView('preview')}>Submit</Button></Grid>
             </Grid>
         </Grid>
     </form>);
@@ -177,7 +265,7 @@ const formStep2 = (
         <Box style={{maxWidth : '850px', margin : '2em auto'}}>
             <Card>
                 <CardContent style={{padding : '1.3em'}}>
-                    {renderView(formView)}
+                    { renderView(view) }
                 </CardContent>
             
             </Card>
