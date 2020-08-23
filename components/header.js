@@ -3,7 +3,6 @@ import styles from '../styles/Layout.module.css'
 import TeamArt from '../public/svgs/teamart.svg'
 import { useRouter } from 'next/router'
 
-
 const Header = () => {
     const router = useRouter();
     const pushPage = (url) => {
@@ -27,4 +26,4 @@ const Header = () => {
     </Container>)
 }
 
-export default Header
+export default Header;
