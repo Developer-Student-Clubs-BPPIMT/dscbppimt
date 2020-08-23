@@ -1,26 +1,24 @@
-import { Card, CardContent, Box, Container, Grid, Typography, MenuItem, Button, LinearProgress, InputLabel, Stepper, Step, StepLabel, FormControlLabel, Radio, Menu } from '@material-ui/core'
-import Link from 'next/link'
-import { Formik, Form, Field } from 'formik';
-import { TextField, RadioGroup, Select } from 'formik-material-ui'
+import { Card, CardContent, Box, Container, Grid, Typography, MenuItem, Button, LinearProgress, InputLabel, Stepper, Step, StepLabel, FormControlLabel, Radio, Menu, CircularProgress, FormHelperText } from '@material-ui/core'
 import Layout from '../components/layout'
 import DscLogo from '../public/svgs/dsc.svg'
 import styles from '../styles/Layout.module.css'
 import { useState } from 'react'
 import * as Yup from 'yup'
-import FormikRadioGroup from '../components/FormikRadioGroup.js'
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import { FormikStepper, FormikStep } from '../components/FormikStepper';
+
+import FormStepOne from '../components/forms/FormStepOne';
+import FormStepTwo from '../components/forms/FormStepTwo';
+
 
 
 const MemberForm = () => {
-    const [ view, changeView ] = useState('personal')
-    const [ activeStep, changeStep ] = useState(0);
     const [ formState, changeForm] = useState({
-        firstname: '',
-        lastname : '',
-        email: '',
+        firstname: 'a',
+        lastname : 'a',
+        email: 'whois@gmail.com',
         stream: 'IT',
         year: '1st Year',
-        college: '',
+        college: 's',
         github: '',
         linkedin: '',
         codechef: '',
@@ -56,192 +54,6 @@ const MemberForm = () => {
     })
 
 
-
-    const formStep1 = (
-        <Formik
-        initialValues={{
-            firstname: formState.firstname,
-            lastname: formState.lastname,
-            email : formState.email,
-            year : formState.year,
-            stream : formState.stream,
-            college : formState.college,
-            github : formState.github,
-            linkedin : formState.linkedin,
-            codechef : formState.codechef,
-            hackerrank : formState.hackerrank,
-        }}
-
-
-        validationSchema={formOneValidation}
-        onSubmit={async (values, {setSubmitting}) => {
-            setTimeout(() => {
-                setSubmitting(false);
-                changeForm({...formState, ...values})
-                changeStep(activeStep+1)
-                changeView('general')
-                console.log(formState)
-              }, 200);
-        }}
-        >
-        {({ submitForm, isSubmitting  }) => (
-            <Form>
-                {isSubmitting && <LinearProgress />}
-                <Grid container spacing={2}>
-                    <Grid item container spacing={3}>
-                        <Grid item xs>
-                            <Field component={TextField} name="firstname" type="firstname" label="First Name" placeholder="John" InputLabelProps={{shrink: true,}} fullWidth/>
-                        </Grid>
-                        <Grid item xs>
-                            <Field component={TextField} name="lastname" type="lastname" label="Last Name" InputLabelProps={{shrink: true,}} placeholder="Doe" fullWidth/>
-                        </Grid>
-                    </Grid>
-                    <Grid item container>
-                        <Field component={TextField} name="email" type="email" label="Email" InputLabelProps={{shrink: true,}} placeholder="johndoe@gmail.com" fullWidth/>
-                    </Grid>
-                    <Grid item container>
-                        <Field component={TextField} name="college" type="college" label="College Name" InputLabelProps={{shrink: true,}} placeholder="B.P Poddar Institute of Management and Technology" fullWidth/>
-                    </Grid>
-                    <Grid item container spacing={3}>
-                        <Grid item xs>
-                            <Field component={Select} name="stream" type="text" label="Stream" fullWidth>
-                                <MenuItem value="AEIE" key="AEIE">AEIE</MenuItem>
-                                <MenuItem value="BBA" key="BBA">BBA</MenuItem>
-                                <MenuItem value="BCA" key="BCA">BCA</MenuItem>
-                                <MenuItem value="BME" key="BME">BME</MenuItem>
-                                <MenuItem value="CE" key="CE">CE</MenuItem>
-                                <MenuItem value="CSE" key="CSE">CSE</MenuItem>
-                                <MenuItem value="ECE" key="ECE">ECE</MenuItem>
-                                <MenuItem value="EE" key="EE">EE</MenuItem>
-                                <MenuItem value="IT" key="IT">IT</MenuItem>
-                                <MenuItem value="MBA" key="MBA">MBA</MenuItem>
-                                <MenuItem value="MCA" key="MCA">MCA</MenuItem>
-                                <MenuItem value="ME" key="ME">ME</MenuItem>
-                                <MenuItem value="other" key="Other">Other</MenuItem>
-                            </Field>
-                        </Grid>
-                        <Grid item xs>
-                            <Field component={Select} name="year" type="text" label="Year" fullWidth>
-                                <MenuItem value="1st Year" key="1">1st Year</MenuItem>
-                                <MenuItem value="2nd Year" key="2">2nd Year</MenuItem>
-                                <MenuItem value="3rd Year" key="3">3rd Year</MenuItem>
-                                <MenuItem value="4th Year" key="4">4th Year</MenuItem>
-                            </Field>
-                        </Grid>
-                    </Grid>
-                    <Grid item container>
-                        <Field component={TextField} name="github" type="github" label="Github Profile" InputLabelProps={{shrink: true,}} placeholder="www.github.com/username" fullWidth/>
-                    </Grid>
-                    <Grid item container>
-                        <Field component={TextField} name="linkedin" type="linkedin" label="LinkedIn Profile" InputLabelProps={{shrink: true,}} placeholder="www.linkedin.com/username" fullWidth/>
-                    </Grid>
-                    <Grid item container>
-                        <Field component={TextField} name="codechef" type="codechef" label="Codechef Profile" InputLabelProps={{shrink: true,}} placeholder="www.codechef.com/username" fullWidth/>
-                    </Grid>
-                    <Grid item container>
-                        <Field component={TextField} name="hackerrank" type="hackerrank" label="Hackerrank Profile" InputLabelProps={{shrink: true,}} placeholder="www.hackerrank.com/username" fullWidth/>
-                    </Grid>
-                    <Grid item xs={12} style={{marginTop : '2em', display : 'flex', justifyContent : 'flex-end'}}>
-                        <Button onClick={submitForm} variant="contained" color="primary" style={{width : '120px'}}>Next</Button>
-                    </Grid>
-                </Grid>
-            </Form>
-        )}
-        </Formik>
-    );
-
-const formStep2 = (
-    <Formik
-    initialValues={{
-        volunteer: formState.volunteer,
-        about: formState.about,
-        joinReason: formState.joinReason,
-        core: formState.core,
-        coreReason: formState.coreReason,
-        referral: formState.referral,
-    }}
-
-    validationSchema={formTwoValidation}
-    onSubmit={(values, {setSubmitting}) => {
-        setTimeout(() => {
-            setSubmitting(false);
-            changeStep(activeStep+1)
-            changeView('congrats')
-            changeForm({...formState, ...values})
-            console.log(formState);
-          }, 200);
-    }}
-    >
-    {({ submitForm, isSubmitting, errors, touched  }) => (
-        <Form>
-            <Grid container spacing={4}>
-            <Grid item xs={12}>
-            <InputLabel>Would you love to volunteer for DSC NSEC?</InputLabel>
-        <Field
-            row
-            name="volunteer"
-            component={RadioGroup}>
-              <FormControlLabel label="Yes" value="yes" control={<Radio />}/>
-              <FormControlLabel label="No" value="no" control={<Radio />}/>
-              <FormControlLabel label="Maybe" value="maybe" control={<Radio />}/>
-          </Field>
-        </Grid>
-        <Grid item xs={12}>
-            <Field component={TextField} name="joinReason" type="joinReason" label="Why would you want to join DSC?" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
-        </Grid>
-        <Grid item xs={12}>
-        <Field component={TextField} name="about" type="about" label="Tell us a little something about yourself" helperText="Add a fun fact maybe :)" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
-        </Grid>
-        <Grid item xs={12}>
-            <InputLabel>Would you be eager to join the core?</InputLabel>
-            <Typography variant="body2" style={{color : 'gray', marginTop : '4px', marginBottom : '8px'}}>The core committee leads the several smaller teams of Design, Web, App, Outreach and ensures the proper management of the entire club.</Typography>
-            <Field
-            row
-            name="core"
-            component={RadioGroup}>
-              <FormControlLabel label="Yes" value="yes" control={<Radio />}/>
-              <FormControlLabel label="No" value="no" control={<Radio />}/>
-              <FormControlLabel label="Maybe" value="maybe" control={<Radio />}/>
-          </Field>
-        </Grid>
-        <Grid item xs={12}>
-            <Field component={TextField} name="coreReason" type="coreReason" helperText="Please mention the area of your expertise and what would you wish to contribute to the community." label="If so, why?" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
-        </Grid>
-        <Grid item xs={12}>
-            <Field component={TextField} name="referral" type="referral" helperText="Please provide their name or email" label="Who referred you to this Club? (if anyone!)" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
-        </Grid>
-        <Grid item xs={12} style={{marginTop : '2em', display : 'flex', justifyContent : 'flex-end'}}>
-        <Button onClick={() => { changeView('personal'); changeStep(activeStep-1); }} variant="contained" style={{width : '120px', marginRight : '1em'}}>Back</Button>
-                        <Button type="submit" onClick={submitForm} variant="contained" color="primary" disabled={isSubmitting} style={{width : '120px'}}>Next</Button>
-                    </Grid>
-            </Grid>
-        </Form>
-    )}
-    </Formik>);
-
-    const formStep3 = (
-        <Container style={{textAlign : 'center', padding : '2em 0px'}}>
-            <CheckCircleIcon style={{width : '160px', height : '160px', color : 'green'}}/>
-            <Typography variant="h4">Congratulations {formState.firstname}! </Typography>
-            <Link href="/"><Button>Return Home</Button></Link>
-        </Container>
-    )
-
-
-
-    const renderView = (view) => {
-        switch(view){
-            case 'personal':
-                return formStep1;
-            case 'general':
-                return formStep2;
-            case 'congrats':
-                return formStep3;
-            default:
-                break;
-        }
-    }
-
     return(
     <Layout>
         <Container>
@@ -257,21 +69,10 @@ const formStep2 = (
                 <Grid item xs={12} md={4} style={{display : 'flex', alignItems : 'center'}}><DscLogo style={{width : "100%", height : '80%'}}/></Grid>
             </Grid>
         </Container>
-        <Box style={{maxWidth : '850px', margin : '2em auto', }}>
+        <Box style={{maxWidth : '850px', margin : '2em auto', marginBottom : '5em'}}>
             <Card>
-                <Stepper activeStep={activeStep} alternativeLabel style={{marginBottom : '1em'}}>
-                    <Step key="1">
-                        <StepLabel>Personal Information</StepLabel>
-                    </Step>
-                    <Step key="2">
-                        <StepLabel>General Information</StepLabel>
-                    </Step>
-                    <Step key="3">
-                        <StepLabel>Congratulations!</StepLabel>
-                    </Step>
-                </Stepper>
                 <CardContent style={{padding : '1.3em'}}>
-                    { renderView(view) }
+                    <FormikStepper initialValues={formState} onSubmit={(values) => {console.log('values', values);}} labels={["Personal Information", "General Information", "Success"]} validationSchemas={[formOneValidation, formTwoValidation]}></FormikStepper>
                 </CardContent>
             </Card>
         </Box>
@@ -280,4 +81,5 @@ const formStep2 = (
 }
 
 export default MemberForm
+
 
