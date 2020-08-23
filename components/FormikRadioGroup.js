@@ -23,6 +23,7 @@ const FormikRadioGroup = ({
             onChange={field.onChange}
             label={option.label}
             id={fieldName}
+            key={option.label}
           />
         ))}
       </RadioGroup>

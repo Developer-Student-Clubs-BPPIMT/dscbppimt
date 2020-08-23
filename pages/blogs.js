@@ -7,8 +7,8 @@ import { BlogCard } from '../components/card'
 function Blogs() {
     return (
         <Layout>
-                <Container>
-                <Typography variant="h6" style={{fontWeight : '500', margin : '1em 0px'}}>Our Blogs</Typography>
+                <Container style={{marginBottom : '2em'}}>
+                <Typography variant="h4" style={{fontWeight : '500', margin : '1em 0px'}}>Our Blogs</Typography>
                     <Grid container spacing={2}>
                     {blogs.map(event => (
                         <Grid item xs={12} sm={6} md={12}>

@@ -1,4 +1,5 @@
-import { Card, CardContent, Box, Container, Grid, Typography, MenuItem, Button, LinearProgress, InputLabel, FormHelperText } from '@material-ui/core'
+import { Card, CardContent, Box, Container, Grid, Typography, MenuItem, Button, LinearProgress, InputLabel, FormHelperText, Stepper, Step, StepLabel } from '@material-ui/core'
+import Link from 'next/link'
 import { Formik, Form, Field } from 'formik';
 import { TextField } from 'formik-material-ui'
 import Layout from '../components/layout'
@@ -6,13 +7,15 @@ import DscLogo from '../public/svgs/dsc.svg'
 import styles from '../styles/Layout.module.css'
 import { useState } from 'react'
 import * as Yup from 'yup'
-import FormikRadioGroup from '../components/FormikRadioGroup.js.js'
+import FormikRadioGroup from '../components/FormikRadioGroup.js'
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 
 const MemberForm = () => {
-    const [ view, changeView ] = useState('general')
+    const [ view, changeView ] = useState('personal')
+    const [ activeStep, changeStep ] = useState(0);
     const [ formState, changeForm] = useState({
-        firstname: '',
+        firstname: 'Aritra',
         lastname : '',
         email: '',
         gender: '',
@@ -76,6 +79,7 @@ const MemberForm = () => {
             setTimeout(() => {
                 setSubmitting(false);
                 changeForm({...values, ...formState})
+                changeStep(activeStep+1)
                 changeView('general')
               }, 200);
         }}
@@ -83,7 +87,6 @@ const MemberForm = () => {
         {({ submitForm, isSubmitting  }) => (
             <Form>
                 {isSubmitting && <LinearProgress />}
-                <Typography variant="h5" style={{fontWeight : '500'}} style={{marginBottom : '1em'}}>Step 1 : Personal Information</Typography>
                 <Grid container spacing={2}>
                     <Grid item container spacing={3}>
                         <Grid item xs>
@@ -164,13 +167,14 @@ const formStep2 = (
     onSubmit={(values, {setSubmitting}) => {
         setTimeout(() => {
             setSubmitting(false);
+            changeStep(activeStep+1)
+            changeView('congrats')
             changeForm({...values, ...formState})
           }, 200);
     }}
     >
     {({ submitForm, isSubmitting, errors  }) => (
         <Form>
-            <Typography variant="h5" style={{fontWeight : '500'}} style={{marginBottom : '1em'}}>Step 2 : General Information</Typography>
             <Grid container spacing={4}>
             <Grid item xs={12}>
             <InputLabel>Would you love to volunteer for DSC NSEC?</InputLabel>
@@ -179,14 +183,14 @@ const formStep2 = (
             name="volunteer"
             component={FormikRadioGroup}
             options={[
-                { value: "Yes", label: "Yes" },
-                { value: "No", label: "No" },
-                { value: "Maybe", label: "Maybe" }
+                { name : 'v_yes', value: "Yes", label: "Yes" },
+                { name : 'v_no', value: "No", label: "No" },
+                { name : 'v_maybe', value: "Maybe", label: "Maybe" }
               ]}
           />
         </Grid>
         <Grid item xs={12}>
-            <Field component={TextField} name="about" type="about" label="Tell us a little something about yourself (add a fun fact maybe)" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
+            <Field component={TextField} name="about" type="about" label="Tell us a little something about yourself" helperText="Add a fun fact maybe :)" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
         </Grid>
         <Grid item xs={12}>
             <Field component={TextField} name="joinReason" type="joinReason" label="Why would you want to join DSC?" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
@@ -199,9 +203,9 @@ const formStep2 = (
             name="core"
             component={FormikRadioGroup}
             options={[
-                { value: "Yes", label: "Yes" },
-                { value: "No", label: "No" },
-                { value: "Maybe", label: "Maybe" }
+                { name : 'c_yes', value: "Yes", label: "Yes" },
+                { name : 'c_no', value: "No", label: "No" },
+                { name : 'c_maybe', value: "Maybe", label: "Maybe" }
               ]}
           />
           <FormHelperText error={true} style={{color : 'red'}}>{errors.core}</FormHelperText>
@@ -213,13 +217,21 @@ const formStep2 = (
             <Field component={TextField} name="referral" type="referral" helperText="Please provide their name or email" label="Who referred you to this Club? (if anyone!)" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
         </Grid>
         <Grid item xs={12} style={{marginTop : '2em', display : 'flex', justifyContent : 'flex-end'}}>
-        <Button onClick={() => changeView('personal')} variant="contained" style={{width : '120px', marginRight : '1em'}}>Back</Button>
+        <Button onClick={() => { changeView('personal'); changeStep(activeStep-1); }} variant="contained" style={{width : '120px', marginRight : '1em'}}>Back</Button>
                         <Button type="submit" onClick={submitForm} variant="contained" color="primary" disabled={isSubmitting} style={{width : '120px'}}>Next</Button>
                     </Grid>
             </Grid>
         </Form>
     )}
     </Formik>);
+
+    const formStep3 = (
+        <Container style={{textAlign : 'center', padding : '2em 0px'}}>
+            <CheckCircleIcon style={{width : '160px', height : '160px', color : 'green'}}/>
+            <Typography variant="h4">Congratulations {formState.firstname}! </Typography>
+            <Link href="/"><Button>Return Home</Button></Link>
+        </Container>
+    )
 
 
 
@@ -229,6 +241,8 @@ const formStep2 = (
                 return formStep1;
             case 'general':
                 return formStep2;
+            case 'congrats':
+                return formStep3;
             default:
                 break;
         }
@@ -249,8 +263,19 @@ const formStep2 = (
                 <Grid item xs={12} md={4} style={{display : 'flex', alignItems : 'center'}}><DscLogo style={{width : "100%", height : '80%'}}/></Grid>
             </Grid>
         </Container>
-        <Box style={{maxWidth : '850px', margin : '2em auto'}}>
+        <Box style={{maxWidth : '850px', margin : '2em auto', }}>
             <Card>
+                <Stepper activeStep={activeStep} alternativeLabel style={{marginBottom : '1em'}}>
+                    <Step key="1">
+                        <StepLabel>Personal Information</StepLabel>
+                    </Step>
+                    <Step key="2">
+                        <StepLabel>General Information</StepLabel>
+                    </Step>
+                    <Step key="3">
+                        <StepLabel>Congratulations!</StepLabel>
+                    </Step>
+                </Stepper>
                 <CardContent style={{padding : '1.3em'}}>
                     { renderView(view) }
                 </CardContent>
