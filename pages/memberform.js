@@ -13,12 +13,12 @@ import FormStepTwo from '../components/forms/FormStepTwo';
 
 const MemberForm = () => {
     const [ formState, changeForm] = useState({
-        firstname: 'a',
-        lastname : 'a',
-        email: 'whois@gmail.com',
-        stream: 'IT',
-        year: '1st Year',
-        college: 's',
+        firstname: '',
+        lastname : '',
+        email: '',
+        stream: '',
+        year: '',
+        college: '',
         github: '',
         linkedin: '',
         codechef: '',
