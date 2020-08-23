@@ -1,3 +1,11 @@
+.layout{
+    height: 100%;
+    background: red;
+}
+
+.title span{
+    color : var(--primary-color)
+}
 .header span{
     color : var(--primary-color);
 }
@@ -16,8 +24,9 @@
 
 
 .bottomNav{
-    position: sticky;
-    bottom: 0;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
     display: none;
 }
 
@@ -29,9 +38,28 @@
     display: none;
 }
 
+.bottomNav nav div{
+    min-width: 0px;
+}
+
+.nav a{
+    text-decoration: none;
+    color: black;
+}
+.nav a:hover{
+    color : var(--primary-color);
+}
+
+.simpleContainer{
+    padding: '2em';
+}
+
 
 
 @media screen and (max-width: 960px) {
+    .simpleContainer{
+        padding: '2em 1em';
+    }
     .header div{
         text-align: center;
     }
@@ -49,4 +77,10 @@
     .bottomNav{
         display: block;
     }
+
+    .eventsCard button{
+        display: none;
+    }
+
+
   }

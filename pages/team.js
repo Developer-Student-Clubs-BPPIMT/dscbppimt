@@ -47,3 +47,4 @@ const MemberCard = (props) => {
         </Box>
     </Card>)
 }
+

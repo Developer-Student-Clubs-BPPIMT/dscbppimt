@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Card, CardContent, Box, Container, Grid, Typography, MenuItem, Button, LinearProgress, InputLabel, FormHelperText } from '@material-ui/core'
 import { Formik, Form, Field } from 'formik';
 import { TextField } from 'formik-material-ui'
@@ -261,3 +262,4 @@ const formStep2 = (
 }
 
 export default MemberForm
+
