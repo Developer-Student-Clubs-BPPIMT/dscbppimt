@@ -1,4 +1,4 @@
-import { Container, withStyles, Card } from "@material-ui/core";
+import { Container, withStyles, Card, Button } from "@material-ui/core";
 import resources from "../components/helper/resourcesHelper";
 import Layout from "../components/layout";
 import { useState } from "react";
@@ -15,17 +15,6 @@ const styles = theme => ({
         justifyContent: "space-around",
         width: "100%",
         height: "5vh",
-        "& button":{
-            boxShadow: "1px 3px 5px 0px rgba(102,98,102,0.58)",
-            margin: "0 2%",
-            width: "16%",
-            border: "none",
-            borderRadius: "5px",
-            color: "white",
-            fontSize: "1rem",
-            background: "#1FA9E5",
-
-        },
         [theme.breakpoints.down("md")]:{
             display : "none"
         }
@@ -91,12 +80,12 @@ const Resources = ({classes}) => {
         <Container>
             <div className={classes.buttons}>
 
-                <button onClick={handleALL}>All</button>
-                <button onClick={handleCodingSites}>Coding Sites</button>
-                <button onClick={handleUx}>UI/UX</button>
-                <button onClick={handleCodingChannels}>Coding Channels</button>
-                <button onClick={handleResearchPapers}>Research Papers</button>
-                <button onClick={handleMiscellaneous}>Miscellaneous</button>
+                <Button color="primary" size="large" variant="text"  onClick={handleALL}>All</Button>
+                <Button color="primary" size="large" variant="text"  onClick={handleCodingSites}>Coding Sites</Button>
+                <Button color="primary" size="large" variant="text"  onClick={handleUx}>UI/UX</Button>
+                <Button color="primary" size="large" variant="text"  onClick={handleCodingChannels}>Coding Channels</Button>
+                <Button color="primary" size="large" variant="text"  onClick={handleResearchPapers}>Research Papers</Button>
+                <Button color="primary" size="large" variant="text"  onClick={handleMiscellaneous}>Miscellaneous</Button>
 
             </div>
             <div className={classes.dialogue}>
@@ -113,8 +102,10 @@ const Resources = ({classes}) => {
             {totalData.map(data => (
                 <div className={classes.resources}>
                     <MediaCard 
-                        id={data.id}
+                        title={data.title}
+                        discription={data.discription}
                         image={data.image}
+                        link={data.link}
                     />
                 </div>
             ))}

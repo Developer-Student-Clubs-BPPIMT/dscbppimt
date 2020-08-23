@@ -1,0 +1,196 @@
+
+Qwiklabs
+Qwiklabs is a learning platform for those who want to become more familiar with operating cloud env...
+Learn More 
+
+
+Codelabs
+Codelabs provide a guided, hands-on coding experience. Most codelabs will step you through the proce...
+Learn More 
+
+
+Tech Dev Guide
+Wondering what computer science is all about, or what it’s like to work in the tech industry? Dig de...
+Learn More 
+
+
+Dartpad
+This project is a web based interactive Dart service in a zero-install, zero configuration environme...
+Learn More 
+
+Khan Academy
+Khan Academy is a non-profit educational organization created in 2008 by Salman Khan with the goal o...
+Learn More 
+
+GA Dash
+This is General Assembly’s free online learning platform. It's entirely project-based–you build a “p...
+Learn More 
+
+Dev.to
+Where programmers share ideas and help each other grow....
+Learn More 
+
+Hackr.io
+This isn't a platform itself, but it's a great list of community-curated programming resources....
+Learn More 
+
+Google Design
+A directory of essential design tools and resources to keep your projects moving forward...
+Learn More 
+
+
+Microsoft Virtual Academy
+Microsoft Virtual Academy’s Learning Paths are curated free coding courses designed to help you buil...
+Learn More 
+
+Edabit
+Edabit is “like Duolingo for learning to code,” offering bite-sized coding challenges that simulate ...
+Learn More 
+
+Codeanywhere.com
+Codeanywhere is a cross-platform Cloud IDE. Codeanywhere enables users to instantly write, edit, col...
+Learn More 
+
+Codeacademy
+Codecademy is an online interactive platform that offers free coding classes in 12 different Program...
+Learn More 
+
+Codewars
+An educational community for programming. On the platform, software developers train on programming ...
+Learn More 
+
+Freecodecamp
+freeCodeCamp is a non-profit organization that consists of an interactive learning web platform, an ...
+Learn More 
+
+W3Schools
+W3Schools is an educational website for learning web technologies online. Content includes tutorials...
+Learn More 
+
+The Odin Project
+The Odin Project was created to provide a complete path for students to go from zero to employed as ...
+Learn More 
+
+Scotch.io
+Scotch Development is a web development blog discussing all things programming, development, web and...
+Learn More 
+
+Nodeschool.io
+Nodeschool is a series of open-source command line workshops published on nodeschool.io by developer...
+Learn More 
+
+Mozilla Developer Network
+Mozilla Developer Network is the official Mozilla website for development documentation of web stand...
+Learn More 
+
+Web.dev
+As the web advances, users' expectations get higher. With web.dev's guidance, you can give your user...
+Learn More 
+
+
+Google Developers
+Google Developers is Google's site for software development tools, APIs, and technical resources. Th...
+Learn More
+
+Papers with Code
+Papers With Code is a free and open resource with Machine Learning papers, code and evaluation table...
+Learn More 
+
+CS50
+CS50 is Harvard University's introduction to computer science and the art of programming. ...
+Learn More
+
+
+Dev Ed
+Learn web development, web design, 3d modelling with tools like Figma, and more without getting bore...
+Learn More
+
+
+DesignCourse
+You will see tutorials regarding UI/UX, Frontend Dev, Backend Dev, Graphic Design and more!...
+Learn More
+
+
+The Coding Train
+Subjects covered range from the basics of programming languages to generative algorithms like simula...
+Learn More
+
+
+Traversy Media
+Traversy Media features web development and programming tutorials for all of the latest web technolo...
+Learn More
+
+
+Fireship
+Formerly Angular Firebase, It helps developers build high quality apps as fast as possible ⚡. Uses a...
+Learn More
+
+
+IBM Developer
+IBM Developer provides the best in open source tech, learning resources, by their experts....
+Learn More
+
+
+Codegrid
+Provides online content to help people learn about many concepts of web design, by implementing prol...
+Learn More
+
+
+Coding Tech
+It partners with the tech conferences around the world that allow their videos to be republished her...
+Learn More
+
+
+FreeCodeCamp
+We're an open source community of busy people who learn to code and build projects for nonprofits. A...
+Learn More
+
+
+JSConf
+JSConf is a series of JavaScript conferences from around the world.Find the Talks here. ...
+Learn More
+
+
+Flutter
+The Official Flutter YouTube channel. Subscribe to stay up to date with best practices about the Fl...
+Learn More
+
+
+Two Minute Papers
+Two Minute Papers is a series where the author attempt to explain many interesting research works, ...
+Learn More
+
+
+The Android Bundle
+In the free, self-paced Android Kotlin Fundamentals training, you learn basic Android programming co...
+Learn More
+
+
+Kotlin Bootcamp
+Learn the essentials of the Kotlin programming language from Kotlin experts at Google. Kotlin is a m...
+Learn More
+
+
+Android Kotlin Fundamentals
+Android Kotlin Fundamentals leads you through a series of codelabs that teach you the fundamentals o...
+Learn More
+
+
+Web Crash Course
+Google's opinionated reference for building amazing web experiences....
+Learn More
+
+
+AMP for dummies
+These courses treat AMP as a web components library that takes care of web performance issues automa...
+Learn More
+
+
+Actions on Google
+These codelabs provide a guided, tutorial, hands-on coding experience. The codelabs will step you th...
+Learn More
+
+
+The Code Player
+What makes this site unique is its videos and presentations that showcase code created by others. Yo...
+Learn More
