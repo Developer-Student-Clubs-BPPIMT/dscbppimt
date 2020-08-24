@@ -4,23 +4,38 @@ import { withStyles, Grid, Container, Typography, Box } from '@material-ui/core'
 import Searchbar from '../components/Searchbar'
 import Layout from '../components/layout'
 import { EventCard } from '../components/card'
+import { useState, useEffect } from 'react';
+import Axios from 'axios';
+
 
 
 
 function Events() {
+    const [Events, setEvents] = useState([]);
+    const [Render, setRender] = useState(false);
+    const URL = "https://dscbppimt-cms.herokuapp.com/files/"
+    useEffect(() => {
+        const data = async() => {
+            let dataArray = [];
+            const res = await Axios.get("https://dscbppimt-cms.herokuapp.com/our-events");
+            setEvents(res.data);
+        }
+        data();
+    },[Render])
+  
     return (
         <Layout>
             <Box>
                 <Container>
                     <Typography variant="h4" style={{fontWeight : '500', margin : '1em 0px'}}>Our Events</Typography>
                     <Grid container spacing={2}>
-                    {events.map(event => (
+                    {Events.map(event => (
                         <Grid item xs={12} sm={6} md={12}>
                         <EventCard 
-                        Image={event.image}
-                        title={event.title} 
-                        speaker={event.speaker} 
-                        discription={event.discription} 
+                        Image={URL+(event.Image[0].name)}
+                        title={event.Title} 
+                        speaker={event.Speaker} 
+                        discription={event.Description} 
                         date={event.date}
                         />
                         </Grid>
