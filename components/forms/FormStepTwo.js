@@ -3,7 +3,6 @@ import { Formik, Form, Field } from 'formik';
 import { TextField, RadioGroup, Select } from 'formik-material-ui'
 
 const FormStepTwo = ({ errors, touched }) => {
-    console.log(errors);
     return(
         <Grid container spacing={4}>
         <Grid item xs={12}>

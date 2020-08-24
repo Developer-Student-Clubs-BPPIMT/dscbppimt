@@ -91,11 +91,9 @@ const MemberForm = () => {
                             coreReason: values.coreReason,
                             referral: values.referral,
                         }
-                        console.log(body)
                         try{
                             const response = await axios.post('https://dscbppimt-cms.herokuapp.com/members', body)
                             helpers.setStatus(response.status)
-                            console.log(response)
                         } catch(e){
                             helpers.setStatus("Error")
                         }

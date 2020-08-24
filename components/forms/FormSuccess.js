@@ -4,7 +4,6 @@ import { Container, Typography, Button } from '@material-ui/core';
 import Link from 'next/link'
 
 const FormSuccess = ({ values, status }) => {
-    console.log(status)
     return(
     <Container style={{textAlign : 'center', padding : '2em 0px'}}>
         { status !== 200 ? <CancelIcon style={{width : '160px', height : '160px', color : 'red'}}/> : <CheckCircleIcon style={{width : '160px', height : '160px', color : 'green'}}/>}
