@@ -1,4 +1,4 @@
-import { Button, Grid, Stepper, Step, StepLabel, CircularProgress } from '@material-ui/core'
+import { Button, Grid, Stepper, Step, StepLabel, CircularProgress, LinearProgress } from '@material-ui/core'
 import { Form, Formik } from 'formik';
 import { useState } from 'react';
 import FormStepOne from './forms/FormStepOne';
@@ -7,14 +7,14 @@ import FormSuccess from './forms/FormSuccess';
 
 
 export function FormikStepper({ children, ...props }) {
-    const renderFormikForm = (step, values, errors, touched) => {
+    const renderFormikForm = (step, values, errors, touched, status) => {
       switch(step){
         case 0:
           return <FormStepOne errors={errors} touched={touched} />
         case 1:
           return <FormStepTwo errors={errors} touched={touched} />
         case 2:
-          return <FormSuccess values={values} />
+          return <FormSuccess values={values} status={status}/>
         default:
           break;
       }
@@ -24,7 +24,7 @@ export function FormikStepper({ children, ...props }) {
     const [completed, setCompleted] = useState(false);
   
     function isLastStep() {
-      return step === props.labels.length - 1;
+      return step === props.labels.length - 2;
     }
     return (
       <Formik
@@ -32,7 +32,10 @@ export function FormikStepper({ children, ...props }) {
         validationSchema={props.validationSchemas[step]}
         onSubmit={async (values, helpers) => {
           if (isLastStep()) {
-            await props.onSubmit(values, helpers);
+            helpers.setSubmitting(true);
+            const response = await props.onSubmit(values, helpers);
+            helpers.setSubmitting(false);
+            setStep((s) => s + 1);
             setCompleted(true);
           } else {
             setStep((s) => s + 1);
@@ -40,7 +43,8 @@ export function FormikStepper({ children, ...props }) {
         }}
       >
         {({ values, isSubmitting, errors, touched }) => (
-          <Form autoComplete="off">
+          <Form autoComplete="off" noValidate>
+            { isSubmitting && <LinearProgress />}
             <Stepper alternativeLabel activeStep={step}>
               {props.labels.map((index) => (
                 <Step key={index} completed={step > index || completed}>
@@ -49,7 +53,7 @@ export function FormikStepper({ children, ...props }) {
               ))}
             </Stepper>
   
-            { renderFormikForm(step, values, errors, touched) }
+            { renderFormikForm(step, values, errors, touched, status) }
             { step !== 2 &&
               <Grid container spacing={2} justify="flex-end" style={{marginTop : '2em'}}>
               {step > 0 ? (
@@ -68,7 +72,6 @@ export function FormikStepper({ children, ...props }) {
               <Grid item>
                 <Button
                   style={{width : '110px'}}
-                  startIcon={isSubmitting ? <CircularProgress size="1rem" /> : null}
                   disabled={isSubmitting}
                   variant="contained"
                   color="primary"

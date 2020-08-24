@@ -2,12 +2,14 @@ import { Card, CardContent, Box, Container, Grid, Typography, MenuItem, Button, 
 import { Formik, Form, Field } from 'formik';
 import { TextField, RadioGroup, Select } from 'formik-material-ui'
 
-const FormStepTwo = ({ errors }) => {
+const FormStepTwo = ({ errors, touched }) => {
+    console.log(errors);
     return(
         <Grid container spacing={4}>
         <Grid item xs={12}>
         <InputLabel>Would you love to volunteer for DSC NSEC?</InputLabel>
     <Field
+        required
         row
         name="volunteer"
         component={RadioGroup}>
@@ -15,13 +17,13 @@ const FormStepTwo = ({ errors }) => {
           <FormControlLabel label="No" value="no" control={<Radio />}/>
           <FormControlLabel label="Maybe" value="maybe" control={<Radio />}/>
       </Field>
-    { errors.volunteer && <FormHelperText error>Required</FormHelperText>}
+    { errors.volunteer && touched.volunteer && <FormHelperText error>Required</FormHelperText>}
     </Grid>
     <Grid item xs={12}>
-        <Field component={TextField} name="joinReason" type="text" label="Why would you want to join DSC?" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
+        <Field component={TextField} touched={touched.joinReason} required name="joinReason" type="joinReason" label="Why would you want to join DSC?" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
     </Grid>
     <Grid item xs={12}>
-    <Field component={TextField} name="about" type="text" label="Tell us a little something about yourself" helperText="Add a fun fact maybe :)" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
+        <Field required touched={touched.joinReason} component={TextField} name="about" type="about" label="Tell us a little something about yourself" helperText="Add a fun fact maybe :)" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
     </Grid>
     <Grid item xs={12}>
         <InputLabel>Would you be eager to join the core?</InputLabel>

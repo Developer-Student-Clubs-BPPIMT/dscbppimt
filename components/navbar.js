@@ -24,7 +24,7 @@ const Navbar = () => {
                         <IconButton onClick={() => navToggle(true)}><MenuIcon /></IconButton>
                         <Drawer anchor='left' open={navState} onClose={() => navToggle(false)}>
                             <List>
-                                <ListItem><Typography variant="h6">DSC BPPIMT</Typography></ListItem>
+                                <ListItem><Typography variant="h6" style={{fontWeight : '800'}}>DSC BPPIMT</Typography></ListItem>
                                 <DrawerItem label="Home" icon={<HomeIcon />} link="/"/>
                                 <DrawerItem label="Resources" icon={<LibraryBooksIcon /> } link='/resources'/>
                                 <DrawerItem label="Blogs" icon={<BookIcon />} link='/blogs'/>

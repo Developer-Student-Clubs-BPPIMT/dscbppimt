@@ -4,15 +4,14 @@ import DscLogo from '../public/svgs/dsc.svg'
 import styles from '../styles/Layout.module.css'
 import { useState } from 'react'
 import * as Yup from 'yup'
-import { FormikStepper, FormikStep } from '../components/FormikStepper';
+import { FormikStepper } from '../components/FormikStepper';
 
-import FormStepOne from '../components/forms/FormStepOne';
-import FormStepTwo from '../components/forms/FormStepTwo';
 
+import axios from 'axios';
 
 
 const MemberForm = () => {
-    const [ formState, changeForm] = useState({
+    const initState = {
         firstname: '',
         lastname : '',
         email: '',
@@ -29,15 +28,15 @@ const MemberForm = () => {
         core: '',
         coreReason: '',
         referral: '',
-    })
+    }
 
     const formOneValidation = Yup.object().shape({
         firstname : Yup.string("First Name").required("Required"),
         lastname : Yup.string("Last Name").required("Required"),
         email : Yup.string("Enter your Email").email("Enter a valid Email").required("Required"),
         college : Yup.string("College Name").required("Required"),
-        year : Yup.string("Academic Year").required("Required"),
-        stream : Yup.string("Stream").required("Required"),
+        year : Yup.string("Academic Year").required(true),
+        stream : Yup.string("Stream").required(true),
         github : Yup.string("Github URL").url("Not a Valid URL"),
         codechef : Yup.string("Codechef URL").url("Not a Valid URL"),
         hackerrank : Yup.string("Hackerrank URL").url("Not a Valid URL"),
@@ -45,13 +44,15 @@ const MemberForm = () => {
     })
 
     const formTwoValidation = Yup.object().shape({
-        volunteer: Yup.string().required("Choose a Option"),
-        about: Yup.string().notRequired(),
-        joinReason: Yup.string().notRequired(),
+        volunteer: Yup.string().required(true),
+        about: Yup.string().required("Required"),
+        joinReason: Yup.string().required("Required"),
         core: Yup.string().notRequired(),
         coreReason: Yup.string().notRequired(),
         referral: Yup.string().notRequired(),
     })
+
+    
 
 
     return(
@@ -72,7 +73,34 @@ const MemberForm = () => {
         <Box style={{maxWidth : '850px', margin : '2em auto', marginBottom : '5em'}}>
             <Card>
                 <CardContent style={{padding : '1.3em'}}>
-                    <FormikStepper initialValues={formState} onSubmit={(values) => {console.log('values', values);}} labels={["Personal Information", "General Information", "Success"]} validationSchemas={[formOneValidation, formTwoValidation]}></FormikStepper>
+                    <FormikStepper initialValues={initState} onSubmit={async (values) => {
+                        const body = {
+                            name : values.firstname + ' ' + values.lastname,
+                            email: values.email,
+                            stream: values.stream,
+                            year: values.year,
+                            college: values.college,
+                            github: values.github,
+                            linkedin: values.linkedin,
+                            codechef: values.codechef,
+                            hackerrank: values.hackerrank,
+                            volunteer: values.volunteer,
+                            about: values.about,
+                            joinReason: values.joinReason,
+                            core: values.core,
+                            coreReason: values.coreReason,
+                            referral: values.referral,
+                        }
+                        console.log(body)
+                        try{
+                            const response = await axios.post('https://dscbppimt-cms.herokuapp.com/members', body)
+                            helpers.setStatus("Ok")
+                        } catch(e){
+                            console.log(e.response)
+                            helpers.setStatus(e.response)
+                        }
+                        
+                    }} labels={["Personal Information", "General Information", "Finished"]} validationSchemas={[formOneValidation, formTwoValidation]}></FormikStepper>
                 </CardContent>
             </Card>
         </Box>
@@ -81,5 +109,6 @@ const MemberForm = () => {
 }
 
 export default MemberForm
+
 
 
