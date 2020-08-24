@@ -24,7 +24,7 @@ export function FormikStepper({ children, ...props }) {
     const [completed, setCompleted] = useState(false);
   
     function isLastStep() {
-      return step === props.labels.length - 1;
+      return step === props.labels.length - 2;
     }
     return (
       <Formik
@@ -32,7 +32,10 @@ export function FormikStepper({ children, ...props }) {
         validationSchema={props.validationSchemas[step]}
         onSubmit={async (values, helpers) => {
           if (isLastStep()) {
-            await props.onSubmit(values, helpers);
+            helpers.setSubmitting(true);
+            const response = await props.onSubmit(values, helpers);
+            helpers.setSubmitting(false);
+            setStep((s) => s + 1);
             setCompleted(true);
           } else {
             setStep((s) => s + 1);

@@ -4,11 +4,10 @@ import DscLogo from '../public/svgs/dsc.svg'
 import styles from '../styles/Layout.module.css'
 import { useState } from 'react'
 import * as Yup from 'yup'
-import { FormikStepper, FormikStep } from '../components/FormikStepper';
+import { FormikStepper } from '../components/FormikStepper';
 
-import FormStepOne from '../components/forms/FormStepOne';
-import FormStepTwo from '../components/forms/FormStepTwo';
 
+import axios from 'axios';
 
 
 const MemberForm = () => {
@@ -53,6 +52,8 @@ const MemberForm = () => {
         referral: Yup.string().notRequired(),
     })
 
+    
+
 
     return(
     <Layout>
@@ -72,7 +73,23 @@ const MemberForm = () => {
         <Box style={{maxWidth : '850px', margin : '2em auto', marginBottom : '5em'}}>
             <Card>
                 <CardContent style={{padding : '1.3em'}}>
-                    <FormikStepper initialValues={formState} onSubmit={(values) => {console.log('values', values);}} labels={["Personal Information", "General Information", "Success"]} validationSchemas={[formOneValidation, formTwoValidation]}></FormikStepper>
+                    <FormikStepper initialValues={formState} onSubmit={async (values, helpers) => {
+                        const response = await axios.post('https://dscbppimt-cms.herokuapp.com/members', {
+                            Name : 'a',
+                            Email : 'a@gmail.com',
+                            Gender : 'Male',
+                            Stream : 'IT',
+                            Volunteer : 'Yes',
+                            SelfIntroduction : 'I am Groot',
+                            JoinDSC : 'I am Groot'
+                        })
+                        console.log("Helpers", helpers)
+                        if (response.status === 200){
+                            console.log("OK")
+                        } else {
+                            console.log("Not OK")
+                        }
+                    }} labels={["Personal Information", "General Information", "Finished"]} validationSchemas={[formOneValidation, formTwoValidation]}></FormikStepper>
                 </CardContent>
             </Card>
         </Box>
