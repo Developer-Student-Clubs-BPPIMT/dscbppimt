@@ -6,6 +6,7 @@
 
 # DSC BPPIMT
 The Official Page of Developer Students Club - BPPIMT (In Progress)
+Link - https://dscbppimt.vercel.app/
 
 ## Development Setup 
 
