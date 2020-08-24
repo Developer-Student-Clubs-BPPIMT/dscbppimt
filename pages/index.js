@@ -8,7 +8,7 @@ import { EventCard } from '../components/card';
 import styles from '../styles/Layout.module.css'
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
-
+import { Skeleton } from '@material-ui/lab' 
 
 export default function Index() {
   const [Events, setEvents] = useState([]);
@@ -27,7 +27,6 @@ export default function Index() {
     }
     data();
 },[Render])
-
   return (
     <Layout>
       <Head>
@@ -42,8 +41,8 @@ export default function Index() {
         </Box>
         
         <Grid container spacing={2} style={{padding : '0 0 2em 0'}}>
-        {Events.map(event => (
-                        <Grid item xs={12} sm={6} md={12}>
+        {Events.length === 0 ? <Skeleton><EventCard /></Skeleton> : Events.map(event => (
+                        <Grid item xs={12} sm={6} md={12} key={event._id}>
                         <EventCard 
                         Image={URL+(event.Image[0].name)}
                         title={event.Title} 
