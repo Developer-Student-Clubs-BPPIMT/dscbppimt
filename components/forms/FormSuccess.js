@@ -6,8 +6,8 @@ import Link from 'next/link'
 const FormSuccess = ({ values, status }) => {
     return(
     <Container style={{textAlign : 'center', padding : '2em 0px'}}>
-        { status === "Error" ? <CancelIcon style={{width : '160px', height : '160px', color : 'red'}}/> : <CheckCircleIcon style={{width : '160px', height : '160px', color : 'green'}}/>}
-        <Typography variant="h4">Congratulations {values.firstname}! </Typography>
+        { status !== 200 ? <CancelIcon style={{width : '160px', height : '160px', color : 'red'}}/> : <CheckCircleIcon style={{width : '160px', height : '160px', color : 'green'}}/>}
+        <Typography variant="h4">{status === 200 ? 'Congratulations '  + values.firstname + "!" : "Try Again Later"} </Typography>
         <Link href="/"><Button>Return Home</Button></Link>
     </Container>
     )
