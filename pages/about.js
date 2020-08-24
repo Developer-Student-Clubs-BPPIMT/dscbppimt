@@ -40,11 +40,11 @@ const Content = () => {
         <Box style={{padding : '2em', background : '#E8EAE9',}}>
             <Box style={{maxWidth : '1100px', margin : '0 auto'}}>
                 <Typography variant="h5" style={{padding : '1em 0px', fontWeight : '500'}}>Opportunities</Typography>
-                <Grid container spacing={2} style={{margin: "0 auto"}}>
-                    <Grid item xs={12} md={6}>◾  Grow their knowledge on developer technologies and more through peer to peer workshops and events.</Grid>
-                    <Grid item xs={12} md={6}>◾  Grow their knowledge on developer technologies and more through peer to peer workshops and events.</Grid>
-                    <Grid item xs={12} md={6}>◾  Grow their knowledge on developer technologies and more through peer to peer workshops and events.</Grid>
-                    <Grid item xs={12} md={6}>◾  Grow their knowledge on developer technologies and more through peer to peer workshops and events.</Grid>
+                <Grid container style={{margin: "0 auto"}}>
+                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}>◾  Grow their knowledge on developer technologies and more through peer to peer workshops and events.</Grid>
+                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}>◾  Grow their knowledge on developer technologies and more through peer to peer workshops and events.</Grid>
+                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}>◾  Grow their knowledge on developer technologies and more through peer to peer workshops and events.</Grid>
+                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}>◾  Grow their knowledge on developer technologies and more through peer to peer workshops and events.</Grid>
                 </Grid>
             </Box>
         </Box>
