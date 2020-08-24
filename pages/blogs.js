@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/layout'
-import { Container, Grid, Typography, Avatar } from '@material-ui/core'
+import { Container, Grid, Typography } from '@material-ui/core'
 import { BlogCard } from '../components/card'
 import Axios from 'axios'
 import { Skeleton } from '@material-ui/lab';
@@ -19,7 +19,7 @@ function Blogs() {
     },[Render])
     return (
         <Layout>
-                <Container style={{marginBottom : '2em'}}>
+                <Container style={{marginBottom : '4em'}}>
                 <Typography variant="h4" style={{fontWeight : '500', margin : '1em 0px'}}>Our Blogs</Typography>
                     <Grid container spacing={2}>
                     {Blogs.length === 0 ? <Skeleton><BlogCard /></Skeleton> : Blogs.map(event => (
