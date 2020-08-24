@@ -33,7 +33,11 @@ export function FormikStepper({ children, ...props }) {
         onSubmit={async (values, helpers) => {
           if (isLastStep()) {
             helpers.setSubmitting(true);
-            const response = await props.onSubmit(values, helpers);
+            try{
+              await props.onSubmit(values, helpers);
+            }catch(e){
+              console.log(e)
+            }
             helpers.setSubmitting(false);
             setStep((s) => s + 1);
             setCompleted(true);
@@ -42,7 +46,7 @@ export function FormikStepper({ children, ...props }) {
           }
         }}
       >
-        {({ values, isSubmitting, errors, touched }) => (
+        {({ values, isSubmitting, errors, touched, status }) => (
           <Form autoComplete="off" noValidate>
             { isSubmitting && <LinearProgress />}
             <Stepper alternativeLabel activeStep={step}>

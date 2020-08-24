@@ -73,7 +73,7 @@ const MemberForm = () => {
         <Box style={{maxWidth : '850px', margin : '2em auto', marginBottom : '5em'}}>
             <Card>
                 <CardContent style={{padding : '1.3em'}}>
-                    <FormikStepper initialValues={initState} onSubmit={async (values) => {
+                    <FormikStepper initialValues={initState} onSubmit={async (values, helpers) => {
                         const body = {
                             name : values.firstname + ' ' + values.lastname,
                             email: values.email,
@@ -94,10 +94,10 @@ const MemberForm = () => {
                         console.log(body)
                         try{
                             const response = await axios.post('https://dscbppimt-cms.herokuapp.com/members', body)
-                            helpers.setStatus("Ok")
+                            helpers.setStatus(response.status)
+                            console.log(response)
                         } catch(e){
-                            console.log(e.response)
-                            helpers.setStatus(e.response)
+                            helpers.setStatus("Error")
                         }
                         
                     }} labels={["Personal Information", "General Information", "Finished"]} validationSchemas={[formOneValidation, formTwoValidation]}></FormikStepper>
