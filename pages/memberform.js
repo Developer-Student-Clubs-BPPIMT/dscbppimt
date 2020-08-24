@@ -94,10 +94,10 @@ const MemberForm = () => {
                         console.log(body)
                         try{
                             const response = await axios.post('https://dscbppimt-cms.herokuapp.com/members', body)
-                            helpers.setStatus(response)
+                            helpers.setStatus("Ok")
                         } catch(e){
-                            console.log(e)
-                            helpers.setStatus('Error')
+                            console.log(e.response)
+                            helpers.setStatus(e.response)
                         }
                         
                     }} labels={["Personal Information", "General Information", "Finished"]} validationSchemas={[formOneValidation, formTwoValidation]}></FormikStepper>

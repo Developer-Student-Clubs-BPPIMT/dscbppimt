@@ -24,6 +24,8 @@
 
 .footer{
     background: rgb(20, 20, 20);
+    position: relative;
+    bottom: 0;
 }
 
 

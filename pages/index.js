@@ -6,10 +6,28 @@ import Header from '../components/header';
 import { AboutCardView, ContactCardView } from '../components/cardView';
 import { EventCard } from '../components/card';
 import styles from '../styles/Layout.module.css'
-import events from "../components/helper/eventsHelper"
+import Axios from 'axios';
+import { Skeleton } from '@material-ui/lab'
+import { useState, useEffect } from 'react'
 
 
 export default function Index() {
+  const [Events, setEvents] = useState([]);
+  const [Render, setRender] = useState(false);
+  const URL = "https://dscbppimt-cms.herokuapp.com/files/"
+  useEffect(() => {
+    const data = async() => {
+        let dataArray = [];
+        const res = await Axios.get("https://dscbppimt-cms.herokuapp.com/our-events");
+        if(res.data.length <= 2){
+          dataArray = res.data;
+        }else{
+            dataArray=res.data.slice(0,2);
+        }
+        setEvents(dataArray);
+    }
+    data();
+},[Render])
   return (
     <Layout>
       <Head>
@@ -24,13 +42,13 @@ export default function Index() {
         </Box>
         
         <Grid container spacing={2} style={{padding : '0 0 2em 0'}}>
-        {events.map(event => (
+        {Events.length === 0 ? <Skeleton variant="rect" width="100%" height="150px"/>  : Events.map(event => (
                         <Grid item xs={12} sm={6} md={12}>
                         <EventCard 
-                        Image={event.image}
-                        title={event.title} 
-                        speaker={event.speaker} 
-                        discription={event.discription} 
+                        Image={URL+(event.Image[0].name)}
+                        title={event.Title} 
+                        speaker={event.Speaker} 
+                        discription={event.Description} 
                         date={event.date}
                         />
                         </Grid>
