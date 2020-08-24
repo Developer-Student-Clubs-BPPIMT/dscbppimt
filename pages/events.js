@@ -24,7 +24,7 @@ function Events() {
     return (
         <Layout>
             <Box>
-                <Container>
+                <Container style={{marginBottom : '4em'}}>
                     <Typography variant="h4" style={{fontWeight : '500', margin : '1em 0px'}}>Our Events</Typography>
                     <Grid container spacing={2}>
                     {Events.length === 0 ? <Skeleton variant="rect" width="100%" height="150px"/> : Events.map(event => (
