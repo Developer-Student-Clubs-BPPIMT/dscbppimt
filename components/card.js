@@ -4,11 +4,11 @@ import styles from '../styles/Card.module.css'
 import Message from '../public/svgs/message.svg'
 import placeholder from '../public/images/placeholder.jpg'
 
-export const AboutCard = () => {
+export const AboutCard = ({ image, title }) => {
     return(
     <Card className={styles.aboutCard}>
-        <Message />
-        <Typography variant="subtitle1" component="h5">Talks</Typography>
+        {image}
+    <Typography variant="subtitle1" component="h5">{title}</Typography>
         <Typography variant="body2" component="p">Get updated with the latest news and announcements</Typography>
     </Card>)
 }
@@ -94,7 +94,7 @@ export const BlogCard = (props) => {
                                         <Typography variant="body1" style={{fontWeight : '500', marginBottom : '1em'}}>Author: {props.speaker}</Typography>
                                     </Grid>
                                     <Grid item>
-                                        <Typography>26 September, 2020</Typography>
+                                        <Typography style={{fontWeight : 'bold'}}>{props.platform}</Typography>
                                     </Grid>
                                 </Grid>
                             <Box className={styles.cardDescription}>
@@ -124,15 +124,7 @@ export const MediaCard = props => {
     const {image, title, description} = props;
     return (
       <Card style={{margin : '8px'}}>
-        <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image={image}
-            title={title}
-            description={description}
-            
-
-          />
+          <Box style={{margin : '2em 0em .5em 2em'}}>{ image }</Box>
           <CardContent>
             <Typography gutterBottom variant="h6" component="h2">
               {title}
@@ -141,7 +133,6 @@ export const MediaCard = props => {
               {description}
             </Typography>
           </CardContent>
-        </CardActionArea>
         
       </Card>
     );

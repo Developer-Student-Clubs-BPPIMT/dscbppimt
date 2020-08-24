@@ -2,9 +2,9 @@ import { Card, CardContent, Box, Container, Grid, Typography, MenuItem, Button, 
 import { Formik, Form, Field } from 'formik';
 import { TextField, RadioGroup, Select } from 'formik-material-ui'
 
-const formStepOne = () => {
+const formStepOne = ({ errors }) => {
     return(
-        <Grid container spacing={2}>
+        <Grid container spacing={3}>
         <Grid item container spacing={3}>
             <Grid item xs>
                 <Field component={TextField} name="firstname" type="firstname" label="First Name" placeholder="John" InputLabelProps={{shrink: true,}} fullWidth/>
@@ -21,7 +21,8 @@ const formStepOne = () => {
         </Grid>
         <Grid item container spacing={3}>
             <Grid item xs>
-                <Field component={Select} name="stream" type="text" label="Stream" fullWidth>
+                <InputLabel style={{fontSize : '12px'}} error={errors.stream}>Stream</InputLabel>
+                <Field component={Select} name="stream" type="text" error={errors.stream} fullWidth>
                     <MenuItem value="AEIE" key="AEIE">AEIE</MenuItem>
                     <MenuItem value="BBA" key="BBA">BBA</MenuItem>
                     <MenuItem value="BCA" key="BCA">BCA</MenuItem>
@@ -36,14 +37,17 @@ const formStepOne = () => {
                     <MenuItem value="ME" key="ME">ME</MenuItem>
                     <MenuItem value="other" key="Other">Other</MenuItem>
                 </Field>
+                { errors.stream && <FormHelperText error>Required</FormHelperText>}
             </Grid>
             <Grid item xs>
-                <Field component={Select} name="year" type="text" label="Year" fullWidth>
+                <InputLabel style={{fontSize : '12px'}} error={errors.year}>Year</InputLabel>
+                <Field component={Select} name="year" type="text" error={errors.year} label="Year" fullWidth>
                     <MenuItem value="1st Year" key="1">1st Year</MenuItem>
                     <MenuItem value="2nd Year" key="2">2nd Year</MenuItem>
                     <MenuItem value="3rd Year" key="3">3rd Year</MenuItem>
                     <MenuItem value="4th Year" key="4">4th Year</MenuItem>
                 </Field>
+                { errors.year && <FormHelperText error>Required</FormHelperText>}
             </Grid>
         </Grid>
         <Grid item container>
