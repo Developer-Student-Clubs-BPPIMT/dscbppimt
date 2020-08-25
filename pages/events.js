@@ -6,23 +6,26 @@ import Layout from '../components/layout'
 import { EventCard } from '../components/card'
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
+import PreLoader from '../components/PreLoader'
 
 
 
 
 function Events() {
-    const [Events, setEvents] = useState([]);
+    let [Events, setEvents] = useState([]);
     const [Render, setRender] = useState(false);
+    let [Loading, setLoading] = useState(true);
     const URL = "https://dscbppimt-cms.herokuapp.com/files/"
     useEffect(() => {
         const data = async() => {
-            let dataArray = [];
+            console.log(Loading)
             const res = await Axios.get("https://dscbppimt-cms.herokuapp.com/our-events");
             setEvents(res.data);
+            setLoading( false);
+            console.log(Loading)
         }
         data();
     },[Render])
-  
     return (
         <Layout>
             <Box>
