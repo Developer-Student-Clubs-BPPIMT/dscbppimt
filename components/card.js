@@ -1,8 +1,8 @@
 import { makeStyles, Card, Typography, CardContent, CardMedia, Button, Box, Grid, Chip } from '@material-ui/core'
-import { useRouter } from 'next/router'
 import styles from '../styles/Card.module.css'
 import Message from '../public/svgs/message.svg'
 import placeholder from '../public/images/placeholder.jpg'
+import Link from 'next/link'
 
 export const AboutCard = ({ image, title, body, hashtag }) => {
     return(
@@ -15,11 +15,6 @@ export const AboutCard = ({ image, title, body, hashtag }) => {
 }
 
 export const ContactCard = (props) => {
-    const router = useRouter()
-
-    const routeHandler = () => {
-        router.push(props.actionLink)
-    }
     return(
     <Card style={{margin : '8px', height : '32em', display : 'flex', flexDirection : 'column'}}>
         <CardMedia image={placeholder}>
@@ -28,15 +23,13 @@ export const ContactCard = (props) => {
         <CardContent style={{flex : '1', display : 'flex', flexDirection : 'column'}}>
                 <Typography variant="h6" style={{fontWeight : '600'}}>{props.title}</Typography>
                 <Typography variant="body2" style={{flex : '1'}}>{props.description}</Typography>
-                <Button variant="contained" color="primary" style={{margin : '0px auto', marginTop : '2em'}} onClick={routeHandler}>{props.action}</Button>
+                <Button variant="contained" color="primary" style={{margin : '0px auto', marginTop : '2em'}}>{props.action}</Button>
         </CardContent>
     </Card>)
 }
 
 
 export const EventCard = (props) => {
-    const router = useRouter();
-    console.log(props)
     return(
     <Card>
         <CardContent>
@@ -48,11 +41,11 @@ export const EventCard = (props) => {
                         <Grid item className={styles.cardContent}>
                             <Box>
                                 <Grid container alignItems="flex-start" justify="space-between">
-                                    <Grid item>
+                                    <Grid item xs={12}>
                                         <Typography style={{fontWeight : '600', fontSize : '1.5em'}}>{props.title}</Typography>
                                         <Typography variant="body1" style={{fontWeight : '500', marginBottom : '1em'}}>Speaker: {props.speaker}</Typography>
                                     </Grid>
-                                    <Grid item>
+                                    <Grid item xs={12} style={{textAlign : 'right'}}>
                                         <Typography>{props.date}</Typography>
                                     </Grid>
                                 </Grid>
@@ -80,8 +73,7 @@ export const EventCard = (props) => {
 }
 
 export const BlogCard = (props) => {
-    const router = useRouter();
-
+    console.log(props)
     return(
     <Card className={styles.blogCard}>
         <CardContent>
@@ -96,18 +88,21 @@ export const BlogCard = (props) => {
                                         <Typography style={{fontWeight : '600', fontSize : '1.5em'}}>{props.title}</Typography>
                                         <Typography variant="body1" style={{fontWeight : '500', marginBottom : '1em'}}>Author: {props.speaker}</Typography>
                                     </Grid>
-                                    <Grid item>
-                                        <Typography style={{fontWeight : 'bold'}}>{props.platform}</Typography>
-                                    </Grid>
                                 </Grid>
                             <Box className={styles.cardDescription}>
                                 <Typography variant="body2" className={styles.cardDescription}>{props.discription}</Typography>
                             </Box>
                         </Grid>
-                        <Grid item style={{display : 'flex', justifyContent : 'flex-end'}}>
-                            <Button variant="contained" style={{marginRight : '1em', background : 'white'}}>Explore</Button>
-                            <Button variant="contained" color="primary">Read More</Button>
+                        <Grid item container justify="space-between">
+                            <Grid item>
+                                <Typography style={{fontWeight : 'bold'}}>{props.platform}</Typography> 
+                            </Grid>
+                            <Grid item style={{display : 'flex', justifyContent : 'flex-end'}}>
+                            
+                            <Link href={props.url}><Button variant="contained" color="primary">Read More</Button></Link>
                         </Grid>
+                        </Grid>
+
                     </Grid>
                 </Grid>
         </CardContent>

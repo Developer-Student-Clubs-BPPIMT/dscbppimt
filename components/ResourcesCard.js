@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    maxWidth: 300,
   },
   media: {
     height: 140,
@@ -22,7 +22,6 @@ export default function MediaCard({title,image,discription,link}) {
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
         <CardMedia
           className={classes.media}
           image={image}
@@ -36,7 +35,6 @@ export default function MediaCard({title,image,discription,link}) {
             {discription}
           </Typography>
         </CardContent>
-      </CardActionArea>
       <CardActions>
         <Button size="small" color="primary" href={link}> 
           Learn More
