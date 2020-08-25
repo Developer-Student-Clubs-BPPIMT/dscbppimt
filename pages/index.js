@@ -18,7 +18,7 @@ export default function Index() {
   useEffect(() => {
     const data = async() => {
         let dataArray = [];
-        const res = await Axios.get("https://dscbppimt-cms.herokuapp.com/our-events");
+        const res = await Axios.get("https://dscbppimt-cms.herokuapp.com/our-events?_sort=Date:desc&_limit=2");
         if(res.data.length <= 2){
           dataArray = res.data;
         }else{
@@ -48,8 +48,8 @@ export default function Index() {
                         Image={URL+(event.Image[0].name)}
                         title={event.Title} 
                         speaker={event.Speaker} 
-                        discription={event.Description} 
-                        date={event.date}
+                        description={event.Description} 
+                        date={event.Date}
                         />
                         </Grid>
                     ))}

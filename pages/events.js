@@ -16,7 +16,7 @@ function Events() {
     useEffect(() => {
         const data = async() => {
             let dataArray = [];
-            const res = await Axios.get("https://dscbppimt-cms.herokuapp.com/our-events");
+            const res = await Axios.get("https://dscbppimt-cms.herokuapp.com/our-events?_sort=Date:desc");
             setEvents(res.data);
         }
         data();

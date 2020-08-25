@@ -1,15 +1,16 @@
-import { makeStyles, Card, Typography, CardContent, CardMedia, Button, Box, Grid, CardActionArea } from '@material-ui/core'
+import { makeStyles, Card, Typography, CardContent, CardMedia, Button, Box, Grid, Chip } from '@material-ui/core'
 import { useRouter } from 'next/router'
 import styles from '../styles/Card.module.css'
 import Message from '../public/svgs/message.svg'
 import placeholder from '../public/images/placeholder.jpg'
 
-export const AboutCard = ({ image, title }) => {
+export const AboutCard = ({ image, title, body, hashtag }) => {
     return(
     <Card className={styles.aboutCard}>
         {image}
     <Typography variant="subtitle1" component="h5">{title}</Typography>
-        <Typography variant="body2" component="p">Get updated with the latest news and announcements</Typography>
+    <Typography variant="body2" component="p">{body}</Typography>
+    <Chip label={hashtag}/>
     </Card>)
 }
 
@@ -20,12 +21,14 @@ export const ContactCard = (props) => {
         router.push(props.actionLink)
     }
     return(
-    <Card style={{margin : '8px'}}>
-        <CardMedia image={placeholder} style={{height : '200px'}}></CardMedia>
-        <CardContent style={{display : 'flex', flexDirection : 'column'}}>
-    <Typography variant="h6" style={{fontWeight : '600'}}>{props.title}</Typography>
-    <Typography variant="body2">{props.description}</Typography>
-            <Button variant="contained" color="primary" style={{margin : '0px auto', marginTop : '2em'}} onClick={routeHandler}>{props.action}</Button>
+    <Card style={{margin : '8px', height : '32em', display : 'flex', flexDirection : 'column'}}>
+        <CardMedia image={placeholder}>
+            <img src={placeholder} style={{height : '200px', width : '100%'}}/>
+        </CardMedia>
+        <CardContent style={{flex : '1', display : 'flex', flexDirection : 'column'}}>
+                <Typography variant="h6" style={{fontWeight : '600'}}>{props.title}</Typography>
+                <Typography variant="body2" style={{flex : '1'}}>{props.description}</Typography>
+                <Button variant="contained" color="primary" style={{margin : '0px auto', marginTop : '2em'}} onClick={routeHandler}>{props.action}</Button>
         </CardContent>
     </Card>)
 }
@@ -33,7 +36,7 @@ export const ContactCard = (props) => {
 
 export const EventCard = (props) => {
     const router = useRouter();
-
+    console.log(props)
     return(
     <Card>
         <CardContent>
@@ -50,13 +53,13 @@ export const EventCard = (props) => {
                                         <Typography variant="body1" style={{fontWeight : '500', marginBottom : '1em'}}>Speaker: {props.speaker}</Typography>
                                     </Grid>
                                     <Grid item>
-                                        <Typography>26 September, 2020</Typography>
+                                        <Typography>{props.date}</Typography>
                                     </Grid>
                                 </Grid>
 
                             </Box>
                             <Box className={styles.cardDescription}>
-                                <Typography variant="body2" className={styles.cardDescription}>{props.discription}</Typography>
+                                <Typography variant="body2" className={styles.cardDescription}>{props.description}</Typography>
                             </Box>
                         </Grid>
                         <Grid item className={styles.buttonsLG}>

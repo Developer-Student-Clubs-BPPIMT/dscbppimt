@@ -12,7 +12,7 @@ function Blogs() {
     const URL = "https://dscbppimt-cms.herokuapp.com/files/"
     useEffect(() => {
         const data = async() => {
-            const res = await Axios.get("https://dscbppimt-cms.herokuapp.com/our-blogs");
+            const res = await Axios.get("https://dscbppimt-cms.herokuapp.com/our-blogs?_sort=Date:desc");
             setBlogs(res.data);
         }
         data();
