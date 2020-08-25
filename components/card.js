@@ -39,7 +39,7 @@ export const EventCard = (props) => {
         <CardContent>
                 <Grid container wrap="wrap-reverse">
                     <Grid item xs={12} md={2}>
-                        <img src={placeholder} style={{height : '100%', width : '100%', objectFit : 'cover'}}/>
+                        <img src={props.Image} style={{height : '100%', width : '100%', objectFit : 'cover'}}/>
                     </Grid>
                     <Grid item xs={12} md={10} container direction="column" justify="space-between">
                         <Grid item className={styles.cardContent}>
@@ -84,7 +84,7 @@ export const BlogCard = (props) => {
         <CardContent>
                 <Grid container wrap="wrap">
                     <Grid item xs={12} md={2}>
-                        <img src={placeholder} style={{height : '100%', width : '100%', objectFit : 'cover'}}/>
+                        <img src={props.Image} style={{height : '100%', width : '100%', objectFit : 'cover'}}/>
                     </Grid>
                     <Grid item xs={12} md={10} container direction="column" justify="space-between">
                         <Grid item className={styles.cardContent}>
