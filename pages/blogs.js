@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout from '../components/layout'
 import { Container, Grid, Typography } from '@material-ui/core'
 import { BlogCard } from '../components/card'
 import Axios from 'axios'
 import { Skeleton } from '@material-ui/lab';
-import { useState, useEffect } from 'react'
 
 function Blogs() {
     const [Blogs, setBlogs] = useState([]);

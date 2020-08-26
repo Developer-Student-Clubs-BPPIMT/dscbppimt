@@ -18,6 +18,7 @@ export default function Index() {
   useEffect(() => {
     const data = async() => {
         let dataArray = [];
+
         const res = await Axios.get("https://dscbppimt-cms.herokuapp.com/our-events?_sort=Date:desc&_limit=2");
         if(res.data.length <= 2){
           dataArray = res.data;
@@ -42,6 +43,7 @@ export default function Index() {
         </Box>
         
         <Grid container spacing={2} style={{padding : '0 0 2em 0'}}>
+
         {Events.length === 0 ? <Skeleton variant="rect" width="100%" height="150px"/>  : Events.map(event => (
                         <Grid item xs={12} sm={6} md={12}>
                         <EventCard 
