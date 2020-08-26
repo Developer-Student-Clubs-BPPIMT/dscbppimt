@@ -1,12 +1,13 @@
 import React from 'react'
 import events from "../components/helper/eventsHelper"
-import { withStyles, Grid, Container, Typography, Box } from '@material-ui/core'
+import { withStyles, Grid, Container, Typography, Box, Card } from '@material-ui/core'
 import Searchbar from '../components/Searchbar'
 import Layout from '../components/layout'
 import { EventCard } from '../components/card'
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
 import PreLoader from '../components/PreLoader'
+import { Skeleton } from '@material-ui/lab' 
 
 
 
@@ -32,9 +33,10 @@ function Events() {
                 <Container>
                     <Typography variant="h4" style={{fontWeight : '500', margin : '1em 0px'}}>Our Events</Typography>
                     <Grid container spacing={2}>
-                    {Events.map(event => (
-                        <Grid item xs={12} sm={6} md={12}>
+                    {Events.length === 0 ? <Skeleton><Card ><EventCard /><EventCard /></Card></Skeleton> : Events.map(event => (
+                        <Grid item xs={12} sm={6} md={12} key={event._id}>
                         <EventCard 
+
                         Image={URL+(event.Image[0].name)}
                         title={event.Title} 
                         speaker={event.Speaker} 
