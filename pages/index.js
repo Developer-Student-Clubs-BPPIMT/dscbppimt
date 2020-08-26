@@ -44,7 +44,7 @@ export default function Index() {
         
         <Grid container spacing={2} style={{padding : '0 0 2em 0'}}>
         {Events.length === 0 ? <Skeleton variant="rect" width="100%" height="150px"/>  : Events.map(event => (
-                        <Grid item xs={12} sm={6} md={12}>
+                        <Grid item xs={12} sm={6} md={12} key={event._id}>
                         <EventCard 
                         Image={URL+(event.Image.formats.thumbnail.url)}
                         title={event.Title} 
