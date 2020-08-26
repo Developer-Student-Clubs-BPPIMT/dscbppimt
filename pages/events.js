@@ -33,7 +33,7 @@ function Events() {
                         Image={URL+(event.Image.formats.thumbnail.name)}
                         title={event.Title} 
                         speaker={event.Speaker} 
-                        discription={event.Description} 
+                        description={event.Description} 
                         date={event.date}
                         data={event.Image}
                         />
