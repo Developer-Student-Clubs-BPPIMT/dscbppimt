@@ -6,9 +6,10 @@ import Header from '../components/header';
 import { AboutCardView, ContactCardView } from '../components/cardView';
 import { EventCard } from '../components/card';
 import styles from '../styles/Layout.module.css'
-import { useState, useEffect } from 'react';
 import Axios from 'axios';
-import { Skeleton } from '@material-ui/lab' 
+import { Skeleton } from '@material-ui/lab'
+import { useState, useEffect } from 'react'
+
 
 export default function Index() {
   const [Events, setEvents] = useState([]);
@@ -17,7 +18,8 @@ export default function Index() {
   useEffect(() => {
     const data = async() => {
         let dataArray = [];
-        const res = await Axios.get("https://dscbppimt-cms.herokuapp.com/our-events");
+
+        const res = await Axios.get("https://dscbppimt-cms.herokuapp.com/our-events?_sort=Date:desc&_limit=2");
         if(res.data.length <= 2){
           dataArray = res.data;
         }else{
@@ -41,14 +43,15 @@ export default function Index() {
         </Box>
         
         <Grid container spacing={2} style={{padding : '0 0 2em 0'}}>
-        {Events.length === 0 ? <Skeleton><EventCard /></Skeleton> : Events.map(event => (
-                        <Grid item xs={12} sm={6} md={12} key={event._id}>
+
+        {Events.length === 0 ? <Skeleton variant="rect" width="100%" height="150px"/>  : Events.map(event => (
+                        <Grid item xs={12} sm={6} md={12}>
                         <EventCard 
                         Image={URL+(event.Image[0].name)}
                         title={event.Title} 
                         speaker={event.Speaker} 
-                        discription={event.Description} 
-                        date={event.date}
+                        description={event.Description} 
+                        date={event.Date}
                         />
                         </Grid>
                     ))}

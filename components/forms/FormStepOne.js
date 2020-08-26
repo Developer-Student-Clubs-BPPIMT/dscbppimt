@@ -1,28 +1,28 @@
-import { Card, CardContent, Box, Container, Grid, Typography, MenuItem, Button, LinearProgress, InputLabel, Stepper, Step, StepLabel, FormControlLabel, Radio, Menu, CircularProgress, FormHelperText } from '@material-ui/core'
+import { Grid, Typography, MenuItem, InputLabel, FormHelperText } from '@material-ui/core'
 import { Formik, Form, Field } from 'formik';
 import { TextField, RadioGroup, Select } from 'formik-material-ui'
 
-const formStepOne = ({ errors }) => {
+const formStepOne = ({ errors, touched }) => {
     return(
         <Grid container spacing={3}>
         <Grid item container spacing={3}>
             <Grid item xs>
-                <Field component={TextField} name="firstname" type="firstname" label="First Name" placeholder="John" InputLabelProps={{shrink: true,}} fullWidth/>
+                <Field required component={TextField} name="firstname" type="firstname" label="First Name" placeholder="John" InputLabelProps={{shrink: true,}} fullWidth/>
             </Grid>
             <Grid item xs>
-                <Field component={TextField} name="lastname" type="lastname" label="Last Name" InputLabelProps={{shrink: true,}} placeholder="Doe" fullWidth/>
+                <Field required component={TextField} name="lastname" type="lastname" label="Last Name" InputLabelProps={{shrink: true,}} placeholder="Doe" fullWidth/>
             </Grid>
         </Grid>
         <Grid item container>
-            <Field component={TextField} name="email" type="email" label="Email" InputLabelProps={{shrink: true,}} placeholder="johndoe@gmail.com" fullWidth/>
+            <Field required component={TextField} name="email" type="email" label="Email" InputLabelProps={{shrink: true,}} placeholder="johndoe@gmail.com" fullWidth/>
         </Grid>
         <Grid item container>
-            <Field component={TextField} name="college" type="college" label="College Name" InputLabelProps={{shrink: true,}} placeholder="B.P Poddar Institute of Management and Technology" fullWidth/>
+            <Field required component={TextField} name="college" type="college" label="College Name" InputLabelProps={{shrink: true,}} placeholder="B.P Poddar Institute of Management and Technology" fullWidth/>
         </Grid>
         <Grid item container spacing={3}>
             <Grid item xs>
-                <InputLabel style={{fontSize : '12px'}} error={errors.stream}>Stream</InputLabel>
-                <Field component={Select} name="stream" type="text" error={errors.stream} fullWidth>
+                <InputLabel style={{fontSize : '12px'}} error={errors.stream && touched.stream}>Stream</InputLabel>
+                <Field required component={Select} name="stream" type="text" error={errors.stream && touched.stream} fullWidth>
                     <MenuItem value="AEIE" key="AEIE">AEIE</MenuItem>
                     <MenuItem value="BBA" key="BBA">BBA</MenuItem>
                     <MenuItem value="BCA" key="BCA">BCA</MenuItem>
@@ -37,17 +37,17 @@ const formStepOne = ({ errors }) => {
                     <MenuItem value="ME" key="ME">ME</MenuItem>
                     <MenuItem value="other" key="Other">Other</MenuItem>
                 </Field>
-                { errors.stream && <FormHelperText error>Required</FormHelperText>}
+                { errors.stream && touched.stream && <FormHelperText error>Required</FormHelperText>}
             </Grid>
             <Grid item xs>
-                <InputLabel style={{fontSize : '12px'}} error={errors.year}>Year</InputLabel>
-                <Field component={Select} name="year" type="text" error={errors.year} label="Year" fullWidth>
+                <InputLabel required style={{fontSize : '12px'}} error={errors.year && touched.year}>Year</InputLabel>
+                <Field component={Select} name="year" type="text" error={errors.year && touched.year} label="Year" fullWidth>
                     <MenuItem value="1st Year" key="1">1st Year</MenuItem>
                     <MenuItem value="2nd Year" key="2">2nd Year</MenuItem>
                     <MenuItem value="3rd Year" key="3">3rd Year</MenuItem>
                     <MenuItem value="4th Year" key="4">4th Year</MenuItem>
                 </Field>
-                { errors.year && <FormHelperText error>Required</FormHelperText>}
+                { errors.year && touched.year && <FormHelperText error>Required</FormHelperText>}
             </Grid>
         </Grid>
         <Grid item container>

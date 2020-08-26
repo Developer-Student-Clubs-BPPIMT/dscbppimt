@@ -1,16 +1,17 @@
 .aboutCard{
-    padding: 2em 1em;
-    height: 19em;
+    padding: 1.5em 1em;
+    height: 20em;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     background: green;
     margin: 4px;
 }
 
 .aboutCard h5{
     font-weight: 800;
-    margin-bottom: 2em;
+    margin-bottom: 1.4em;
     text-align: center;
 }
 
@@ -22,6 +23,7 @@
 
 .aboutCard p{
     text-align: center;
+    font-size: 12px;
 }
 
 .cardContent{

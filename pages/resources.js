@@ -77,7 +77,7 @@ const Resources = ({classes}) => {
 
     return (
         <Layout>
-        <Container style={{minHeight : '60vh'}}>
+        <Container>
             <div className={classes.buttons}>
 
                 <Button color="primary" size="large" variant="text"  onClick={handleALL}>All</Button>
