@@ -92,7 +92,7 @@ export const coreMembers = [
         name : "Pramita Barik",
         linkedin : "https://www.linkedin.com/in/pramita-barik-94b3331a8",
         github : "https://github.com/pramita0400",
-        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Faritra.jpg?alt=media&token=b1c232c1-877d-4d26-bb5d-6d038a81d253',
+        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fpranita.jpg?alt=media&token=d9721b81-7063-44a1-bf33-859ceb438bd0',
         pos : "Design Team"
     },
     {
