@@ -20,7 +20,7 @@ export const AboutCardView = () => {
             <Grid item xs={6} md><AboutCard image={<ChatBubbleIcon style={{color : 'blue'}}/>} title="Talks" body="Get in touch with the latest technology and news." hashtag="#techtalks"/></Grid>
             <Grid item xs={6} md><AboutCard image={<CodeIcon style={{color : 'orange'}}/>} title="CodeLabs" body="Get concrete-practical experience under the mentorship of the community members." hashtag="#practicalexperience"/></Grid>
             <Grid item xs={6} md><AboutCard image={<LiveTvIcon style={{color : 'red'}} />} title="Live Events" body="Catch us live with all our online events." hashtag="#liveevents"/></Grid>
-            <Grid item xs={6} md><AboutCard image={<BubbleChartSharpIcon style={{color : 'green'}}/>} title="RoadShows" body="Share your knowledge and make an impact in different Companies,Colleges and University to make an open source developer society." hashtag="#makeadifferecne"/></Grid>
+            <Grid item xs={6} md><AboutCard image={<BubbleChartSharpIcon style={{color : 'green'}}/>} title="RoadShows" body="Share your knowledge and make an impact in different Companies and Colleges." hashtag="#makeadifferecne"/></Grid>
         </Grid>
     </Paper>)
 }

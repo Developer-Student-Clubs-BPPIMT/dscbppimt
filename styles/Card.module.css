@@ -23,7 +23,7 @@
 
 .aboutCard p{
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .cardContent{
@@ -42,6 +42,13 @@
 }
 
 
+.blogButtonBar{
+    padding : 0em 1em;
+}
+
+.cardDescription{
+    font-size: 12px;
+}
 
 @media screen and (max-width: 960px) {
     .cardDescription{
@@ -56,5 +63,10 @@
     .buttonsMD{
         display: flex;
     }
+    .blogButtonBar{
+        padding : 0em 0em;
+    }
 }
+
+
 
