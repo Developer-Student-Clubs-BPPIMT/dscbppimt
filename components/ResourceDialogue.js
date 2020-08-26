@@ -70,10 +70,8 @@ const handleALL = () => {
           select
           style={{width : '100%'}}
           label = "Category"
-          labelId="demo-controlled-open-select-label"
           open={open}
           onClose={handleClose}
-          onOpen={handleOpen}
           value={value}
           onChange={handleChange}
           fullWidth

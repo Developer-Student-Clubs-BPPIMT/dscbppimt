@@ -44,9 +44,9 @@ export const EventCard = (props) => {
                                         <Typography style={{fontWeight : '600', fontSize : '1.5em'}}>{props.title}</Typography>
                                         <Typography variant="body1" style={{fontWeight : '500', marginBottom : '1em'}}>Speaker: {props.speaker}</Typography>
                                     </Grid>
-                                    <Grid item xs={12} style={{textAlign : 'right'}}>
+                                    {/* <Grid item xs={12} style={{textAlign : 'left'}}>
                                         <Typography>{props.date}</Typography>
-                                    </Grid>
+                                    </Grid> */}
                                 </Grid>
 
                             </Box>
@@ -119,7 +119,7 @@ export const MediaCard = props => {
     const classes = useStyles();
     const {image, title, description} = props;
     return (
-      <Card style={{margin : '8px'}}>
+      <Card style={{margin : '8px', minHeight : '20em'}}>
           <Box style={{margin : '2em 0em .5em 2em'}}>{ image }</Box>
           <CardContent>
             <Typography gutterBottom variant="h6" component="h2">
