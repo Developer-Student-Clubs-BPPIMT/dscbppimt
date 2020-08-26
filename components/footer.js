@@ -4,6 +4,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import YouTubeIcon from '@material-ui/icons/YouTube';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 
 const Footer = () => {
@@ -20,6 +21,7 @@ const Footer = () => {
                     <ALink href="https://twitter.com/dscbppimt"><TwitterIcon /> &nbsp; Twitter</ALink>
                     <ALink href="https://github.com/Developer-Student-Clubs-BPPIMT"><GitHubIcon /> &nbsp; Github</ALink>
                     <ALink href="https://www.youtube.com/channel/UCBOba4X2mlApbMVKaxVdq5A?view_as=subscriber"><YouTubeIcon /> &nbsp; Youtube</ALink>
+                    <ALink href="https://www.linkedin.com/company/developer-student-club-bppimt/"><LinkedInIcon /> &nbsp;LinkedIn</ALink>
                     
                 </Grid>
                 <Grid item xs>
@@ -46,7 +48,7 @@ const Footer = () => {
 }
 
 const ALink = (props) => {
-    return(<Link href={props.href} style={{display : 'block', color : 'white', padding : '3px 0px', display : 'flex', alignItems : 'center'}}>{props.children}</Link>)
+    return(<Box onClick={() => window.open(props.href)} style={{display : 'flex', alignItems : 'center', cursor : 'pointer', padding : '.3em 0px'}}>{props.children}</Box>)
 }
 
 export default Footer;

@@ -19,10 +19,10 @@ const FormStepTwo = ({ errors, touched }) => {
     { errors.volunteer && touched.volunteer && <FormHelperText error>Required</FormHelperText>}
     </Grid>
     <Grid item xs={12}>
-        <Field component={TextField} touched={touched.joinReason} required name="joinReason" type="joinReason" label="Why would you want to join DSC?" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
+        <Field component={TextField} required name="joinReason" type="joinReason" label="Why would you want to join DSC?" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
     </Grid>
     <Grid item xs={12}>
-        <Field required touched={touched.joinReason} component={TextField} name="about" type="about" label="Tell us a little something about yourself" helperText="Add a fun fact maybe :)" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
+        <Field required component={TextField} name="about" type="about" label="Tell us a little something about yourself" helperText="Add a fun fact maybe :)" InputLabelProps={{shrink: true,}} placeholder="Your Answer" fullWidth/>
     </Grid>
     <Grid item xs={12}>
         <InputLabel>Would you be eager to join the core?</InputLabel>

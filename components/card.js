@@ -18,9 +18,7 @@ export const AboutCard = ({ image, title, body, hashtag }) => {
 export const ContactCard = (props) => {
     return(
     <Card style={{margin : '8px', height : '32em', display : 'flex', flexDirection : 'column'}}>
-        <CardMedia image={placeholder}>
-            <img src={placeholder} style={{height : '200px', width : '100%'}}/>
-        </CardMedia>
+        { props.image }
         <CardContent style={{flex : '1', display : 'flex', flexDirection : 'column'}}>
                 <Typography variant="h6" style={{fontWeight : '600'}}>{props.title}</Typography>
                 <Typography variant="body2" style={{flex : '1'}}>{props.description}</Typography>
@@ -31,7 +29,6 @@ export const ContactCard = (props) => {
 
 
 export const EventCard = (props) => {
-    console.log(props.data)
     return(
     <Card>
         <CardContent>
@@ -75,7 +72,7 @@ export const EventCard = (props) => {
 }
 
 export const BlogCard = (props) => {
-    console.log(props)
+
     return(
     <Card className={styles.blogCard} style={{height : '100%'}}>
         <CardContent>
@@ -99,8 +96,8 @@ export const BlogCard = (props) => {
                             <Grid item>
                                 <MediumIcon style={{width : '80px'}}/>
                             </Grid>
-                            <Grid item>
-                            <Link href={props.url}><Button variant="contained" color="primary">Read More</Button></Link>
+                            <Grid item style={{display : 'flex', justifyContent : 'flex-end'}}>
+                            <Button variant="contained" color="primary" onClick={() => window.open(props.url)}>Read More</Button>
                         </Grid>
                         </Grid>
 
