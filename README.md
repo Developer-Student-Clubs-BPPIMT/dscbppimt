@@ -20,3 +20,15 @@ npm install
 npm run dev
 ```
 
+## Development Setup 
+
+
+
+```
+git clone https://github.com/Developer-Student-Clubs-BPPIMT/dscbppimt.git
+cd dscbppimt
+git checkout dev
+npm install
+npm run dev
+```
+

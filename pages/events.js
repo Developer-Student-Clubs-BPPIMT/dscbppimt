@@ -16,7 +16,7 @@ function Events() {
     useEffect(() => {
         const data = async() => {
             let dataArray = [];
-            const res = await Axios.get("https://dscbppimt-cms.herokuapp.com/our-events");
+            const res = await Axios.get("https://dscbppimt-cms.herokuapp.com/our-events?_sort=Date:desc");
             setEvents(res.data);
         }
         data();
@@ -28,13 +28,14 @@ function Events() {
                     <Typography variant="h4" style={{fontWeight : '500', margin : '1em 0px'}}>Our Events</Typography>
                     <Grid container spacing={2}>
                     {Events.length === 0 ? <Skeleton variant="rect" width="100%" height="150px"/> : Events.map(event => (
-                        <Grid item xs={12} sm={6} md={12}>
+                        <Grid item xs={12} sm={6} md={12} key={event._id}>
                         <EventCard 
-                        Image={URL+(event.Image[0].name)}
+                        Image={URL+(event.Image.formats.thumbnail.name)}
                         title={event.Title} 
                         speaker={event.Speaker} 
                         discription={event.Description} 
                         date={event.date}
+                        data={event.Image}
                         />
                         </Grid>
                     ))}

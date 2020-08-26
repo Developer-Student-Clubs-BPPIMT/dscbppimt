@@ -6,7 +6,7 @@ const FormStepTwo = ({ errors, touched }) => {
     return(
         <Grid container spacing={4}>
         <Grid item xs={12}>
-        <InputLabel>Would you love to volunteer for DSC NSEC?</InputLabel>
+        <InputLabel>Would you love to volunteer for DSC BPPIMT?</InputLabel>
     <Field
         required
         row
