@@ -3,6 +3,7 @@ import styles from '../styles/Card.module.css'
 import Message from '../public/svgs/message.svg'
 import placeholder from '../public/images/placeholder.jpg'
 import Link from 'next/link'
+import MediumIcon from '../public/svgs/medium.svg'
 
 export const AboutCard = ({ image, title, body, hashtag }) => {
     return(
@@ -30,14 +31,15 @@ export const ContactCard = (props) => {
 
 
 export const EventCard = (props) => {
+    console.log(props.data)
     return(
     <Card>
         <CardContent>
                 <Grid container wrap="wrap-reverse">
-                    <Grid item xs={12} md={2}>
+                    <Grid item xs={12} md={3}>
                         <img src={props.Image} style={{height : '100%', width : '100%', objectFit : 'cover'}}/>
                     </Grid>
-                    <Grid item xs={12} md={10} container direction="column" justify="space-between">
+                    <Grid item xs={12} md={9} container direction="column" justify="space-between">
                         <Grid item className={styles.cardContent}>
                             <Box>
                                 <Grid container alignItems="flex-start" justify="space-between">
@@ -75,7 +77,7 @@ export const EventCard = (props) => {
 export const BlogCard = (props) => {
     console.log(props)
     return(
-    <Card className={styles.blogCard}>
+    <Card className={styles.blogCard} style={{height : '100%'}}>
         <CardContent>
                 <Grid container wrap="wrap">
                     <Grid item xs={12} md={2}>
@@ -83,19 +85,19 @@ export const BlogCard = (props) => {
                     </Grid>
                     <Grid item xs={12} md={10} container direction="column" justify="space-between">
                         <Grid item className={styles.cardContent}>
-                        <Grid container alignItems="flex-start" justify="space-between">
-                                    <Grid item>
-                                        <Typography style={{fontWeight : '600', fontSize : '1.5em'}}>{props.title}</Typography>
-                                        <Typography variant="body1" style={{fontWeight : '500', marginBottom : '1em'}}>Author: {props.speaker}</Typography>
+                        <Grid container alignItems="flex-start" justify="space-around">
+                                    <Grid item container>
+                                        <Grid item xs={12}><Typography style={{fontWeight : '600', fontSize : '1.3em', maxWidth : '90%'}}>{props.title}</Typography></Grid>
+                                        <Grid item xs={12}><Typography variant="body1" style={{fontWeight : '500', marginBottom : '1em'}}>Author: {props.speaker}</Typography></Grid>    
                                     </Grid>
                                 </Grid>
-                            <Box className={styles.cardDescription}>
-                                <Typography variant="body2" className={styles.cardDescription}>{props.discription}</Typography>
+                            <Box className={styles.cardDescription} textOverflow="ellipsis" overflow="hidden">
+                                {props.discription}
                             </Box>
                         </Grid>
-                        <Grid item container justify="space-between">
+                        <Grid item container justify="space-between" className={styles.blogButtonBar}>
                             <Grid item>
-                                <Typography style={{fontWeight : 'bold'}}>{props.platform}</Typography> 
+                                <MediumIcon style={{width : '80px'}}/>
                             </Grid>
                             <Grid item style={{display : 'flex', justifyContent : 'flex-end'}}>
                             <Button variant="contained" color="primary" onClick={() => window.open(props.url)}>Read More</Button>

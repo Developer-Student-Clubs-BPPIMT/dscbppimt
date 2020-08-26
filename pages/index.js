@@ -14,10 +14,11 @@ import { useState, useEffect } from 'react'
 export default function Index() {
   const [Events, setEvents] = useState([]);
   const [Render, setRender] = useState(false);
-  const URL = "https://dscbppimt-cms.herokuapp.com/files/"
+  const URL = "https://dscbppimt-cms.herokuapp.com"
   useEffect(() => {
     const data = async() => {
         let dataArray = [];
+
         const res = await Axios.get("https://dscbppimt-cms.herokuapp.com/our-events?_sort=Date:desc&_limit=2");
         if(res.data.length <= 2){
           dataArray = res.data;

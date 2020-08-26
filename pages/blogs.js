@@ -1,11 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout from '../components/layout'
 import { Container, Grid, Typography } from '@material-ui/core'
 import { BlogCard } from '../components/card'
 import Axios from 'axios'
 import { Skeleton } from '@material-ui/lab';
-import { useState, useEffect } from 'react'
-
 function Blogs() {
     const [Blogs, setBlogs] = useState([]);
     const [Render, setRender] = useState(false);
@@ -23,14 +21,15 @@ function Blogs() {
                 <Typography variant="h4" style={{fontWeight : '500', margin : '1em 0px'}}>Our Blogs</Typography>
                     <Grid container spacing={2}>
                     {Blogs.length === 0 ? <Skeleton></Skeleton> : Blogs.map(event => (
-                        <Grid item xs={12} sm={6} md={12}>
+                        <Grid item xs={12} sm={6} md={12} key={event._id}>
                         <BlogCard 
-                        Image={URL+event.Image.url}
+                        Image={URL+event.Image.formats.thumbnail.url}
                         title={event.Title} 
                         speaker={event.Author} 
                         discription={event.Description} 
                         platform={event.Platform}
                         url={event.Read}
+                        data={event}
                         />
                         </Grid>
                     ))}
