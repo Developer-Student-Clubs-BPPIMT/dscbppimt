@@ -32,6 +32,14 @@ export const coreLeads = [
 
 export const coreMembers = [
     {
+        linkedin : "https://www.linkedin.com/in/n-sai-shashank-58034a159",
+        github : "https://github.com/shashank030401",
+        name : "N Sai Shashank",
+        pos : "Web Team",
+        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fshashank.jpg?alt=media&token=077b8eaf-a988-4886-8327-a520f784d22a'
+
+    }, 
+    {
         linkedin : "https://www.linkedin.com/in/disha-kapoor-780a65187/",
         github : "https://github.com/dishak331",
         name : "Disha Kapoor",
@@ -100,6 +108,19 @@ export const coreMembers = [
         linkedin : "https://www.linkedin.com/mwlite/in/vivek-agarwal-268a841a0",
         github : "https://github.com/Vivek798",
         image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fvivek.jpg?alt=media&token=766fe8e2-29e4-464a-94ae-76ebc3682277',
+        pos : "Outreach Team"
+    },    {
+        name : "Debojyoti Mallick",
+        linkedin : "https://www.linkedin.com/in/debojyoti-mallick-7aaa741a0/",
+        github : "https://github.com/debojyoti777",
+        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fdebojyoti.jpg?alt=media&token=582758a2-9106-449f-b48a-c46f5ed235a2',
+        pos : "Outreach Team"
+    },
+    {
+        name : "Parichay Dey",
+        linkedin : "https://www.linkedin.com/in/parichay-dey-67291419a/",
+        github : "https://github.com/ParichayDey8",
+        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fparichay.jpg?alt=media&token=58414c28-d047-4f70-9e35-e39066f4d91f',
         pos : "Outreach Team"
     }
 ]
