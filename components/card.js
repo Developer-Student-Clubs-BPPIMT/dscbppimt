@@ -98,8 +98,7 @@ export const BlogCard = (props) => {
                                 <Typography style={{fontWeight : 'bold'}}>{props.platform}</Typography> 
                             </Grid>
                             <Grid item style={{display : 'flex', justifyContent : 'flex-end'}}>
-                            
-                            <Link href={props.url}><Button variant="contained" color="primary">Read More</Button></Link>
+                            <Button variant="contained" color="primary" onClick={() => window.open(props.url)}>Read More</Button>
                         </Grid>
                         </Grid>
 
