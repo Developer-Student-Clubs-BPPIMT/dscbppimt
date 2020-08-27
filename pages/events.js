@@ -34,7 +34,12 @@ function Events() {
                         title={event.Title} 
                         speaker={event.Speaker} 
                         description={event.Description} 
+<<<<<<< HEAD
                         date={event.Date}
+=======
+                        date={event.date}
+                        data={event.Image}
+>>>>>>> 3ab64b82486aee1fe1c9b5cc12cd36dff9ee4ffe
                         />
                         </Grid>
                     ))}

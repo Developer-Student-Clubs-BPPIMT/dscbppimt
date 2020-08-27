@@ -51,16 +51,16 @@ const formStepOne = ({ errors, touched }) => {
             </Grid>
         </Grid>
         <Grid item container>
-            <Field component={TextField} name="github" type="github" label="Github Profile" InputLabelProps={{shrink: true,}} placeholder="www.github.com/username" fullWidth/>
+            <Field component={TextField} name="github" type="github" label="Github Profile" InputLabelProps={{shrink: true,}} placeholder="http://www.github.com/username" fullWidth/>
         </Grid>
         <Grid item container>
-            <Field component={TextField} name="linkedin" type="linkedin" label="LinkedIn Profile" InputLabelProps={{shrink: true,}} placeholder="www.linkedin.com/username" fullWidth/>
+            <Field component={TextField} name="linkedin" type="linkedin" label="LinkedIn Profile" InputLabelProps={{shrink: true,}} placeholder="http://www.linkedin.com/username" fullWidth/>
         </Grid>
         <Grid item container>
-            <Field component={TextField} name="codechef" type="codechef" label="Codechef Profile" InputLabelProps={{shrink: true,}} placeholder="www.codechef.com/username" fullWidth/>
+            <Field component={TextField} name="codechef" type="codechef" label="Codechef Profile" InputLabelProps={{shrink: true,}} placeholder="http://www.codechef.com/username" fullWidth/>
         </Grid>
         <Grid item container>
-            <Field component={TextField} name="hackerrank" type="hackerrank" label="Hackerrank Profile" InputLabelProps={{shrink: true,}} placeholder="www.hackerrank.com/username" fullWidth/>
+            <Field component={TextField} name="hackerrank" type="hackerrank" label="Hackerrank Profile" InputLabelProps={{shrink: true,}} placeholder="http://www.hackerrank.com/username" fullWidth/>
         </Grid>
     </Grid>
     );
