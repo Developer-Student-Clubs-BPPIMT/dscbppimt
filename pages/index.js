@@ -13,7 +13,6 @@ import { useState, useEffect } from 'react'
 
 export default function Index() {
   const [Events, setEvents] = useState([]);
-  const [Render, setRender] = useState(false);
   const URL = "https://dscbppimt-cms.herokuapp.com"
   useEffect(() => {
     const data = async() => {
@@ -28,7 +27,7 @@ export default function Index() {
         setEvents(dataArray);
     }
     data();
-},[Render])
+},[Events])
   return (
     <Layout>
       <Head>

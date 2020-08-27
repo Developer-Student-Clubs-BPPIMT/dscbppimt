@@ -29,11 +29,7 @@ const Navbar = () => {
                                 <DrawerItem label="Resources" icon={<LibraryBooksIcon /> } link='/resources'/>
                                 <DrawerItem label="Blogs" icon={<BookIcon />} link='/blogs'/>
                                 <DrawerItem label="Events" icon={<BookIcon />} link='/events'/>
-<<<<<<< HEAD
                                 <DrawerItem label="Teams" icon={<InfoIcon />} link='/team'/>
-=======
-                                <DrawerItem label="Team" icon={<InfoIcon />} link='/team'/>
->>>>>>> 3ab64b82486aee1fe1c9b5cc12cd36dff9ee4ffe
                                 <DrawerItem label="Contact" icon={<ContactsIcon />} link='/contact'/>
                                 <DrawerItem label="About" icon={<InfoIcon />} link='/about'/>
                             </List>

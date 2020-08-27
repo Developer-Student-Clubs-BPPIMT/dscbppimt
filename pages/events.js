@@ -11,7 +11,6 @@ import { useState, useEffect } from 'react'
 
 function Events() {
     const [Events, setEvents] = useState([]);
-    const [Render, setRender] = useState(false);
     const URL = "https://dscbppimt-cms.herokuapp.com/files/"
     useEffect(() => {
         const data = async() => {
@@ -20,7 +19,7 @@ function Events() {
             setEvents(res.data);
         }
         data();
-    },[Render])
+    },[Events])
     return (
         <Layout>
             <Box>
@@ -34,12 +33,8 @@ function Events() {
                         title={event.Title} 
                         speaker={event.Speaker} 
                         description={event.Description} 
-<<<<<<< HEAD
-                        date={event.Date}
-=======
                         date={event.date}
                         data={event.Image}
->>>>>>> 3ab64b82486aee1fe1c9b5cc12cd36dff9ee4ffe
                         />
                         </Grid>
                     ))}

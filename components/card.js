@@ -119,11 +119,7 @@ export const MediaCard = props => {
     const classes = useStyles();
     const {image, title, description} = props;
     return (
-<<<<<<< HEAD
       <Card style={{margin : '8px', minHeight : '20em'}}>
-=======
-      <Card style={{margin : '8px', minHeight: '20em'}}>
->>>>>>> 3ab64b82486aee1fe1c9b5cc12cd36dff9ee4ffe
           <Box style={{margin : '2em 0em .5em 2em'}}>{ image }</Box>
           <CardContent>
             <Typography gutterBottom variant="h6" component="h2">
