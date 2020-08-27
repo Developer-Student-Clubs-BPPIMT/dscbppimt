@@ -26,7 +26,7 @@ function Blogs() {
                         title={event.Title} 
                         speaker={event.Author} 
                         discription={event.Description} 
-                        platform={event.Platform}
+                        Platform={event.Platform}
                         url={event.Read}
                         data={event}
                         />

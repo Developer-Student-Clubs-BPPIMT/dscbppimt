@@ -127,7 +127,7 @@ export const coreMembers = [
         name : "Parichay Dey",
         linkedin : "https://www.linkedin.com/in/parichay-dey-67291419a/",
         github : "https://github.com/ParichayDey8",
-        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fparichay.jpg?alt=media&token=58414c28-d047-4f70-9e35-e39066f4d91f',
+        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fparichay.jpg?alt=media&token=5cbf46a9-c21f-4583-b160-50d31a7c2d29',
         pos : "Management Team"
     }
 ]
