@@ -1,6 +1,6 @@
 export const lead = {
     name : "Ayushman Kumar",
-    image : "https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fayushma.jpg?alt=media&token=6ce09c75-9fb2-403c-974f-0034a7355bba",
+    image : "https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fayushma.jpg?alt=media&token=c47871f1-5641-4244-9ed0-27f31db1811d",
     linkedin : "https://www.linkedin.com/in/ayushman-kumar-836a19190/",
     github : ' https://github.com/ayushmankumar7',
     pos : "DSC Lead"
@@ -38,6 +38,13 @@ export const coreMembers = [
         pos : "Web Team",
         image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fshashank.jpg?alt=media&token=077b8eaf-a988-4886-8327-a520f784d22a'
 
+    },
+    {
+        name : "Reetam Dutta",
+        linkedin : "https://www.linkedin.com/in/reetamdutta1/",
+        github : "https://github.com/reetamdutta1",
+        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Freetam.jpg?alt=media&token=6e9e455a-f989-4be9-b093-5d202e04998a',
+        pos : "Design Team"
     }, 
     {
         linkedin : "https://www.linkedin.com/in/disha-kapoor-780a65187/",
@@ -120,7 +127,7 @@ export const coreMembers = [
         name : "Parichay Dey",
         linkedin : "https://www.linkedin.com/in/parichay-dey-67291419a/",
         github : "https://github.com/ParichayDey8",
-        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fparichay.jpg?alt=media&token=58414c28-d047-4f70-9e35-e39066f4d91f',
-        pos : "Outreach Team"
+        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fparichay.jpg?alt=media&token=5cbf46a9-c21f-4583-b160-50d31a7c2d29',
+        pos : "Management Team"
     }
 ]

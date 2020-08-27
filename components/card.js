@@ -4,6 +4,7 @@ import Message from '../public/svgs/message.svg'
 import placeholder from '../public/images/placeholder.jpg'
 import Link from 'next/link'
 import MediumIcon from '../public/svgs/medium.svg'
+import GFGIcon from '../public/svgs/gfg.svg'
 
 export const AboutCard = ({ image, title, body, hashtag }) => {
     return(
@@ -17,12 +18,15 @@ export const AboutCard = ({ image, title, body, hashtag }) => {
 
 export const ContactCard = (props) => {
     return(
-    <Card style={{margin : '8px', height : '32em', display : 'flex', flexDirection : 'column'}}>
-        { props.image }
+    <Card style={{margin : '8px', height : '35em', display : 'flex', flexDirection : 'column'}}>
+        <div style={{height : '250px'}}>
+            { props.image }
+        </div>
+        
         <CardContent style={{flex : '1', display : 'flex', flexDirection : 'column'}}>
                 <Typography variant="h6" style={{fontWeight : '600'}}>{props.title}</Typography>
                 <Typography variant="body2" style={{flex : '1'}}>{props.description}</Typography>
-                <Button variant="contained" color="primary" style={{margin : '0px auto', marginTop : '2em'}}>{props.action}</Button>
+                <Button variant="contained" color="primary" style={{margin : '0px auto', marginTop : '.8em'}}>{props.action}</Button>
         </CardContent>
     </Card>)
 }
@@ -44,9 +48,9 @@ export const EventCard = (props) => {
                                         <Typography style={{fontWeight : '600', fontSize : '1.5em'}}>{props.title}</Typography>
                                         <Typography variant="body1" style={{fontWeight : '500', marginBottom : '1em'}}>Speaker: {props.speaker}</Typography>
                                     </Grid>
-                                    <Grid item xs={12} style={{textAlign : 'right'}}>
+                                    {/* <Grid item xs={12} style={{textAlign : 'left'}}>
                                         <Typography>{props.date}</Typography>
-                                    </Grid>
+                                    </Grid> */}
                                 </Grid>
 
                             </Box>
@@ -94,7 +98,8 @@ export const BlogCard = (props) => {
                         </Grid>
                         <Grid item container justify="space-between" className={styles.blogButtonBar}>
                             <Grid item>
-                                <MediumIcon style={{width : '80px'}}/>
+                                {props.Platform === 'GeeksForGeeks' ? <GFGIcon style={{width : '50px'}}/> : props.Platform === 'Medium' ? <MediumIcon style={{width : '70px'}}/> : <Typography variant="subtitle1" style={{fontWeight : '600'}}>{props.Platform}</Typography>}
+                                
                             </Grid>
                             <Grid item style={{display : 'flex', justifyContent : 'flex-end'}}>
                             <Button variant="contained" color="primary" onClick={() => window.open(props.url)}>Read More</Button>
@@ -119,7 +124,7 @@ export const MediaCard = props => {
     const classes = useStyles();
     const {image, title, description} = props;
     return (
-      <Card style={{margin : '8px', minHeight: '20em'}}>
+      <Card style={{margin : '8px', minHeight : '20em'}}>
           <Box style={{margin : '2em 0em .5em 2em'}}>{ image }</Box>
           <CardContent>
             <Typography gutterBottom variant="h6" component="h2">

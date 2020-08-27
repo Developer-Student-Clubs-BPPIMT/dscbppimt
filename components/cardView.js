@@ -9,7 +9,7 @@ import BubbleChartSharpIcon from '@material-ui/icons/BubbleChartSharp';
 
 import Collab from '../public/svgs/collab.svg'
 import Speaker from '../public/svgs/speaker.svg'
-import Event from '../public/svgs/event.svg'
+import Event from '../public/svgs/events.svg'
 
 
 
@@ -22,7 +22,7 @@ export const AboutCardView = () => {
         </Box>
         <Grid container justify="center" style={{maxWidth : '1300px'}} className={styles.AboutCardView}>
             <Grid item xs={6} md><AboutCard image={<ChatBubbleIcon style={{color : 'blue'}}/>} title="Talks" body="Get in touch with the latest technology and news." hashtag="#techtalks"/></Grid>
-            <Grid item xs={6} md><AboutCard image={<CodeIcon style={{color : 'orange'}}/>} title="CodeLabs" body="Get concrete-practical experience under the mentorship of the community members." hashtag="#practicalexperience"/></Grid>
+            <Grid item xs={6} md><AboutCard image={<CodeIcon style={{color : 'orange'}}/>} title="CodeLabs" body="Get practical experience under the mentorship of the community members." hashtag="#practicalexperience"/></Grid>
             <Grid item xs={6} md><AboutCard image={<LiveTvIcon style={{color : 'red'}} />} title="Live Events" body="Catch us live with all our online events." hashtag="#liveevents"/></Grid>
             <Grid item xs={6} md><AboutCard image={<BubbleChartSharpIcon style={{color : 'green'}}/>} title="RoadShows" body="Share your knowledge and make an impact in different Companies and Colleges." hashtag="#makeadifference"/></Grid>
         </Grid>
@@ -33,8 +33,8 @@ export const ContactCardView = () => {
     return(
     <Box style={{background : '#E8EAE9', padding : '4em 0em', display : 'flex', justifyContent : 'center'}}>
         <Grid container style={{maxWidth : '1200px'}} justify="center">
-            <Grid item sm={6} md={4}><ContactCard title="Speakers" description="The DSC program is focused with a vision to inculcate individuals with skills and  knowledge, who are intrigued about the possibilities that developer technologies can bring changes to this world." hashtag="#technologyisawesome" action="Send Proposal" actionLink="#" image={<Event style={{height : '100%', width : '100%', paddingTop : '1em'}} />}/></Grid>
-            <Grid item sm={6} md={4}><ContactCard title="Events" description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab i" body="Anyone who wants to build products,students from all undergraduate or graduate programs inquisitive about developer technologies." hashtag="#togetherwegrow" action="Learn More" actionLink="#" image={<Speaker style={{height : '100%', width : '100%', paddingTop : '1em'}} />}/></Grid>
+            <Grid item sm={6} md={4}><ContactCard title="Speakers" description="The DSC program is focused with a vision to inculcate individuals with skills and  knowledge, who are intrigued about the possibilities that developer technologies can bring changes to this world." hashtag="#technologyisawesome" action="Send Proposal" actionLink="#" image={<Speaker style={{height : '100%', width : '100%', paddingTop : '1em'}} />}/></Grid>
+            <Grid item sm={6} md={4}><ContactCard title="Events" description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab i" body="Anyone who wants to build products,students from all undergraduate or graduate programs inquisitive about developer technologies." hashtag="#togetherwegrow" action="Learn More" actionLink="#" image={<Event style={{height : '100%', width : '100%', paddingTop : '1em'}} />}/></Grid>
             <Grid item sm={6} md={4}><ContactCard title="Sponsorships" description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab i" hashtag="" action="Send Proposal" actionLink="#" image={<Collab style={{height : '100%', width : '100%', paddingTop : '1em'}} />}/></Grid>
         </Grid>
     </Box>);
