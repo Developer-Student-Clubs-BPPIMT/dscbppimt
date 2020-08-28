@@ -20,7 +20,7 @@ const Navbar = () => {
     <AppBar position="sticky" style={{background : "white"}}>
         <Toolbar className={styles.navToolbar}>
             <Grid container>
-                <Grid item xs={2} className={styles.navToggle}>
+                <Grid item xs={1} className={styles.navToggle}>
                         <IconButton onClick={() => navToggle(true)}><MenuIcon /></IconButton>
                         <Drawer anchor='left' open={navState} onClose={() => navToggle(false)}>
                             <List>
@@ -35,13 +35,13 @@ const Navbar = () => {
                             </List>
                         </Drawer>
                 </Grid>
-                <Grid item xs={10} sm={3} style={{display : 'flex', alignItems: 'center'}}>
-                    <Link href="/"><Typography variant="h6" style={{cursor : 'pointer'}}>
+                <Grid item xs={10} sm={4} style={{display : 'flex', alignItems: 'center'}}>
+                    <Link href="/"><Typography variant="h6" style={{cursor : 'pointer', marginLeft : '1.3em'}} noWrap>
                         <DscLogo style={{marginRight : '10px', width : '1.5em'}}/>
                         DSC BPPIMT
                     </Typography></Link>
                 </Grid>
-                <Grid item sm={9} container alignItems="center" spacing={3} justify="flex-end" className={styles.nav}>
+                <Grid item sm={8} container alignItems="center" spacing={3} justify="flex-end" className={styles.nav}>
                     <Grid item>
                         <Link href="/"><a>Home</a></Link>
                     </Grid>
