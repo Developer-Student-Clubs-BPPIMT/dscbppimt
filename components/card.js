@@ -1,4 +1,4 @@
-import { makeStyles, Card, Typography, CardContent, CardMedia, Button, Box, Grid, Chip } from '@material-ui/core'
+import { makeStyles, Card, Typography, CardContent, CardMedia, Button, Box, Grid, Chip, Container, Paper } from '@material-ui/core'
 import styles from '../styles/Card.module.css'
 import Message from '../public/svgs/message.svg'
 import placeholder from '../public/images/placeholder.jpg'
@@ -6,24 +6,48 @@ import Link from 'next/link'
 import MediumIcon from '../public/svgs/medium.svg'
 import GFGIcon from '../public/svgs/gfg.svg'
 
+const useStyles = makeStyles({
+    aboutCard : {
+        background : 'rgba(255,255,255,.1)',
+    },
+    contactCard: {
+        background : 'rgba(255,255,255,.1)',
+        margin : '8px',
+        height : '35em',
+        display : 'flex',
+        flexDirection : 'column'
+    },
+    contactCardContent: {
+        flex : '1',
+        display : 'flex',
+        flexDirection : 'column'
+    }
+})
+
+
 export const AboutCard = ({ image, title, body, hashtag }) => {
+    const classes = useStyles()
     return(
-    <Card className={styles.aboutCard}>
-        {image}
-    <Typography variant="subtitle1" component="h5">{title}</Typography>
-    <Typography variant="body2" component="p">{body}</Typography>
-    <Chip label={hashtag}/>
-    </Card>)
+        <Card elevation={2} >
+            <CardContent className={classes.aboutCard}>
+                {image}
+                <Typography variant="subtitle1" component="h5">{title}</Typography>
+                <Typography variant="body2" component="p">{body}</Typography>
+                <Chip label={hashtag}/>
+            </CardContent>
+        </Card>
+        )
 }
 
 export const ContactCard = (props) => {
+    const classes = useStyles()
     return(
-    <Card style={{margin : '8px', height : '35em', display : 'flex', flexDirection : 'column'}}>
+    <Card className={classes.contactCard}>
         <div style={{height : '250px'}}>
             { props.image }
         </div>
         
-        <CardContent style={{flex : '1', display : 'flex', flexDirection : 'column'}}>
+        <CardContent style={{}} className={classes.contactCardContent}>
                 <Typography variant="h6" style={{fontWeight : '600'}}>{props.title}</Typography>
                 <Typography variant="body2" style={{flex : '1'}}>{props.description}</Typography>
                 <Button variant="contained" color="primary" style={{margin : '0px auto', marginTop : '.8em'}}>{props.action}</Button>
@@ -48,9 +72,6 @@ export const EventCard = (props) => {
                                         <Typography style={{fontWeight : '600', fontSize : '1.5em'}}>{props.title}</Typography>
                                         <Typography variant="body1" style={{fontWeight : '500', marginBottom : '1em'}}>Speaker: {props.speaker}</Typography>
                                     </Grid>
-                                    {/* <Grid item xs={12} style={{textAlign : 'left'}}>
-                                        <Typography>{props.date}</Typography>
-                                    </Grid> */}
                                 </Grid>
 
                             </Box>
@@ -76,7 +97,7 @@ export const EventCard = (props) => {
 }
 
 export const BlogCard = (props) => {
-
+    console.log(props)
     return(
     <Card className={styles.blogCard} style={{height : '100%'}}>
         <CardContent>
@@ -113,12 +134,6 @@ export const BlogCard = (props) => {
     </Card>)
 }
 
-
-const useStyles = makeStyles({
-    media: {
-      height: 140,
-    },
-  });
 
 export const MediaCard = props => {
     const classes = useStyles();
