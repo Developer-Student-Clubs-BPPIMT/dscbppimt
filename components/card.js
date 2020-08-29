@@ -9,7 +9,11 @@ import GFGIcon from '../public/svgs/gfg.svg'
 const useStyles = makeStyles({
     aboutCard : {
         background : 'rgba(255,255,255,.1)',
-        height: '20em',
+        margin : '4px',
+
+    },
+    aboutCardContent : {
+        height: '19em',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -19,14 +23,12 @@ const useStyles = makeStyles({
     },
     aboutCardTitle : {
         fontWeight: '800',
-        marginBottom: '.6em',
         textAlign: 'center',
     },
     aboutCardBody : {
         textAlign: 'center',
         fontSize: "14px",
         marginBottom: '.5em',
-
     },
     contactCard: {
         background : 'rgba(255,255,255,.1)',
@@ -46,8 +48,8 @@ const useStyles = makeStyles({
 export const AboutCard = ({ image, title, body, hashtag }) => {
     const classes = useStyles()
     return(
-        <Card elevation={2} >
-            <CardContent className={classes.aboutCard}>
+        <Card elevation={2} className={classes.aboutCard}>
+            <CardContent className={classes.aboutCardContent}>
                 {image}
                 <Typography variant="subtitle1" component="h5" className={classes.aboutCardTitle}>{title}</Typography>
                 <Typography variant="body2" component="p" className={classes.aboutCardBody}>{body}</Typography>
@@ -65,7 +67,7 @@ export const ContactCard = (props) => {
             { props.image }
         </div>
         
-        <CardContent style={{}} className={classes.contactCardContent}>
+        <CardContent className={classes.contactCardContent}>
                 <Typography variant="h6" style={{fontWeight : '600'}}>{props.title}</Typography>
                 <Typography variant="body2" style={{flex : '1'}}>{props.description}</Typography>
                 <Button variant="contained" color="primary" style={{margin : '0px auto', marginTop : '.8em'}}>{props.action}</Button>
@@ -115,7 +117,6 @@ export const EventCard = (props) => {
 }
 
 export const BlogCard = (props) => {
-    console.log(props)
     return(
     <Card className={styles.blogCard} style={{height : '100%'}}>
         <CardContent>
