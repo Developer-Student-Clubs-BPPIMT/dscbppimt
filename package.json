@@ -22,6 +22,7 @@
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "use-dark-mode": "^2.3.1",
     "yup": "^0.29.3"
   },
   "scripts": {

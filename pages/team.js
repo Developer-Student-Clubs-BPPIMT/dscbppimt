@@ -6,7 +6,7 @@ import { lead, coreLeads, coreMembers } from '../components/helper/teamHelper'
 
 const TeamPage = () => {
     let body = coreMembers.map(mem => {
-        return(<Grid item key={mem.name}><MemberCard width="20em" name={mem.name} github={mem.github} linkedin={mem.linkedin} image={mem.image} pos={mem.pos}/></Grid>);
+        return(<Grid item key={mem.name}><MemberCard width="12em" name={mem.name} github={mem.github} linkedin={mem.linkedin} image={mem.image} pos={mem.pos}/></Grid>);
     })
     for(let i = 0; i < 10; i++){
         body.push()
@@ -34,9 +34,9 @@ export default TeamPage
 
 const MemberCard = (props) => {
     return(        
-    <Card style={{maxWidth : props.width, padding : '0em 0px 2em 0px', margin : '4px', minHeight : '20em'}}>
+    <Card style={{maxWidth : props.width, padding : '0em 0px 1em 0px', margin : '4px', minHeight : '20em'}}>
         <CardContent style={{textAlign : 'center'}} wrap="wrap">
-            <img src={props.image} style={{borderRadius : '50%', width : '75%', padding : '4px'}}/>
+            <img src={props.image} style={{borderRadius : '50%', width : '60%', padding : '4px'}}/>
                     <Typography variant="h6" style={{fontSize : '1.2em', fontWeight : 'bold'}}>{props.name}</Typography>
                     <Typography variant="body2">{props.pos}</Typography>
                 <Box style={{display : 'flex', justifyContent : 'center', marginTop : '2em'}}>

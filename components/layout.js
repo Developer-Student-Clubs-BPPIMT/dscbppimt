@@ -1,6 +1,7 @@
 import Navbar from './navbar';
+import { useContext } from 'react';
 import { useRouter } from 'next/router'
-import { makeStyles, BottomNavigation, BottomNavigationAction, Box } from '@material-ui/core';
+import { makeStyles, BottomNavigation, BottomNavigationAction, Box, Paper } from '@material-ui/core';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Footer from './footer';
 import styles from '../styles/Layout.module.css'
@@ -11,19 +12,20 @@ import ContactsIcon from '@material-ui/icons/Contacts';
 import InfoIcon from '@material-ui/icons/Info';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import BookIcon from '@material-ui/icons/Book';
+import { ThemeProvider } from '@material-ui/core'
 
 
 const useStyles = makeStyles((theme) => ({
     bottomNavigation : {
-        background : theme.palette.secondary.main
+        backgroundColor : theme.palette.secondary.main
     }
 }))
 
 const Layout = (props) => {
     const classes = useStyles()
     const router = useRouter()
-    return(
 
+    return(
         <Box>
                 <Box style={{minHeight : '100vh', display : 'flex', flexDirection : 'column'}}>
                 <Navbar />
@@ -41,8 +43,7 @@ const Layout = (props) => {
                 </Box>
                 <Footer />
                 </Box>
-
-        </Box>)
+            </Box>)
 }
 
 export default Layout;

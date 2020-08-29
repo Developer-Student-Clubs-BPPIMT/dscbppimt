@@ -38,10 +38,10 @@ export const AboutCardView = () => {
             <Typography variant="body2" style={{marginBottom : '1em'}}>Google Developer Groups (GDGs) are for developers who are interested in Google's developer technology.</Typography>
         </Box>
         <Grid container justify="center" style={{maxWidth : '1300px'}} className={styles.AboutCardView}>
-            <Grid item xs={6} md><AboutCard image={<ChatBubbleIcon style={{color : 'blue', height : '64px', width : '64px'}}/>} title="Talks" body="Get in touch with the latest technology and news." hashtag="#techtalks"/></Grid>
+            <Grid item xs={6} md><AboutCard image={<ChatBubbleIcon style={{color : '#1FA9E5', height : '64px', width : '64px'}}/>} title="Talks" body="Get in touch with the latest technology and news." hashtag="#techtalks"/></Grid>
             <Grid item xs={6} md><AboutCard image={<CodeIcon style={{color : 'orange', height : '64px', width : '64px'}}/>} title="CodeLabs" body="Get practical experience under the mentorship of the community members." hashtag="#practicalexperience"/></Grid>
             <Grid item xs={6} md><AboutCard image={<LiveTvIcon style={{color : 'red', height : '64px', width : '64px'}} />} title="Live Events" body="Catch us live with all our online events." hashtag="#liveevents"/></Grid>
-            <Grid item xs={6} md><AboutCard image={<BubbleChartSharpIcon style={{color : 'green', height : '64px', width : '64px'}}/>} title="RoadShows" body="Share your knowledge and make an impact in different Companies and Colleges." hashtag="#makeadifference"/></Grid>
+            <Grid item xs={6} md><AboutCard image={<BubbleChartSharpIcon style={{color : 'green', height : '64px', width : '64px'}}/>} title="RoadShows" body="Share your knowledge and make an Impact." hashtag="#makeadifference"/></Grid>
         </Grid>
     </Paper>)
 }
