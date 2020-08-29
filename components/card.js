@@ -7,8 +7,12 @@ import MediumIcon from '../public/svgs/medium.svg'
 import GFGIcon from '../public/svgs/gfg.svg'
 
 const useStyles = makeStyles({
-    aboutCardContent : {
+    aboutCard : {
         background : 'rgba(255,255,255,.1)',
+        margin : '4px',
+
+    },
+    aboutCardContent : {
         height: '19em',
         display: 'flex',
         flexDirection: 'column',
@@ -44,7 +48,7 @@ const useStyles = makeStyles({
 export const AboutCard = ({ image, title, body, hashtag }) => {
     const classes = useStyles()
     return(
-        <Card elevation={2} >
+        <Card elevation={2} className={classes.aboutCard}>
             <CardContent className={classes.aboutCardContent}>
                 {image}
                 <Typography variant="subtitle1" component="h5" className={classes.aboutCardTitle}>{title}</Typography>
