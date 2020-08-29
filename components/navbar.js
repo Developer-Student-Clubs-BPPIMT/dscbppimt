@@ -1,6 +1,5 @@
-import { AppBar, Toolbar, Typography, Grid, IconButton, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core'
+import { makeStyles, useTheme, AppBar, Toolbar, Typography, Grid, IconButton, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core'
 import Link from 'next/link'
-import styles from '../styles/Layout.module.css'
 import DscLogo from '../public/svgs/dsc.svg'
  
 import React, { useState } from 'react'
@@ -13,14 +12,24 @@ import InfoIcon from '@material-ui/icons/Info';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import BookIcon from '@material-ui/icons/Book';
 
+
+const useStyles = makeStyles((theme) => ({
+    navbar : {
+        background : 'black',
+        [ theme.palette.type === 'light'] : {
+            background : 'black'
+        }
+    }
+}))
+
 const Navbar = () => {
     const [ navState, navToggle ] = useState(false)
-
+    const classes = useStyles()
     return(
-    <AppBar position="sticky" style={{background : "white"}}>
-        <Toolbar className={styles.navToolbar}>
+    <AppBar position="sticky" color="secondary.main">
+        <Toolbar className={classes.navToolbar}>
             <Grid container>
-                <Grid item xs={1} className={styles.navToggle}>
+                <Grid item xs={1} className={classes.navToggle}>
                         <IconButton onClick={() => navToggle(true)}><MenuIcon /></IconButton>
                         <Drawer anchor='left' open={navState} onClose={() => navToggle(false)}>
                             <List>
@@ -41,7 +50,7 @@ const Navbar = () => {
                         DSC BPPIMT
                     </Typography></Link>
                 </Grid>
-                <Grid item sm={8} container alignItems="center" spacing={3} justify="flex-end" className={styles.nav}>
+                <Grid item sm={8} container alignItems="center" spacing={3} justify="flex-end" className={classes.nav}>
                     <Grid item>
                         <Link href="/"><a>Home</a></Link>
                     </Grid>

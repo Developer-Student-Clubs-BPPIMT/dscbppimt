@@ -10,7 +10,7 @@ const Resources = () => {
         <Container fixed>
         <h1 className="color">Contact Us</h1>
         <h2> Developer Student Clubs BPPIMT</h2>
-          <Typography varient="body2" component="div" style={{ backgroundColor: '#fff', height: 'auto', width: 'auto', fontWeight:"545"}}>
+          <Typography varient="body2" component="div" style={{height: 'auto', width: 'auto', fontWeight:"545"}}>
           Our events are open to novice, developers, managers, and organizations who are interested in Google's Technologies or<br/> 
           those who use them as part of their projects.<br/><br/>
   

@@ -37,7 +37,7 @@ const Content = () => {
 
   const SimpleContainer = () => {
     return (
-        <Box style={{padding : '2em', background : '#E8EAE9',}}>
+        <Box style={{padding : '2em'}}>
             <Box style={{maxWidth : '1100px', margin : '0 auto'}}>
                 <Typography variant="h5" style={{padding : '1em 0px', fontWeight : '600'}}>Opportunities</Typography>
                 <Grid container style={{margin: "0 auto"}}>

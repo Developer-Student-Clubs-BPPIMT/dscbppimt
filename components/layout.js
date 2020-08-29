@@ -16,8 +16,8 @@ const Layout = (props) => {
     const router = useRouter()
     return(
 
-        <Paper elevation={0} square component="div">
-                <div style={{minHeight : '100vh', display : 'flex', flexDirection : 'column'}}>
+        <Box>
+                <Box style={{minHeight : '100vh', display : 'flex', flexDirection : 'column'}}>
                 <Navbar />
                 <div style={{flex : '1'}}>
                 {props.children}
@@ -32,9 +32,9 @@ const Layout = (props) => {
                     </BottomNavigation>
                 </Box>
                 <Footer />
-                </div>
+                </Box>
 
-    </Paper>)
+        </Box>)
 }
 
 export default Layout;

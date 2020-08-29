@@ -19,7 +19,7 @@ function Events() {
             setEvents(res.data);
         }
         data();
-    },[Events])
+    },[])
     return (
         <Layout>
             <Box>
