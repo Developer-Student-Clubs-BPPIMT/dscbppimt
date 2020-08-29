@@ -13,7 +13,7 @@ function Blogs() {
             setBlogs(res.data);
         }
         data();
-    },[Blogs])
+    },[])
     return (
         <Layout>
                 <Container style={{marginBottom : '4em'}}>

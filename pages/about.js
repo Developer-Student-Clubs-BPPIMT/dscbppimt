@@ -1,6 +1,6 @@
 import Layout from '../components/layout'
 import { MediaCard } from '../components/card'
-import { Grid, Typography, Box, Container  } from '@material-ui/core'
+import { Grid, Typography, Box, Container, Paper  } from '@material-ui/core'
 
 import Rocket from '../public/svgs/rocket.svg';
 import Blub from '../public/svgs/blub.svg'
@@ -37,17 +37,17 @@ const Content = () => {
 
   const SimpleContainer = () => {
     return (
-        <Box style={{padding : '2em', background : '#E8EAE9',}}>
+        <Paper style={{padding : '2em'}}>
             <Box style={{maxWidth : '1100px', margin : '0 auto'}}>
                 <Typography variant="h5" style={{padding : '1em 0px', fontWeight : '600'}}>Opportunities</Typography>
                 <Grid container style={{margin: "0 auto"}}>
-                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}>◾ Develop your skills and knowledge with the guidance of  community members.</Grid>
-                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}>◾ Get a chance to attend our workshops and webinar with hands on experience.</Grid>
-                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}>◾ Showcase your technical skills.</Grid>
-                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}>◾ Apply your skills to develop solutions for local organizations.</Grid>
+                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}>- Develop your skills and knowledge with the guidance of  community members.</Grid>
+                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}>- Get a chance to attend our workshops and webinar with hands on experience.</Grid>
+                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}>- Showcase your technical skills.</Grid>
+                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}>- Apply your skills to develop solutions for local organizations.</Grid>
                 </Grid>
             </Box>
-        </Box>
+        </Paper>
       
     );
   }

@@ -1,6 +1,6 @@
 import Navbar from './navbar';
 import { useRouter } from 'next/router'
-import { Paper, BottomNavigation, BottomNavigationAction, Box } from '@material-ui/core';
+import { makeStyles, BottomNavigation, BottomNavigationAction, Box } from '@material-ui/core';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Footer from './footer';
 import styles from '../styles/Layout.module.css'
@@ -12,18 +12,26 @@ import InfoIcon from '@material-ui/icons/Info';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import BookIcon from '@material-ui/icons/Book';
 
+
+const useStyles = makeStyles((theme) => ({
+    bottomNavigation : {
+        background : theme.palette.secondary.main
+    }
+}))
+
 const Layout = (props) => {
+    const classes = useStyles()
     const router = useRouter()
     return(
 
-        <Paper elevation={0} square component="div">
-                <div style={{minHeight : '100vh', display : 'flex', flexDirection : 'column'}}>
+        <Box>
+                <Box style={{minHeight : '100vh', display : 'flex', flexDirection : 'column'}}>
                 <Navbar />
                 <div style={{flex : '1'}}>
                 {props.children}
                 </div>
                 <Box className={styles.bottomNav}>
-                    <BottomNavigation position="sticky" showLabels component="nav">
+                    <BottomNavigation position="sticky" showLabels component="nav" className={classes.bottomNavigation}>
                         <BottomNavigationAction component='div' label="About" icon={<InfoIcon />} onClick={() => router.push('/about')}/>
                         <BottomNavigationAction component='div' label="Events" icon={<BookIcon />} onClick={() => router.push('/events')}/>
                         <BottomNavigationAction component='div' label="Home" icon={<HomeIcon />} onClick={() => router.push('/')}/>
@@ -32,9 +40,9 @@ const Layout = (props) => {
                     </BottomNavigation>
                 </Box>
                 <Footer />
-                </div>
+                </Box>
 
-    </Paper>)
+        </Box>)
 }
 
 export default Layout;

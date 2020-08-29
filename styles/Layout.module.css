@@ -1,8 +1,3 @@
-.layout{
-    height: 100%;
-    background: red;
-}
-
 .title span{
     color : var(--primary-color)
 }

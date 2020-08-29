@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { Container, Grid, Typography, Box, Button } from '@material-ui/core';
+import { Container, Grid, Typography, Box, Button, Paper } from '@material-ui/core';
 import Layout from '../components/layout';
 import Header from '../components/header';
 import { AboutCardView, ContactCardView } from '../components/cardView';
@@ -37,7 +37,7 @@ export default function Index() {
       <AboutCardView />
       <Container>
         <Box style={{padding : '2em 0px',display : 'flex', justifyContent : 'space-between'}} className={styles.eventsCard}>
-          <Typography variant="h5" style={{fontWeight : '600', marginBottom : '.5em'}} className={styles.title}>Upcoming <span>Events</span> and <span>Meetups</span>.</Typography>
+          <Typography variant="h5" style={{fontWeight : '600', marginBottom : '.5em'}} className={styles.title}>Upcoming <Box color="primary.main" style={{display : 'inline'}}>Events</Box> and <Box color="primary.main" style={{display : 'inline'}}>Meetups</Box>.</Typography>
           <Link href="/events"><Button component="button">View All</Button></Link>
         </Box>
         

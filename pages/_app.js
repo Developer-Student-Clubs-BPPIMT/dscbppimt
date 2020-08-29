@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import theme from '../public/theme';
 import '../styles/main.css'
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -16,6 +17,22 @@ export default function MyApp(props) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
+
+
+
+  const theme = responsiveFontSizes(createMuiTheme({
+    palette: {
+      // type : prefersDarkMode ? 'dark' : 'light',
+      type : 'dark',
+      primary: {
+        main: '#1FA9E5',
+      },
+      secondary : {
+        main : '#000000',
+      }
+    },
+  }));
+  
 
   return (
     <React.Fragment>
