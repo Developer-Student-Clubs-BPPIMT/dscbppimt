@@ -9,6 +9,24 @@ import GFGIcon from '../public/svgs/gfg.svg'
 const useStyles = makeStyles({
     aboutCard : {
         background : 'rgba(255,255,255,.1)',
+        height: '20em',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: "flex-start",
+        margin: "4px",
+
+    },
+    aboutCardTitle : {
+        fontWeight: '800',
+        marginBottom: '.6em',
+        textAlign: 'center',
+    },
+    aboutCardBody : {
+        textAlign: 'center',
+        fontSize: "14px",
+        marginBottom: '.5em',
+
     },
     contactCard: {
         background : 'rgba(255,255,255,.1)',
@@ -31,8 +49,8 @@ export const AboutCard = ({ image, title, body, hashtag }) => {
         <Card elevation={2} >
             <CardContent className={classes.aboutCard}>
                 {image}
-                <Typography variant="subtitle1" component="h5">{title}</Typography>
-                <Typography variant="body2" component="p">{body}</Typography>
+                <Typography variant="subtitle1" component="h5" className={classes.aboutCardTitle}>{title}</Typography>
+                <Typography variant="body2" component="p" className={classes.aboutCardBody}>{body}</Typography>
                 <Chip label={hashtag}/>
             </CardContent>
         </Card>

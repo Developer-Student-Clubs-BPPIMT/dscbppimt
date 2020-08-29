@@ -4,7 +4,7 @@ import DscLogo from '../public/svgs/dsc.svg'
  
 import React, { useState } from 'react'
 import { useRouter } from 'next/router' 
-
+import styles from '../styles/Layout.module.css'
 import MenuIcon from '@material-ui/icons/Menu'
 import HomeIcon from '@material-ui/icons/Home'
 import ContactsIcon from '@material-ui/icons/Contacts';
@@ -13,23 +13,14 @@ import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import BookIcon from '@material-ui/icons/Book';
 
 
-const useStyles = makeStyles((theme) => ({
-    navbar : {
-        background : 'black',
-        [ theme.palette.type === 'light'] : {
-            background : 'black'
-        }
-    }
-}))
 
 const Navbar = () => {
     const [ navState, navToggle ] = useState(false)
-    const classes = useStyles()
     return(
     <AppBar position="sticky" color="secondary.main">
-        <Toolbar className={classes.navToolbar}>
+        <Toolbar className={styles.navToolbar}>
             <Grid container>
-                <Grid item xs={1} className={classes.navToggle}>
+                <Grid item xs={1} className={styles.navToggle}>
                         <IconButton onClick={() => navToggle(true)}><MenuIcon /></IconButton>
                         <Drawer anchor='left' open={navState} onClose={() => navToggle(false)}>
                             <List>
@@ -50,27 +41,27 @@ const Navbar = () => {
                         DSC BPPIMT
                     </Typography></Link>
                 </Grid>
-                <Grid item sm={8} container alignItems="center" spacing={3} justify="flex-end" className={classes.nav}>
+                <Grid item sm={8} container alignItems="center" spacing={3} justify="flex-end" className={styles.nav}>
                     <Grid item>
-                        <Link href="/"><a>Home</a></Link>
+                        <Link href="/"><a style={{color : 'white'}}>Home</a></Link>
                     </Grid>
                     <Grid item>
-                        <Link href="/team"><a>Team</a></Link>
+                        <Link href="/team"><a style={{color : 'white'}}>Team</a></Link>
                     </Grid>
                     <Grid item>
-                        <Link href="/resources"><a>Resources</a></Link>
+                        <Link href="/resources"><a style={{color : 'white'}}>Resources</a></Link>
                     </Grid>
                     <Grid item>
-                        <Link href="/events"><a>Events</a></Link>
+                        <Link href="/events"><a style={{color : 'white'}}>Events</a></Link>
                     </Grid>
                     <Grid item>
-                        <Link href="/blogs"><a>Blogs</a></Link>
+                        <Link href="/blogs"><a style={{color : 'white'}}>Blogs</a></Link>
                     </Grid>
                     <Grid item>
-                        <Link href="/contact"><a>Contact</a></Link>
+                        <Link href="/contact"><a style={{color : 'white'}}>Contact</a></Link>
                     </Grid>
                     <Grid item>
-                        <Link href="/about"><a>About</a></Link>
+                        <Link href="/about"><a style={{color : 'white'}}>About</a></Link>
                     </Grid>
                 </Grid>
             </Grid>
