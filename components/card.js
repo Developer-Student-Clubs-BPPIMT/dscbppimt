@@ -75,6 +75,9 @@ export const ContactCard = (props) => {
 
 
 export const EventCard = (props) => {
+    const dateISO = Date(props.date);
+    const dateStringRaw = dateISO.toString().substring(0, 15)
+    const dateString = dateStringRaw.split(' ')[0] + ', ' + dateStringRaw.split(' ')[1] + ' ' + dateStringRaw.split(' ')[2] + ', ' + dateStringRaw.split(' ')[3]
     return(
     <Card>
         <CardContent>
@@ -99,7 +102,7 @@ export const EventCard = (props) => {
                         </Grid>
                         <Grid item container justify="space-between" className={styles.blogButtonBar}>
                             <Grid item>
-                                <Typography>{props.date}</Typography>  
+                                <Typography>{dateString}</Typography>  
                             </Grid>
                             <Grid item style={{display : 'flex', justifyContent : 'flex-end'}}>
                                 <Box className={styles.buttonsLG}>
