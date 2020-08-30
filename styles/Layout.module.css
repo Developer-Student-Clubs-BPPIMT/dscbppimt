@@ -34,6 +34,7 @@
 
 .navToggle{
     display: none;
+    position: relative;
 }
 
 .navToolbar {
@@ -77,7 +78,7 @@
         display: none;
     }
 
-    .nav:nth-child(3){
+    .nav:nth-child(2){
         display: none;
     }
     .bottomNav{
