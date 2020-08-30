@@ -11,14 +11,14 @@ export const coreLeads = [
         name : 'Aritra Bhattacharjee',
         github : 'https://github.com/Radiumskull',
         linkedin : 'https://www.linkedin.com/in/aritra-bhattacharjee-b6b41619',
-        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Faritra.jpg?alt=media&token=b1c232c1-877d-4d26-bb5d-6d038a81d253',
+        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Faritra.jpg?alt=media&token=acb18650-01b9-4e65-a5cf-8e4aaa685fc4',
         pos : 'Web Lead'
     },
     {
         name : "Mayukh Chakraborty",
         linkedin : "https://www.linkedin.com/in/mayukh-chakraborty-22bb23165/",
         github : " https://github.com/Mayukh0",
-        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fmayukh.jpg?alt=media&token=878730f5-92d9-4ba5-aafb-ad23922fefec',
+        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fmayukh.jpg?alt=media&token=d20f3ab4-f625-429e-9a5f-5056abfe55df',
         pos : "Event Lead"
     },
     {
