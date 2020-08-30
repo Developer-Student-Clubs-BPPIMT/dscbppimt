@@ -51,7 +51,7 @@ export const coreMembers = [
         github : "https://github.com/dishak331",
         name : "Disha Kapoor",
         pos : "Management Team",
-        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fdisha.jpg?alt=media&token=266d8a72-fc4b-4bc9-94e8-4f3f23e18a4a'
+        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fdisha.jpg?alt=media&token=ce98ac57-5b6d-4956-ba38-6de1cf364ffa'
 
     }, 
     {
@@ -65,14 +65,14 @@ export const coreMembers = [
         name : "Raunak Banerjee",
         linkedin : "https://www.linkedin.com/in/raunak-banerjee-677a661b0",
         github : "https://github.com/Raunak1003",
-        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fraunak.jpg?alt=media&token=e62c08cf-97a2-4ac8-b073-92e45eff16da',
+        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fraunak.jpg?alt=media&token=d17c4bd0-d728-45db-92d3-7c2ff6fd6fc7',
         pos : "Event Team"
     },
     {
         name : "Anumita Basak",
         linkedin : "www.linkedin.com/in/anumita-basak-8a3b9ca6",
         github : "https://github.com/Anumita01",
-        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fanumita.jpg?alt=media&token=d81c23b6-0667-4dab-b180-a7a9261498cd',
+        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fanumita.jpg?alt=media&token=3f742bae-1483-4e0c-a6ed-c07cf9d8b9a4',
         pos : "Event Team"
     },
     {
@@ -100,21 +100,21 @@ export const coreMembers = [
         name : "Tanushree Shaw",
         linkedin : "https://www.linkedin.com/in/tanushree-shaw-438ab4193/",
         github : "https://github.com/TanushreeShaw",
-        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Ftanushree.jpg?alt=media&token=5c1b7fce-ebaf-4ccf-a8d3-89eaaf299090',
+        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Ftanushree.jpg?alt=media&token=d23c5f0b-6fd4-450e-ae86-c4c04bf99024',
         pos : "Web Team"
     },
     {
         name : "Pramita Barik",
         linkedin : "https://www.linkedin.com/in/pramita-barik-94b3331a8",
         github : "https://github.com/pramita0400",
-        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fpranita.jpg?alt=media&token=d9721b81-7063-44a1-bf33-859ceb438bd0',
+        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fpranita.jpg?alt=media&token=bed4a093-df96-47c4-9039-d5019bb19cf5',
         pos : "Design Team"
     },
     {
         name : "Vivek Agarwal",
         linkedin : "https://www.linkedin.com/mwlite/in/vivek-agarwal-268a841a0",
         github : "https://github.com/Vivek798",
-        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fvivek.jpg?alt=media&token=766fe8e2-29e4-464a-94ae-76ebc3682277',
+        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fvivek.jpg?alt=media&token=7408dbf7-17eb-4230-b7fc-5f1eb4a29b31',
         pos : "Outreach Team"
     },    {
         name : "Debojyoti Mallick",
