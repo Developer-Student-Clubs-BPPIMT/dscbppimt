@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     contactCard: {
         background : 'rgba(255,255,255,.1)',
         margin : '8px',
-        height : '35em',
+        height : '32.5em',
         display : 'flex',
         flexDirection : 'column'
     },
@@ -75,14 +75,17 @@ export const ContactCard = (props) => {
 
 
 export const EventCard = (props) => {
+    const dateISO = Date(props.date);
+    const dateStringRaw = dateISO.toString().substring(0, 15)
+    const dateString = dateStringRaw.split(' ')[0] + ', ' + dateStringRaw.split(' ')[1] + ' ' + dateStringRaw.split(' ')[2] + ', ' + dateStringRaw.split(' ')[3]
     return(
     <Card>
         <CardContent>
                 <Grid container wrap="wrap-reverse">
-                    <Grid item xs={12} md={3}>
-                        <img src={props.Image} style={{height : '100%', width : '100%', objectFit : 'cover'}}/>
+                    <Grid item xs={12} md={2}>
+                        <img src={props.Image} alt={props.title} style={{height : '100%', width : '100%', objectFit : 'cover'}}/>
                     </Grid>
-                    <Grid item xs={12} md={9} container direction="column" justify="space-between">
+                    <Grid item xs={12} md={10} container direction="column" justify="space-between">
                         <Grid item className={styles.cardContent}>
                             <Box>
                                 <Grid container alignItems="flex-start" justify="space-between">
@@ -97,12 +100,23 @@ export const EventCard = (props) => {
                                 <Typography variant="body2" className={styles.cardDescription}>{props.description}</Typography>
                             </Box>
                         </Grid>
-                        <Grid item className={styles.buttonsLG}>
+                        <Grid item container justify="space-between" className={styles.blogButtonBar}>
+                            <Grid item>
+                                <Typography>{dateString}</Typography>  
+                            </Grid>
+                            <Grid item style={{display : 'flex', justifyContent : 'flex-end'}}>
+                                <Box className={styles.buttonsLG}>
+                            <Button variant="contained" style={{marginRight : '1em'}} onClick={() => window.open(props.url)}>Learn More</Button>
+                            <Button variant="contained" color="primary">Register</Button>
+                            </Box>
+                        </Grid>
+                        </Grid>
+                        {/* <Grid item className={styles.buttonsLG}>
                             <Box>
                                 <Button variant="contained" style={{marginRight : '1em', background : 'white'}}>Explore</Button>
                                 <Button variant="contained" color="primary">Read More</Button>
                             </Box>
-                        </Grid>
+                        </Grid> */}
                     </Grid>
                 </Grid>
             <Box className={styles.buttonsMD}>
@@ -120,7 +134,7 @@ export const BlogCard = (props) => {
         <CardContent>
                 <Grid container wrap="wrap">
                     <Grid item xs={12} md={2}>
-                        <img src={props.Image} style={{height : '100%', width : '100%', objectFit : 'cover'}}/>
+                        <img src={props.Image} alt={props.title} style={{height : '100%', width : '100%', objectFit : 'cover'}}/>
                     </Grid>
                     <Grid item xs={12} md={10} container direction="column" justify="space-between">
                         <Grid item className={styles.cardContent}>
