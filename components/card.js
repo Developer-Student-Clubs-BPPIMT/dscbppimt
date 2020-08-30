@@ -1,7 +1,5 @@
 import { makeStyles, Card, Typography, CardContent, CardMedia, Button, Box, Grid, Chip, Container, Paper } from '@material-ui/core'
 import styles from '../styles/Card.module.css'
-import Message from '../public/svgs/message.svg'
-import placeholder from '../public/images/placeholder.jpg'
 import Link from 'next/link'
 import MediumIcon from '../public/svgs/medium.svg'
 import GFGIcon from '../public/svgs/gfg.svg'
