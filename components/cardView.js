@@ -53,7 +53,7 @@ export const ContactCardView = () => {
         <Grid container style={{maxWidth : '1200px'}} justify="center">
             <Grid item sm={6} md={4}><ContactCard title="Speakers" description="The DSC program is focused with a vision to inculcate individuals with skills and  knowledge, who are intrigued about the possibilities that developer technologies can bring changes to this world." hashtag="#technologyisawesome" action="Send Proposal" actionLink="#" image={<Speaker style={{height : '100%', width : '100%', paddingTop : '1em'}} />}/></Grid>
             <Grid item sm={6} md={4}><ContactCard title="Events" description="Attend Webinar/Workshops/Study Jams/Hackathons and enrich your knowledge about the developer technologies" action="Learn More" actionLink="#" image={<Event style={{height : '100%', width : '100%', paddingTop : '1em'}} />}/></Grid>
-            <Grid item sm={6} md={4}><ContactCard title="Sponsorships" description="Contact us to be our sponsorship partner and show your support towards the community we are building" hashtag="" action="Send Proposal" actionLink="#" image={<Collab style={{height : '100%', width : '100%', paddingTop : '1em'}} />}/></Grid>
+            <Grid item sm={6} md={4}><ContactCard title="Sponsorships" description="Get brand exposure and expand your business identity within the community. Collaborate with us to show your support towards us and be our brand partner." hashtag="" action="Send Proposal" actionLink="#" image={<Collab style={{height : '100%', width : '100%', paddingTop : '1em'}} />}/></Grid>
         </Grid>
     </Paper>);
 }
