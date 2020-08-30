@@ -8,11 +8,11 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* PWA primary color */}
-          <link rel="shortcut icon" type="image/jpg" href="/favicon.jpg"/>
+          <link rel="stylesheet" href="/fonts/fonts.css" />
+          <link rel="shortcut icon" href="/images/favicon.png" />
           <meta name="theme-color" content="#1FA9E5" />
         </Head>
         <body>
-          <script src="noflash.js" />
           <Main />
           <NextScript />
         </body>

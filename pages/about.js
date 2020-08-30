@@ -38,13 +38,13 @@ const Content = () => {
   const SimpleContainer = () => {
     return (
         <Paper style={{padding : '2em'}}>
-            <Box style={{maxWidth : '1100px', margin : '0 auto'}}>
-                <Typography variant="h5" style={{padding : '1em 0px', fontWeight : '600'}}>Opportunities</Typography>
+            <Box style={{maxWidth : '1200px', margin : '0 auto'}}>
+                <Typography variant="h5" style={{textAlign:'center', fontWeight : '600'}}>Opportunities</Typography>
                 <Grid container style={{margin: "0 auto"}}>
-                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}>- Develop your skills and knowledge with the guidance of  community members.</Grid>
-                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}>- Get a chance to attend our workshops and webinar with hands on experience.</Grid>
-                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}>- Showcase your technical skills.</Grid>
-                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}>- Apply your skills to develop solutions for local organizations.</Grid>
+                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}><Typography variant="body1">- Develop your skills and knowledge with the guidance of  community members.</Typography></Grid>
+                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}><Typography variant="body1">- Get a chance to attend our workshops and webinar with hands on experience.</Typography></Grid>
+                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}><Typography variant="body1">- Showcase your technical skills.</Typography></Grid>
+                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}><Typography variant="body1">- Apply your skills to develop solutions for local organizations.</Typography></Grid>
                 </Grid>
             </Box>
         </Paper>

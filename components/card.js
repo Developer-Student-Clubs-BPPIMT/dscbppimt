@@ -97,12 +97,23 @@ export const EventCard = (props) => {
                                 <Typography variant="body2" className={styles.cardDescription}>{props.description}</Typography>
                             </Box>
                         </Grid>
-                        <Grid item className={styles.buttonsLG}>
+                        <Grid item container justify="space-between" className={styles.blogButtonBar}>
+                            <Grid item>
+                                <Typography>{props.date}</Typography>  
+                            </Grid>
+                            <Grid item style={{display : 'flex', justifyContent : 'flex-end'}}>
+                                <Box className={styles.buttonsLG}>
+                            <Button variant="contained" style={{marginRight : '1em'}} onClick={() => window.open(props.url)}>Learn More</Button>
+                            <Button variant="contained" color="primary">Register</Button>
+                            </Box>
+                        </Grid>
+                        </Grid>
+                        {/* <Grid item className={styles.buttonsLG}>
                             <Box>
                                 <Button variant="contained" style={{marginRight : '1em', background : 'white'}}>Explore</Button>
                                 <Button variant="contained" color="primary">Read More</Button>
                             </Box>
-                        </Grid>
+                        </Grid> */}
                     </Grid>
                 </Grid>
             <Box className={styles.buttonsMD}>

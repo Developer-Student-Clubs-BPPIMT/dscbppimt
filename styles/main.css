@@ -1,1 +1,6 @@
-
+@font-face {
+    font-family: 'Google Sans';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Google Sans'), url('../public/fonts/google-sans.woff2') format('woff2');
+}

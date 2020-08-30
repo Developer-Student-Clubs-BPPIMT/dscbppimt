@@ -33,7 +33,7 @@ function Events() {
                         title={event.Title} 
                         speaker={event.Speaker} 
                         description={event.Description} 
-                        date={event.date}
+                        date={event.Date}
                         data={event.Image}
                         />
                         </Grid>

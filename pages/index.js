@@ -27,7 +27,7 @@ export default function Index() {
         setEvents(dataArray);
     }
     data();
-},[Events])
+},[])
   return (
     <Layout>
       <Head>

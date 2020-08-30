@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import { ThemeProvider, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import '../styles/main.css'
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+
+import { ThemeProvider } from '@material-ui/core'
 import useDarkMode from 'use-dark-mode'
+import { lightTheme, darkTheme } from '../theme'
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
@@ -18,30 +19,8 @@ export default function MyApp(props) {
     }
   }, []);
   const darkMode = useDarkMode();
-  const lightTheme = responsiveFontSizes(createMuiTheme({
-    palette: {
-      type : 'light',
-      primary: {
-        main: '#1FA9E5',
-      },
-      secondary : {
-        main : '#fff',
-      },
-    },
-  }));
-  const darkTheme = responsiveFontSizes(createMuiTheme({
-    palette: {
-      type : 'dark',
-      primary: {
-        main: '#1FA9E5',
-      },
-      secondary : {
-        main : '#000',
-      },
-    },
-  }));
-  
 
+  
   return (
     <React.Fragment>
       <Head>

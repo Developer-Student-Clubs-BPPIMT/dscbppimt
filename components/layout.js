@@ -1,18 +1,13 @@
 import Navbar from './navbar';
-import { useContext } from 'react';
 import { useRouter } from 'next/router'
-import { makeStyles, BottomNavigation, BottomNavigationAction, Box, Paper } from '@material-ui/core';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import { makeStyles, BottomNavigation, BottomNavigationAction, Box } from '@material-ui/core';
 import Footer from './footer';
 import styles from '../styles/Layout.module.css'
 
-import MenuIcon from '@material-ui/icons/Menu'
 import HomeIcon from '@material-ui/icons/Home'
 import ContactsIcon from '@material-ui/icons/Contacts';
 import InfoIcon from '@material-ui/icons/Info';
-import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import BookIcon from '@material-ui/icons/Book';
-import { ThemeProvider } from '@material-ui/core'
 
 
 const useStyles = makeStyles((theme) => ({
