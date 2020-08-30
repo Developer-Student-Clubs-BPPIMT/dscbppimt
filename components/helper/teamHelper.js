@@ -79,7 +79,7 @@ export const coreMembers = [
         name : "Bhawna Bharat Mehbubani",
         linkedin : "https://www.linkedin.com/in/bhawna-mehbubani-3445b4195/",
         github : "https://github.com/BhawnaMehbubani",
-        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fbhawna.jpg?alt=media&token=090132d5-10f1-45e8-9c41-5be18581dbda',
+        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fbhawna.jpg?alt=media&token=2188830b-b7c4-4135-8d85-8cc5e8e92472',
         pos : "Outreach Team"
     },
     {
