@@ -34,7 +34,7 @@ export default TeamPage
 
 const MemberCard = (props) => {
     return(        
-    <Card style={{maxWidth : '10em', padding : '0em 0px 1em 0px', margin : '4px', minHeight : '17.5em', position : 'relative'}}>
+    <Card style={{maxWidth : '11em', padding : '0em 0px 1em 0px', margin : '2px', minHeight : '17.5em', position : 'relative'}}>
         <CardContent style={{textAlign : 'center'}}>
             <img src={props.image} style={{borderRadius : '50%', width : '60%', padding : '4px'}}/>
                     <Typography variant="h6" style={{fontSize : '1.2em', fontWeight : 'bold'}}>{props.name}</Typography>
