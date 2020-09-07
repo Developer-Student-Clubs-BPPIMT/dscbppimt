@@ -118,7 +118,6 @@ export const EventCard = (props) => {
                 <Button variant="contained" color="primary" onClick={() => window.open("https://www.google.com/")}>Register</Button>
             </Box>
         </CardContent>
-z
     </Card>)
 }
 
