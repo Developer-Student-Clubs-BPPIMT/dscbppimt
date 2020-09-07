@@ -6,7 +6,7 @@ export const lead = [{
     pos : "DSC Lead"
 },
 {
-    name : " Mr. Subhadip Chandra",
+    name : "Mr. Subhadip Chandra",
     image : "https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fsubhadipsir.jpeg?alt=media&token=0ffc1ea1-0979-4107-ac03-054637a2d7f9",
     linkedin : "https://www.linkedin.com/mwlite/in/subhadip-chandra-17b82592",
     pos : "Faculty Advisor"
