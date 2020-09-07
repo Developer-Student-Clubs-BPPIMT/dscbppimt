@@ -1,10 +1,16 @@
-export const lead = {
+export const lead = [{
     name : "Ayushman Kumar",
     image : "https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fayushma.jpg?alt=media&token=c47871f1-5641-4244-9ed0-27f31db1811d",
     linkedin : "https://www.linkedin.com/in/ayushman-kumar-836a19190/",
     github : ' https://github.com/ayushmankumar7',
     pos : "DSC Lead"
-}
+},
+{
+    name : "Subhadip Chandra",
+    image : "https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fsubhadipsir.jpeg?alt=media&token=0ffc1ea1-0979-4107-ac03-054637a2d7f9",
+    linkedin : "https://www.linkedin.com/mwlite/in/subhadip-chandra-17b82592",
+    pos : "Faculty Advisor"
+}]
 
 export const coreLeads = [
     {
