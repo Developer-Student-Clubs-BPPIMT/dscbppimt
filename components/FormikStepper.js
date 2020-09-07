@@ -1,25 +1,10 @@
-import { Button, Grid, Stepper, Step, StepLabel, CircularProgress, LinearProgress } from '@material-ui/core'
+import { Button, Grid, Stepper, Step, StepLabel, LinearProgress } from '@material-ui/core'
 import { Form, Formik } from 'formik';
 import { useState } from 'react';
-import FormStepOne from './forms/FormStepOne';
-import FormStepTwo from './forms/FormStepTwo';
-import FormSuccess from './forms/FormSuccess';
 
 
-export function FormikStepper({ children, ...props }) {
-    const renderFormikForm = (step, values, errors, touched, status) => {
-      switch(step){
-        case 0:
-          return <FormStepOne errors={errors} touched={touched} />
-        case 1:
-          return <FormStepTwo errors={errors} touched={touched} />
-        case 2:
-          return <FormSuccess values={values} status={status}/>
-        default:
-          break;
-      }
-    }
-
+export function FormikStepper({ children, ...props}) {
+    console.log(props.renderFormikForm)
     const [step, setStep] = useState(0);
     const [completed, setCompleted] = useState(false);
   
@@ -57,8 +42,8 @@ export function FormikStepper({ children, ...props }) {
               ))}
             </Stepper>
   
-            { renderFormikForm(step, values, errors, touched, status) }
-            { step !== 2 &&
+            { props.renderFormikForm(step, values, errors, touched, status) }
+            { step <= props.labels.length - 2 &&
               <Grid container spacing={2} justify="flex-end" style={{marginTop : '2em'}}>
               {step > 0 ? (
                 <Grid item>
@@ -81,7 +66,7 @@ export function FormikStepper({ children, ...props }) {
                   color="primary"
                   type="submit"
                 >
-                  {isSubmitting ? 'Submitting' : step === 1 ? 'Submit' : 'Next'}
+                  {isSubmitting ? 'Submitting' : step === props.labels.length - 2 ? 'Submit' : 'Next'}
                 </Button>
               </Grid>
             </Grid>

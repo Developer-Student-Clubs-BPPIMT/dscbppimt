@@ -1,10 +1,16 @@
-export const lead = {
+export const lead = [{
     name : "Ayushman Kumar",
     image : "https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fayushma.jpg?alt=media&token=c47871f1-5641-4244-9ed0-27f31db1811d",
     linkedin : "https://www.linkedin.com/in/ayushman-kumar-836a19190/",
     github : ' https://github.com/ayushmankumar7',
     pos : "DSC Lead"
-}
+},
+{
+    name : "Mr. Subhadip Chandra",
+    image : "https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fsubhadipsir.jpeg?alt=media&token=0ffc1ea1-0979-4107-ac03-054637a2d7f9",
+    linkedin : "https://www.linkedin.com/mwlite/in/subhadip-chandra-17b82592",
+    pos : "Faculty Advisor"
+}]
 
 export const coreLeads = [
     {
@@ -27,7 +33,14 @@ export const coreLeads = [
         github : "https://github.com/mrgpritam",
         image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fpritam.jpg?alt=media&token=5e7951f0-418b-47bf-beef-bcfb412c3ff2',
         pos : "Design Lead"
-    }
+    },
+    {
+        name : "Akashdeep Bhattacharya",
+        linkedin : "https://www.linkedin.com/in/akashdeep-bhattacharya-8aa417158/",
+        github : "https://github.com/akashdeep007",
+        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fakashdeep.jpg?alt=media&token=d5cf4e66-086d-40cb-8d94-f5d9387c16dc',
+        pos : "Android Lead"
+    },
 ]
 
 export const coreMembers = [
@@ -90,25 +103,11 @@ export const coreMembers = [
         pos : "Event Team"
     },
     {
-        name : "Akashdeep Bhattacharya",
-        linkedin : "https://www.linkedin.com/in/akashdeep-bhattacharya-8aa417158/",
-        github : "https://github.com/akashdeep007",
-        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fakashdeep.jpg?alt=media&token=d5cf4e66-086d-40cb-8d94-f5d9387c16dc',
-        pos : "Management Team"
-    },
-    {
         name : "Tanushree Shaw",
         linkedin : "https://www.linkedin.com/in/tanushree-shaw-438ab4193/",
         github : "https://github.com/TanushreeShaw",
         image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Ftanushree.jpg?alt=media&token=d23c5f0b-6fd4-450e-ae86-c4c04bf99024',
         pos : "Web Team"
-    },
-    {
-        name : "Pramita Barik",
-        linkedin : "https://www.linkedin.com/in/pramita-barik-94b3331a8",
-        github : "https://github.com/pramita0400",
-        image : 'https://firebasestorage.googleapis.com/v0/b/dscbppimt-cms-storage.appspot.com/o/member_images%2Fpranita.jpg?alt=media&token=bed4a093-df96-47c4-9039-d5019bb19cf5',
-        pos : "Design Team"
     },
     {
         name : "Vivek Agarwal",

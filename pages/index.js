@@ -19,11 +19,8 @@ export default function Index() {
         let dataArray = [];
 
         const res = await Axios.get("https://dscbppimt-cms.herokuapp.com/our-events?_sort=Date:desc&_limit=2");
-        if(res.data.length <= 2){
-          dataArray = res.data;
-        }else{
-            dataArray=res.data.slice(0,2);
-        }
+        dataArray=res.data.slice(0,2);
+        console.log(res.data);
         setEvents(dataArray);
     }
     data();
@@ -50,6 +47,8 @@ export default function Index() {
                         speaker={event.Speaker} 
                         description={event.Description} 
                         date={event.Date}
+                        Learn={event.Learn}
+                        Register={event.Register}
                         />
                         </Grid>
                     ))}

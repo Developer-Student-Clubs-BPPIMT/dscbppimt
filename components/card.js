@@ -68,16 +68,16 @@ export const ContactCard = (props) => {
         <CardContent className={classes.contactCardContent}>
                 <Typography variant="h6" style={{fontWeight : '600'}}>{props.title}</Typography>
                 <Typography variant="body2" style={{flex : '1'}}>{props.description}</Typography>
-                <Button variant="contained" color="primary" style={{margin : '0px auto', marginTop : '.8em'}}>{props.action}</Button>
+                <Button variant="contained" color="primary" style={{margin : '0px auto', marginTop : '.8em'}} onClick={() => {window.location.href = "mailto:dscbppimt@gmail.com?subject=" + props.subject + "&body=message%20goes%20here"}}>{props.action}</Button>
         </CardContent>
     </Card>)
 }
 
 
 export const EventCard = (props) => {
-    const dateISO = Date(props.date);
-    const dateStringRaw = dateISO.toString().substring(0, 15)
-    const dateString = dateStringRaw.split(' ')[0] + ', ' + dateStringRaw.split(' ')[1] + ' ' + dateStringRaw.split(' ')[2] + ', ' + dateStringRaw.split(' ')[3]
+    const dateISO = Date.parse(props.date);
+    const dateString = new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'long',day: '2-digit'}).format(dateISO);
+    console.log(props)
     return(
     <Card>
         <CardContent>
@@ -106,25 +106,18 @@ export const EventCard = (props) => {
                             </Grid>
                             <Grid item style={{display : 'flex', justifyContent : 'flex-end'}}>
                                 <Box className={styles.buttonsLG}>
-                            <Button variant="contained" style={{marginRight : '1em'}} onClick={() => window.open(props.url)}>Learn More</Button>
-                            <Button variant="contained" color="primary">Register</Button>
+                            <Button variant="contained" style={{marginRight : '1em'}} onClick={() => window.open("https://www.google.com/")}>Learn More</Button>
+                            <Button variant="contained" color="primary" onClick={() => window.open("https://www.google.com/")}>Register</Button>
                             </Box>
                         </Grid>
                         </Grid>
-                        {/* <Grid item className={styles.buttonsLG}>
-                            <Box>
-                                <Button variant="contained" style={{marginRight : '1em', background : 'white'}}>Explore</Button>
-                                <Button variant="contained" color="primary">Read More</Button>
-                            </Box>
-                        </Grid> */}
                     </Grid>
                 </Grid>
             <Box className={styles.buttonsMD}>
-                <Button variant="contained" style={{marginRight : '1em', background : 'white'}}>Explore</Button>
-                <Button variant="contained" color="primary">Read More</Button>
+                <Button variant="contained" style={{marginRight : '1em', background : 'white'}} onClick={() => window.open("https://www.google.com/")}>Learn More</Button>
+                <Button variant="contained" color="primary" onClick={() => window.open("https://www.google.com/")}>Register</Button>
             </Box>
         </CardContent>
-
     </Card>)
 }
 

@@ -5,6 +5,9 @@ import styles from '../styles/Layout.module.css'
 import { useState } from 'react'
 import * as Yup from 'yup'
 import { FormikStepper } from '../components/FormikStepper';
+import FormStepOne from '../components/forms/FormStepOne';
+import FormStepTwo from '../components/forms/FormStepTwo';
+import FormSuccess from '../components/forms/FormSuccess';
 
 
 import axios from 'axios';
@@ -52,9 +55,20 @@ const MemberForm = () => {
         referral: Yup.string().notRequired(),
     })
 
+    const renderFormikForm = (step, values, errors, touched, status) => {
+        switch(step){
+          case 0:
+            return <FormStepOne errors={errors} touched={touched} />
+          case 1:
+            return <FormStepTwo errors={errors} touched={touched} />
+          case 2:
+            return <FormSuccess values={values} status={status}/>
+          default:
+            break;
+        }
+      }
+
     
-
-
     return(
     <Layout>
         <Container>
@@ -73,7 +87,8 @@ const MemberForm = () => {
         <Box style={{maxWidth : '850px', margin : '2em auto', marginBottom : '5em'}}>
             <Card>
                 <CardContent style={{padding : '1.3em'}}>
-                    <FormikStepper initialValues={initState} onSubmit={async (values, helpers) => {
+                    <FormikStepper initialValues={initState} renderFormikForm={renderFormikForm} onSubmit={async (values, helpers) => {
+                        console.log(helpers)
                         const body = {
                             name : values.firstname + ' ' + values.lastname,
                             email: values.email,
