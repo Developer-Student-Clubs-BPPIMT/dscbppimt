@@ -68,7 +68,7 @@ export const ContactCard = (props) => {
         <CardContent className={classes.contactCardContent}>
                 <Typography variant="h6" style={{fontWeight : '600'}}>{props.title}</Typography>
                 <Typography variant="body2" style={{flex : '1'}}>{props.description}</Typography>
-                <Button variant="contained" color="primary" style={{margin : '0px auto', marginTop : '.8em'}}>{props.action}</Button>
+                <Button variant="contained" color="primary" style={{margin : '0px auto', marginTop : '.8em'}} onClick={() => {window.location.href = "mailto:dscbppimt@gmail.com?subject=" + props.subject + "&body=message%20goes%20here"}}>{props.action}</Button>
         </CardContent>
     </Card>)
 }
