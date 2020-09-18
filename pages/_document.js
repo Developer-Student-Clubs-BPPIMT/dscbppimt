@@ -8,8 +8,13 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* PWA primary color */}
+          <link rel="preload" href="/fonts/google-sans.woff2" as="font/woff2" />
           <link rel="shortcut icon" href="/images/favicon.png" />
           <meta name="theme-color" content="#1FA9E5" />
+          <title>DSC BPPIMT</title>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+          <meta id="meta-description" name="description" content="Developer Student Club BPPIMT. Our goal is to help nurture future developers and leaders and create a pool of highly skilled tech workforce, which is readily employable by the Industry and help spur innovation." />
         </Head>
         <body>
           <Main />
