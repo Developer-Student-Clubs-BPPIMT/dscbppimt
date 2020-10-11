@@ -13,15 +13,22 @@ import { useState, useEffect } from 'react'
 
 export default function Index() {
   const [Events, setEvents] = useState([]);
+  const [ isLoading, setLoading ] = useState(false)
   const URL = "https://dscbppimt-cms.herokuapp.com"
   useEffect(() => {
     const data = async() => {
         let dataArray = [];
+        const today = new Date()
+        const todayDate = today.toISOString()
+        console.log(todayDate)
+        // 2020-10-11T09:10:30.698Z
+        Axios.get(`https://dscbppimt-cms.herokuapp.com/our-events?Date_gte=${todayDate}&_sort=Date:desc&_limit=2`).then(res => {
+          dataArray=res.data.slice(0,2);
+          console.log(res.data);
+          setEvents(dataArray);
+        });
 
-        const res = await Axios.get("https://dscbppimt-cms.herokuapp.com/our-events?_sort=Date:desc&_limit=2");
-        dataArray=res.data.slice(0,2);
-        console.log(res.data);
-        setEvents(dataArray);
+        // console.log(Events[0].Date)
     }
     data();
 },[])
@@ -39,7 +46,7 @@ export default function Index() {
         </Box>
         
         <Grid container spacing={2} style={{padding : '0 0 2em 0'}}>
-        {Events.length === 0 ? <Skeleton variant="rect" width="100%" height="150px"/>  : Events.map(event => (
+        {isLoading ? <Skeleton variant="rect" width="100%" height="150px"/>  : Events.length !== 0 ? Events.map(event => (
                         <Grid item xs={12} sm={6} md={12} key={event._id}>
                         <EventCard 
                         Image={URL+(event.Image.url)}
@@ -51,7 +58,7 @@ export default function Index() {
                         Register={event.Register}
                         />
                         </Grid>
-                    ))}
+                    )) : <Container style={{width: '100%', textAlign: 'center', margin: '5em 0'}}><Typography align="center" >No Upcoming Events</Typography></Container>}
         </Grid>
       </Container>
       <ContactCardView />

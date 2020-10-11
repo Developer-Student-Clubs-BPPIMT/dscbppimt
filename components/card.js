@@ -83,7 +83,7 @@ export const EventCard = (props) => {
         <CardContent>
                 <Grid container wrap="wrap-reverse">
                     <Grid item xs={12} md={2}>
-                        <img src={props.Image} alt={props.title} style={{height : '100%', width : '100%', objectFit : 'cover'}}/>
+                        <img src={props.Image} alt={props.title} style={{height : '100%', width : '100%', objectFit : 'contain'}}/>
                     </Grid>
                     <Grid item xs={12} md={10} container direction="column" justify="space-between">
                         <Grid item className={styles.cardContent}>
@@ -106,8 +106,8 @@ export const EventCard = (props) => {
                             </Grid>
                             <Grid item style={{display : 'flex', justifyContent : 'flex-end'}}>
                                 <Box className={styles.buttonsLG}>
-                            <Button variant="contained" style={{marginRight : '1em'}} onClick={() => window.open("https://www.google.com/")}>Learn More</Button>
-                            <Button variant="contained" color="primary" onClick={() => window.open("https://www.google.com/")}>Register</Button>
+                            <Button variant="contained" style={{marginRight : '1em'}} onClick={() => window.open(props.learn)}>Learn More</Button>
+                            <Button variant="contained" color="primary" onClick={() => window.open(props.register)}>Register</Button>
                             </Box>
                         </Grid>
                         </Grid>
