@@ -9,6 +9,7 @@ import styles from '../styles/Layout.module.css'
 import Axios from 'axios';
 import { Skeleton } from '@material-ui/lab'
 import { useState, useEffect } from 'react'
+import { Description } from '@material-ui/icons';
 
 
 export default function Index() {
@@ -23,12 +24,10 @@ export default function Index() {
         console.log(todayDate)
         // 2020-10-11T09:10:30.698Z
         Axios.get(`https://dscbppimt-cms.herokuapp.com/our-events?Date_gte=${todayDate}&_sort=Date:desc&_limit=2`).then(res => {
-          dataArray=res.data.slice(0,2);
-          console.log(res.data);
+          dataArray = dataArray.concat(res.data)
+          console.log(dataArray);
           setEvents(dataArray);
         });
-
-        // console.log(Events[0].Date)
     }
     data();
 },[])
@@ -49,9 +48,9 @@ export default function Index() {
         {isLoading ? <Skeleton variant="rect" width="100%" height="150px"/>  : Events.length !== 0 ? Events.map(event => (
                         <Grid item xs={12} sm={6} md={12} key={event._id}>
                         <EventCard 
-                        Image={URL+(event.Image.url)}
+                        Image={event.Image ? URL+(event.Image.url) : ''}
                         title={event.Title} 
-                        speaker={event.Speaker} 
+                        speaker={event.Speaker === 'None' ? null : event.Speaker } 
                         description={event.Description} 
                         date={event.Date}
                         Learn={event.Learn}

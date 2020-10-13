@@ -50,7 +50,7 @@ function Events() {
                         <EventCard 
                         Image={URL+(event.Image.formats.thumbnail.url)}
                         title={event.Title} 
-                        speaker={event.Speaker} 
+                        speaker={event.Speaker === 'None' ? null : event.Speaker } 
                         description={event.Description} 
                         date={event.Date}
                         data={event.Image}
