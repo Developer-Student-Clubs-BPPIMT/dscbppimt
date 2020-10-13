@@ -33,7 +33,7 @@ function Events() {
           setUpcomingEvents(res.data);
           setLoading(false)
         });
-        Axios.get("https://dscbppimt-cms.herokuapp.com/our-events?_sort=Date:desc").then(res => {
+        Axios.get(`https://dscbppimt-cms.herokuapp.com/our-events?Date_lt=${todayDate}&_sort=Date:desc`).then(res => {
             console.log(res.data);
             setEvents(res.data);
             setLoading(false)
