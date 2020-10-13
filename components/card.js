@@ -81,17 +81,17 @@ export const EventCard = (props) => {
     return(
     <Card>
         <CardContent>
-                <Grid container wrap="wrap-reverse">
+                <Grid container wrap="wrap-reverse" justify="space-between">
                     <Grid item xs={12} md={2}>
-                        <img src={props.Image} alt={props.title} style={{height : '100%', width : '100%', objectFit : 'cover'}}/>
+                        <img src={props.Image} alt={props.title} style={{height : '100%', width : '100%', objectFit : 'contain'}}/>
                     </Grid>
                     <Grid item xs={12} md={10} container direction="column" justify="space-between">
                         <Grid item className={styles.cardContent}>
                             <Box>
                                 <Grid container alignItems="flex-start" justify="space-between">
-                                    <Grid item xs={12}>
+                                    <Grid item xs={12} alignItems="stretch">
                                         <Typography style={{fontWeight : '600', fontSize : '1.5em'}}>{props.title}</Typography>
-                                        <Typography variant="body1" style={{fontWeight : '500', marginBottom : '1em'}}>Speaker: {props.speaker}</Typography>
+                                        { props.speaker && <Typography variant="body1" style={{fontWeight : '500', marginBottom : '1em'}}> Speaker: {props.speaker}</Typography> }
                                     </Grid>
                                 </Grid>
 
@@ -100,22 +100,21 @@ export const EventCard = (props) => {
                                 <Typography variant="body2" className={styles.cardDescription}>{props.description}</Typography>
                             </Box>
                         </Grid>
-                        <Grid item container justify="space-between" className={styles.blogButtonBar}>
+                        <Grid item container justify="space-between" alignItems="flex-end" className={styles.blogButtonBar} >
                             <Grid item>
                                 <Typography>{dateString}</Typography>  
                             </Grid>
                             <Grid item style={{display : 'flex', justifyContent : 'flex-end'}}>
                                 <Box className={styles.buttonsLG}>
-                            <Button variant="contained" style={{marginRight : '1em'}} onClick={() => window.open("https://www.google.com/")}>Learn More</Button>
-                            <Button variant="contained" color="primary" onClick={() => window.open("https://www.google.com/")}>Register</Button>
+                            {/* <Button variant="contained" style={{marginRight : '1em'}} onClick={() => window.open(props.learn)}>Learn More</Button> */}
+                            <Button variant="contained" color="primary" onClick={() => window.open(props.register)}>Register</Button>
                             </Box>
                         </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
             <Box className={styles.buttonsMD}>
-                <Button variant="contained" style={{marginRight : '1em', background : 'white'}} onClick={() => window.open("https://www.google.com/")}>Learn More</Button>
-                <Button variant="contained" color="primary" onClick={() => window.open("https://www.google.com/")}>Register</Button>
+                <Button variant="contained" color="primary" onClick={() => window.open(props.register)}>Register</Button>
             </Box>
         </CardContent>
     </Card>)
@@ -142,8 +141,8 @@ export const BlogCard = (props) => {
                             </Box>
                         </Grid>
                         <Grid item container justify="space-between" className={styles.blogButtonBar}>
-                            <Grid item>
-                                {props.Platform === 'GeeksForGeeks' ? <GFGIcon style={{width : '50px'}}/> : props.Platform === 'Medium' ? <MediumIcon style={{width : '70px'}}/> : <Typography variant="subtitle1" style={{fontWeight : '600'}}>{props.Platform}</Typography>}
+                            <Grid item alignItems="flex-end">
+                                {props.Platform === 'GeeksForGeeks' ? <GFGIcon style={{width : '60px', display: 'flex', alignItems: 'flex-end'}}/> : props.Platform === 'Medium' ? <MediumIcon style={{width : '80px', display: 'flex', alignItems: 'flex-end'}}/> : <Typography variant="subtitle1" style={{fontWeight : '600'}}>{props.Platform}</Typography>}
                                 
                             </Grid>
                             <Grid item style={{display : 'flex', justifyContent : 'flex-end'}}>
