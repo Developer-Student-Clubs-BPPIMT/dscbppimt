@@ -53,8 +53,8 @@ export default function Index() {
                         speaker={event.Speaker === 'None' ? null : event.Speaker } 
                         description={event.Description} 
                         date={event.Date}
-                        Learn={event.Learn}
-                        Register={event.Register}
+                        register={event.Register}
+                        learn={event.Learn}
                         />
                         </Grid>
                     )) : <Container style={{width: '100%', textAlign: 'center', margin: '5em 0'}}><Typography align="center" >No Upcoming Events</Typography></Container>}
