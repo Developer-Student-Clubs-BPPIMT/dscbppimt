@@ -11,12 +11,21 @@
   "dependencies": {
     "@material-ui/core": "latest",
     "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "latest",
+    "axios": "^0.20.0",
+    "classnames": "^2.2.6",
     "clsx": "latest",
+    "formik": "2.1.5",
+    "formik-material-ui": "latest",
     "next": "latest",
+    "next-fonts": "^1.4.0",
     "next-images": "^1.4.1",
+    "next-page-transitions": "^1.0.0-beta.2",
     "prop-types": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "use-dark-mode": "^2.3.1",
+    "yup": "^0.29.3"
   },
   "scripts": {
     "dev": "next",
@@ -25,6 +34,7 @@
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
   },
   "devDependencies": {
-    "babel-plugin-inline-react-svg": "^1.1.1"
+    "babel-plugin-inline-react-svg": "^1.1.1",
+    "file-loader": "^6.0.0"
   }
 }

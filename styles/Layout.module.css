@@ -1,8 +1,3 @@
-.layout{
-    height: 100%;
-    background: red;
-}
-
 .title span{
     color : var(--primary-color)
 }
@@ -12,6 +7,11 @@
 
 .header h5{
     font-weight: 800;
+    font-size: 2em;
+}
+.header h6{
+    font-weight: 600;
+    font-size: 1em;
 }
 .actionButton{
     margin-right: 1em;
@@ -19,6 +19,8 @@
 
 .footer{
     background: rgb(20, 20, 20);
+    position: relative;
+    bottom: 0;
 }
 
 
@@ -32,6 +34,11 @@
 
 .navToggle{
     display: none;
+    position: relative;
+}
+
+.navToolbar {
+    padding : '0px 4em';
 }
 
 .bottomNav:nth-child(4){
@@ -71,7 +78,7 @@
         display: none;
     }
 
-    .nav:nth-child(3){
+    .nav:nth-child(2){
         display: none;
     }
     .bottomNav{
@@ -81,6 +88,8 @@
     .eventsCard button{
         display: none;
     }
-
+    .navToolbar{
+        padding : '0px';
+    }
 
   }

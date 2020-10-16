@@ -1,7 +1,6 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
-import theme from '../public/theme';
 
 export default class MyDocument extends Document {
   render() {
@@ -9,11 +8,11 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* PWA primary color */}
-          <meta name="theme-color" content={theme.palette.primary.main} />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-          />
+          <link rel="preload" href="/fonts/google-sans.woff2" as="font/woff2" />
+          <link rel="shortcut icon" href="/images/favicon.png" />
+          <meta name="theme-color" content="#1FA9E5" />
+          <meta charSet="UTF-8" />
+          <meta id="meta-description" name="description" content="Developer Student Club BPPIMT. Our goal is to help nurture future developers and leaders and create a pool of highly skilled tech workforce, which is readily employable by the Industry and help spur innovation." />
         </Head>
         <body>
           <Main />

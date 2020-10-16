@@ -1,8 +1,10 @@
 import Layout from '../components/layout'
 import { MediaCard } from '../components/card'
-import StopIcon from '@material-ui/icons/Stop';
-import { Grid, CssBaseline, Typography, Box, Container  } from '@material-ui/core'
-import styles from '../styles/Layout.module.css'
+import { Grid, Typography, Box, Container, Paper  } from '@material-ui/core'
+
+import Rocket from '../public/svgs/rocket.svg';
+import Blub from '../public/svgs/blub.svg'
+import Audience from '../public/svgs/audience.svg'
 
 const About = () => {
     return (
@@ -21,13 +23,13 @@ const Content = () => {
     return (
       <Grid container wrap="wrap" style={{maxWidth : '1200px', margin : '2em auto'}} justify="center">
         <Grid item xs={12} md={4}>
-          <MediaCard title={"Concept of DSC ?"} description={"The DSC program is a grassroots channel through which Google provides development skills, mobile and web development skills for students, towards employability."}/>
+          <MediaCard title={"Concept of DSC ?"} image={<Rocket style={{maxWidth : '64px', maxHeight : '64px'}}/>} description={"The DSC program is a grassroots channel through which Google provides development skills, mobile and web development skills for students, towards employability."}/>
         </Grid>
         <Grid item xs={12} md={4}>
-          <MediaCard title={"Why DSC ?"} description={"The DSC program is a grassroots channel through which Google provides development skills, mobile and web development skills for students, towards employability."}/>
+          <MediaCard title={"Why DSC ?"} image={<Blub style={{maxWidth : '64px', maxHeight : '64px'}}/>} description={"The DSC program is focused with a vision to inculcate individual’s with skills and  knowledge, who are intrigued about the possibilities that developer technologies can bring changes to this world."}/>
         </Grid>
         <Grid item xs={12} md={4}> 
-          <MediaCard title={"Target Audiences"} description={"The DSC program is a grassroots channel through which Google provides development skills, mobile and web development skills for students, towards employability."}/>
+          <MediaCard title={"Target Audiences"} image={<Audience style={{maxWidth : '64px', maxHeight : '64px'}}/>}  description={"Anyone who wants to build products,students from all undergraduate or graduate programs inquisitive about developer technologies."}/>
         </Grid>
       </Grid>
     );
@@ -35,17 +37,17 @@ const Content = () => {
 
   const SimpleContainer = () => {
     return (
-        <Box style={{padding : '2em', background : '#E8EAE9',}}>
-            <Box style={{maxWidth : '1100px', margin : '0 auto'}}>
-                <Typography variant="h5" style={{padding : '1em 0px', fontWeight : '500'}}>Opportunities</Typography>
-                <Grid container spacing={2} style={{margin: "0 auto"}}>
-                    <Grid item xs={12} md={6}>◾  Grow their knowledge on developer technologies and more through peer to peer workshops and events.</Grid>
-                    <Grid item xs={12} md={6}>◾  Grow their knowledge on developer technologies and more through peer to peer workshops and events.</Grid>
-                    <Grid item xs={12} md={6}>◾  Grow their knowledge on developer technologies and more through peer to peer workshops and events.</Grid>
-                    <Grid item xs={12} md={6}>◾  Grow their knowledge on developer technologies and more through peer to peer workshops and events.</Grid>
+        <Paper style={{padding : '2em'}}>
+            <Box style={{maxWidth : '1200px', margin : '0 auto'}}>
+                <Typography variant="h5" style={{textAlign:'center', fontWeight : '600'}}>Opportunities</Typography>
+                <Grid container style={{margin: "0 auto"}}>
+                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}><Typography variant="body1">- Develop your skills and knowledge with the guidance of  community members.</Typography></Grid>
+                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}><Typography variant="body1">- Get a chance to attend our workshops and webinar with hands on experience.</Typography></Grid>
+                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}><Typography variant="body1">- Showcase your technical skills.</Typography></Grid>
+                    <Grid item xs={12} md={6} style={{margin : '1em 0px'}}><Typography variant="body1">- Apply your skills to develop solutions for local organizations.</Typography></Grid>
                 </Grid>
             </Box>
-        </Box>
+        </Paper>
       
     );
   }
