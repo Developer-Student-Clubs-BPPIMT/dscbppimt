@@ -32,3 +32,8 @@ npm install
 npm run dev
 ```
 
+## Tech Stack 
+
+1. NextJS
+2. Material UI
+3. Strapi
